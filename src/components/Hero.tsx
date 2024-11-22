@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 
 const Hero = () => {
   return (
-    <section className="min-h-screen flex items-center justify-center relative overflow-hidden">
+    <section className="min-h-screen flex items-center justify-center relative overflow-hidden bg-gradient-to-b from-white to-gray-50">
       <div className="container mx-auto px-4">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -12,11 +12,11 @@ const Hero = () => {
         >
           <div className="mb-8 relative">
             <div className="w-48 h-48 mx-auto relative">
-              <div className="absolute inset-0 bg-gradient-to-r from-gray-100 to-gray-200 rounded-full animate-pulse"></div>
+              <div className="absolute inset-0 bg-gradient-to-r from-purple-100 to-blue-100 rounded-full animate-pulse"></div>
               <img
                 src="/lovable-uploads/e13cb1d2-d97e-4c13-843e-db26f2cd5635.png"
                 alt="Profile"
-                className="w-full h-full object-cover rounded-full relative z-10"
+                className="w-full h-full object-cover rounded-full relative z-10 border-4 border-white shadow-lg"
               />
             </div>
           </div>
@@ -24,7 +24,7 @@ const Hero = () => {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.3 }}
-            className="text-4xl md:text-5xl font-bold mb-4"
+            className="text-5xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-purple-600 to-blue-600 text-transparent bg-clip-text"
           >
             Hello, I'm [Your Name]
           </motion.h1>
@@ -32,7 +32,7 @@ const Hero = () => {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.5 }}
-            className="text-xl text-gray-600 max-w-2xl mx-auto"
+            className="text-xl md:text-2xl text-gray-600 max-w-2xl mx-auto leading-relaxed"
           >
             A passionate developer crafting digital experiences
           </motion.p>
