@@ -2,8 +2,14 @@ import { motion } from "framer-motion";
 
 const Hero = () => {
   return (
-    <section className="min-h-screen flex items-center justify-center relative overflow-hidden bg-gradient-to-b from-white to-gray-50">
-      <div className="container mx-auto px-4">
+    <section className="min-h-screen flex items-center justify-center relative overflow-hidden">
+      {/* Map Background */}
+      <div className="absolute inset-0 z-0">
+        <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1524661135-423995f22d0b')] bg-cover bg-center opacity-20" />
+        <div className="absolute inset-0 bg-gradient-to-b from-background/90 to-background/70" />
+      </div>
+
+      <div className="container mx-auto px-4 z-10">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -26,19 +32,18 @@ const Hero = () => {
             transition={{ delay: 0.3 }}
             className="text-5xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-purple-600 to-blue-600 text-transparent bg-clip-text"
           >
-            Hello, I'm [Your Name]
+            Strahinja Janjusevic
           </motion.h1>
           <motion.p
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.5 }}
-            className="text-xl md:text-2xl text-gray-600 max-w-2xl mx-auto leading-relaxed"
+            className="text-xl md:text-2xl text-gray-600 max-w-3xl mx-auto leading-relaxed"
           >
-            A passionate developer crafting digital experiences
+            Master's student in Technology and Policy at MIT, focusing on cybersecurity and AI policy
           </motion.p>
         </motion.div>
       </div>
-      <div className="absolute bottom-0 left-0 w-full h-24 bg-gradient-to-t from-background to-transparent"></div>
     </section>
   );
 };
