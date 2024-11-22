@@ -47,13 +47,28 @@
   .journey-marker {
     opacity: 0;
     transform: translateY(20px);
+    transition: all 0.5s ease-out;
   }
 
   .visible .journey-marker {
-    animation: fade-up 0.5s ease-out forwards;
+    opacity: 1;
+    transform: translateY(0);
   }
 
-  .visible .journey-line {
+  .journey-line {
     animation: draw-line 2s ease-out forwards;
+  }
+
+  @keyframes draw-line {
+    to {
+      stroke-dashoffset: 0;
+    }
+  }
+
+  @keyframes fade-up {
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
   }
 }
