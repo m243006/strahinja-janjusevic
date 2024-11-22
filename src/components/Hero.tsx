@@ -3,10 +3,14 @@ import { motion } from "framer-motion";
 const Hero = () => {
   return (
     <section className="min-h-screen flex items-center justify-center relative overflow-hidden">
-      {/* Map Background */}
+      {/* World Map Background with better visibility */}
       <div className="absolute inset-0 z-0">
-        <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1524661135-423995f22d0b')] bg-cover bg-center opacity-20" />
-        <div className="absolute inset-0 bg-gradient-to-b from-background/90 to-background/70" />
+        <div 
+          className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1524661135-423995f22d0b')] 
+          bg-cover bg-center opacity-30 bg-fixed"
+          style={{ filter: 'brightness(1.2) contrast(0.8)' }}
+        />
+        <div className="absolute inset-0 bg-gradient-to-b from-background/80 via-background/50 to-background/80" />
       </div>
 
       <div className="container mx-auto px-4 z-10">
