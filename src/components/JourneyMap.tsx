@@ -18,7 +18,7 @@ const timeline: TimelineEvent[] = [
     description: "Dual degree in Cyber Operations and Computer Science",
     details: "Worked extensively with U.S. Military and NSA on cutting-edge cybersecurity projects. Led team initiatives and developed secure systems.",
     delay: 0.2,
-    position: { x: 20, y: 20 }
+    position: { x: 15, y: 15 }
   },
   {
     year: "2022",
@@ -26,7 +26,7 @@ const timeline: TimelineEvent[] = [
     description: "Developed tools for incident response",
     details: "Created automated incident response tools that improved response time by 40%. Collaborated with security teams across multiple divisions.",
     delay: 0.4,
-    position: { x: 40, y: 35 }
+    position: { x: 35, y: 45 }
   },
   {
     year: "2023",
@@ -34,7 +34,7 @@ const timeline: TimelineEvent[] = [
     description: "Visualizing solar data",
     details: "Developed innovative visualization tools for solar research data, enabling scientists to better understand solar phenomena and their effects on Earth.",
     delay: 0.6,
-    position: { x: 60, y: 50 }
+    position: { x: 65, y: 25 }
   },
   {
     year: "2023-Present",
@@ -42,15 +42,15 @@ const timeline: TimelineEvent[] = [
     description: "AI applications in cybersecurity",
     details: "Currently researching advanced AI applications in cybersecurity at MIT CSAIL, focusing on threat detection and automated response systems.",
     delay: 0.8,
-    position: { x: 80, y: 65 }
+    position: { x: 85, y: 55 }
   }
 ];
 
-const Footstep = ({ rotate, x, y }: { rotate: number; x: number; y: number }) => (
+const Footstep = ({ rotate, x, y, delay }: { rotate: number; x: number; y: number; delay: number }) => (
   <motion.div
     initial={{ opacity: 0, scale: 0 }}
     animate={{ opacity: 1, scale: 1 }}
-    transition={{ duration: 0.3 }}
+    transition={{ duration: 0.3, delay }}
     className="absolute"
     style={{
       transform: `translate(${x}%, ${y}%) rotate(${rotate}deg)`,
@@ -81,9 +81,10 @@ const TimelineCard = ({ event }: { event: TimelineEvent }) => {
         }}
         onClick={() => setIsOpen(true)}
       >
-        <div className="bg-white/90 backdrop-blur-sm p-4 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
+        <div className="bg-white/90 backdrop-blur-sm p-4 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1 w-64">
           <h3 className="text-lg font-bold text-gray-800">{event.title}</h3>
           <p className="text-sm text-gray-600">{event.year}</p>
+          <p className="text-sm text-gray-700 mt-2">{event.description}</p>
         </div>
       </motion.div>
 
@@ -106,7 +107,7 @@ const JourneyMap = () => {
   const footsteps = timeline.slice(0, -1).flatMap((_, index) => {
     const start = timeline[index].position;
     const end = timeline[index + 1].position;
-    const steps = 5; // Number of footsteps between each point
+    const steps = 8; // Increased number of footsteps between points
     
     return Array.from({ length: steps }, (_, stepIndex) => {
       const progress = stepIndex / steps;
@@ -118,7 +119,7 @@ const JourneyMap = () => {
         x,
         y,
         rotate: angle + (stepIndex % 2 ? 30 : -30),
-        delay: index * 0.4 + stepIndex * 0.1
+        delay: index * 0.2 + stepIndex * 0.1 // Sequential delay for footsteps
       };
     });
   });
@@ -147,14 +148,13 @@ const JourneyMap = () => {
 
         <div className="relative h-[600px]">
           {footsteps.map((step, index) => (
-            <motion.div
+            <Footstep
               key={index}
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ delay: step.delay, duration: 0.3 }}
-            >
-              <Footstep rotate={step.rotate} x={step.x} y={step.y} />
-            </motion.div>
+              rotate={step.rotate}
+              x={step.x}
+              y={step.y}
+              delay={step.delay}
+            />
           ))}
           
           {timeline.map((event, index) => (
