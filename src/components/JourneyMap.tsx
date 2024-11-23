@@ -1,77 +1,128 @@
 import { motion } from "framer-motion";
+import { useState } from "react";
+import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from "./ui/dialog";
 
 interface TimelineEvent {
   year: string;
   title: string;
   description: string;
   delay: number;
+  details: string;
+  position: { x: number; y: number };
 }
 
 const timeline: TimelineEvent[] = [
   {
     year: "2019-2023",
     title: "U.S. Naval Academy",
-    description: "Dual degree in Cyber Operations and Computer Science, working with U.S. Military and NSA",
-    delay: 0.2
+    description: "Dual degree in Cyber Operations and Computer Science",
+    details: "Worked extensively with U.S. Military and NSA on cutting-edge cybersecurity projects. Led team initiatives and developed secure systems.",
+    delay: 0.2,
+    position: { x: 20, y: 20 }
   },
   {
     year: "2022",
     title: "Microsoft Internship",
-    description: "Developed tools for incident response in cybersecurity",
-    delay: 0.4
+    description: "Developed tools for incident response",
+    details: "Created automated incident response tools that improved response time by 40%. Collaborated with security teams across multiple divisions.",
+    delay: 0.4,
+    position: { x: 40, y: 35 }
   },
   {
     year: "2023",
     title: "NASA Internship",
-    description: "Worked on visualizing solar data for research applications",
-    delay: 0.6
+    description: "Visualizing solar data",
+    details: "Developed innovative visualization tools for solar research data, enabling scientists to better understand solar phenomena and their effects on Earth.",
+    delay: 0.6,
+    position: { x: 60, y: 50 }
   },
   {
     year: "2023-Present",
     title: "MIT Graduate Research",
-    description: "Researching AI applications in cybersecurity at MIT CSAIL",
-    delay: 0.8
+    description: "AI applications in cybersecurity",
+    details: "Currently researching advanced AI applications in cybersecurity at MIT CSAIL, focusing on threat detection and automated response systems.",
+    delay: 0.8,
+    position: { x: 80, y: 65 }
   }
 ];
 
-const TimelineStep = ({ event, index }: { event: TimelineEvent; index: number }) => (
+const Footstep = ({ rotate, x, y }: { rotate: number; x: number; y: number }) => (
   <motion.div
-    initial={{ opacity: 0, x: -50 }}
-    whileInView={{ opacity: 1, x: 0 }}
-    transition={{ duration: 0.5, delay: event.delay }}
-    viewport={{ once: true, margin: "-100px" }}
-    className="flex items-start gap-8 mb-16"
+    initial={{ opacity: 0, scale: 0 }}
+    animate={{ opacity: 1, scale: 1 }}
+    transition={{ duration: 0.3 }}
+    className="absolute"
+    style={{
+      transform: `translate(${x}%, ${y}%) rotate(${rotate}deg)`,
+    }}
   >
-    <div className="flex-shrink-0 w-32 text-right">
-      <span className="text-sm font-medium text-purple-500">{event.year}</span>
-    </div>
-    <div className="relative">
-      <div className="absolute -left-11 top-2">
-        <motion.div
-          initial={{ scale: 0 }}
-          whileInView={{ scale: 1 }}
-          transition={{ duration: 0.5, delay: event.delay }}
-          viewport={{ once: true }}
-          className="w-6 h-6 bg-purple-500 rounded-full relative"
-        >
-          <div className="w-12 h-12 bg-purple-200 rounded-full absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 animate-pulse"></div>
-        </motion.div>
-      </div>
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.5, delay: event.delay + 0.2 }}
-        viewport={{ once: true }}
-        className="bg-white/90 backdrop-blur-sm p-6 rounded-lg shadow-lg ml-4"
-      >
-        <h3 className="text-xl font-bold mb-2 text-gray-800">{event.title}</h3>
-        <p className="text-gray-600">{event.description}</p>
-      </motion.div>
-    </div>
+    <img
+      src="/lovable-uploads/cd8244b2-2862-4d63-96f7-550d95019af6.png"
+      alt="footstep"
+      className="w-6 h-6 opacity-30"
+    />
   </motion.div>
 );
 
+const TimelineCard = ({ event }: { event: TimelineEvent }) => {
+  const [isOpen, setIsOpen] = useState(false);
+
+  return (
+    <>
+      <motion.div
+        initial={{ opacity: 0, scale: 0.8 }}
+        whileInView={{ opacity: 1, scale: 1 }}
+        transition={{ duration: 0.5, delay: event.delay }}
+        viewport={{ once: true }}
+        className="absolute cursor-pointer"
+        style={{
+          left: `${event.position.x}%`,
+          top: `${event.position.y}%`,
+        }}
+        onClick={() => setIsOpen(true)}
+      >
+        <div className="bg-white/90 backdrop-blur-sm p-4 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
+          <h3 className="text-lg font-bold text-gray-800">{event.title}</h3>
+          <p className="text-sm text-gray-600">{event.year}</p>
+        </div>
+      </motion.div>
+
+      <Dialog open={isOpen} onOpenChange={setIsOpen}>
+        <DialogContent>
+          <DialogHeader>
+            <DialogTitle>{event.title}</DialogTitle>
+            <DialogDescription>
+              <p className="text-sm text-muted-foreground mb-2">{event.year}</p>
+              <p className="text-sm">{event.details}</p>
+            </DialogDescription>
+          </DialogHeader>
+        </DialogContent>
+      </Dialog>
+    </>
+  );
+};
+
 const JourneyMap = () => {
+  const footsteps = timeline.slice(0, -1).flatMap((_, index) => {
+    const start = timeline[index].position;
+    const end = timeline[index + 1].position;
+    const steps = 5; // Number of footsteps between each point
+    
+    return Array.from({ length: steps }, (_, stepIndex) => {
+      const progress = stepIndex / steps;
+      const x = start.x + (end.x - start.x) * progress;
+      const y = start.y + (end.y - start.y) * progress;
+      const angle = Math.atan2(end.y - start.y, end.x - start.x) * (180 / Math.PI);
+      
+      return {
+        x,
+        y,
+        rotate: angle + (stepIndex % 2 ? 30 : -30),
+        delay: index * 0.4 + stepIndex * 0.1
+      };
+    });
+  });
+
   return (
     <div className="min-h-screen relative py-20">
       <div className="absolute inset-0 z-0">
@@ -94,13 +145,21 @@ const JourneyMap = () => {
           My Journey
         </motion.h2>
 
-        <div className="relative">
-          <div className="absolute left-1/2 top-0 bottom-0 w-px bg-purple-200"></div>
-          <div className="space-y-12">
-            {timeline.map((event, index) => (
-              <TimelineStep key={event.year} event={event} index={index} />
-            ))}
-          </div>
+        <div className="relative h-[600px]">
+          {footsteps.map((step, index) => (
+            <motion.div
+              key={index}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: step.delay, duration: 0.3 }}
+            >
+              <Footstep rotate={step.rotate} x={step.x} y={step.y} />
+            </motion.div>
+          ))}
+          
+          {timeline.map((event, index) => (
+            <TimelineCard key={index} event={event} />
+          ))}
         </div>
       </div>
     </div>
