@@ -46,23 +46,40 @@ const timeline: TimelineEvent[] = [
   }
 ];
 
-const Footstep = ({ rotate, x, y, delay }: { rotate: number; x: number; y: number; delay: number }) => (
-  <motion.div
-    initial={{ opacity: 0, scale: 0 }}
-    animate={{ opacity: 1, scale: 1 }}
-    transition={{ duration: 0.3, delay }}
-    className="absolute"
-    style={{
-      transform: `translate(${x}%, ${y}%) rotate(${rotate}deg)`,
-    }}
-  >
-    <img
-      src="/lovable-uploads/cd8244b2-2862-4d63-96f7-550d95019af6.png"
-      alt="footstep"
-      className="w-6 h-6 opacity-30"
-    />
-  </motion.div>
-);
+const ConnectingLine = ({ start, end }: { start: { x: number; y: number }; end: { x: number; y: number } }) => {
+  const pathLength = Math.sqrt(
+    Math.pow(end.x - start.x, 2) + Math.pow(end.y - start.y, 2)
+  );
+
+  return (
+    <motion.svg
+      className="absolute top-0 left-0 w-full h-full"
+      style={{ overflow: 'visible' }}
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true }}
+    >
+      <motion.line
+        x1={`${start.x}%`}
+        y1={`${start.y}%`}
+        x2={`${end.x}%`}
+        y2={`${end.y}%`}
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeDasharray={pathLength}
+        strokeDashoffset={pathLength}
+        variants={{
+          hidden: { strokeDashoffset: pathLength },
+          visible: {
+            strokeDashoffset: 0,
+            transition: { duration: 1.5, ease: "easeInOut" }
+          }
+        }}
+        className="text-gray-300"
+      />
+    </motion.svg>
+  );
+};
 
 const TimelineCard = ({ event }: { event: TimelineEvent }) => {
   const [isOpen, setIsOpen] = useState(false);
@@ -104,26 +121,6 @@ const TimelineCard = ({ event }: { event: TimelineEvent }) => {
 };
 
 const JourneyMap = () => {
-  const footsteps = timeline.slice(0, -1).flatMap((_, index) => {
-    const start = timeline[index].position;
-    const end = timeline[index + 1].position;
-    const steps = 8; // Increased number of footsteps between points
-    
-    return Array.from({ length: steps }, (_, stepIndex) => {
-      const progress = stepIndex / steps;
-      const x = start.x + (end.x - start.x) * progress;
-      const y = start.y + (end.y - start.y) * progress;
-      const angle = Math.atan2(end.y - start.y, end.x - start.x) * (180 / Math.PI);
-      
-      return {
-        x,
-        y,
-        rotate: angle + (stepIndex % 2 ? 30 : -30),
-        delay: index * 0.2 + stepIndex * 0.1 // Sequential delay for footsteps
-      };
-    });
-  });
-
   return (
     <div className="min-h-screen relative py-20">
       <div className="absolute inset-0 z-0">
@@ -147,13 +144,11 @@ const JourneyMap = () => {
         </motion.h2>
 
         <div className="relative h-[600px]">
-          {footsteps.map((step, index) => (
-            <Footstep
+          {timeline.slice(0, -1).map((event, index) => (
+            <ConnectingLine
               key={index}
-              rotate={step.rotate}
-              x={step.x}
-              y={step.y}
-              delay={step.delay}
+              start={event.position}
+              end={timeline[index + 1].position}
             />
           ))}
           
