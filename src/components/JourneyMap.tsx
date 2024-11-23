@@ -9,6 +9,7 @@ interface TimelineEvent {
   delay: number;
   details: string;
   position: { x: number; y: number };
+  bgImage: string;
 }
 
 const timeline: TimelineEvent[] = [
@@ -18,7 +19,8 @@ const timeline: TimelineEvent[] = [
     description: "Dual degree in Cyber Operations and Computer Science",
     details: "Worked extensively with U.S. Military and NSA on cutting-edge cybersecurity projects. Led team initiatives and developed secure systems.",
     delay: 0.2,
-    position: { x: 15, y: 15 }
+    position: { x: 15, y: 20 },
+    bgImage: "photo-1461749280684-dccba630e2f6" // Technology/coding related
   },
   {
     year: "2022",
@@ -26,7 +28,8 @@ const timeline: TimelineEvent[] = [
     description: "Developed tools for incident response",
     details: "Created automated incident response tools that improved response time by 40%. Collaborated with security teams across multiple divisions.",
     delay: 0.4,
-    position: { x: 35, y: 45 }
+    position: { x: 35, y: 45 },
+    bgImage: "photo-1494891848038-7bd202a2afeb" // Modern architecture/tech
   },
   {
     year: "2023",
@@ -34,7 +37,8 @@ const timeline: TimelineEvent[] = [
     description: "Visualizing solar data",
     details: "Developed innovative visualization tools for solar research data, enabling scientists to better understand solar phenomena and their effects on Earth.",
     delay: 0.6,
-    position: { x: 65, y: 25 }
+    position: { x: 65, y: 70 },
+    bgImage: "photo-1472396961693-142e6e269027" // Nature/space themed
   },
   {
     year: "2023-Present",
@@ -42,7 +46,8 @@ const timeline: TimelineEvent[] = [
     description: "AI applications in cybersecurity",
     details: "Currently researching advanced AI applications in cybersecurity at MIT CSAIL, focusing on threat detection and automated response systems.",
     delay: 0.8,
-    position: { x: 85, y: 55 }
+    position: { x: 85, y: 95 },
+    bgImage: "photo-1504893524553-b855bce32c67" // Advanced/futuristic
   }
 ];
 
@@ -98,10 +103,22 @@ const TimelineCard = ({ event }: { event: TimelineEvent }) => {
         }}
         onClick={() => setIsOpen(true)}
       >
-        <div className="bg-white/90 backdrop-blur-sm p-4 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1 w-64">
-          <h3 className="text-lg font-bold text-gray-800">{event.title}</h3>
-          <p className="text-sm text-gray-600">{event.year}</p>
-          <p className="text-sm text-gray-700 mt-2">{event.description}</p>
+        <div 
+          className="relative overflow-hidden rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1 w-72 h-48"
+        >
+          <div 
+            className="absolute inset-0 bg-cover bg-center"
+            style={{ 
+              backgroundImage: `url(https://images.unsplash.com/${event.bgImage})`,
+              filter: 'brightness(0.7)'
+            }}
+          />
+          <div className="absolute inset-0 bg-gradient-to-b from-black/60 to-black/20" />
+          <div className="relative p-6 text-white">
+            <h3 className="text-xl font-bold mb-1">{event.title}</h3>
+            <p className="text-sm text-white/80 mb-2">{event.year}</p>
+            <p className="text-sm text-white/90">{event.description}</p>
+          </div>
         </div>
       </motion.div>
 
@@ -138,12 +155,12 @@ const JourneyMap = () => {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
           viewport={{ once: true }}
-          className="text-3xl font-bold text-center mb-16 text-gray-800"
+          className="text-4xl md:text-5xl font-bold text-center mb-16 bg-clip-text text-transparent bg-gradient-to-r from-purple-600 to-blue-600"
         >
           My Journey
         </motion.h2>
 
-        <div className="relative h-[600px]">
+        <div className="relative h-[1200px]">
           {timeline.slice(0, -1).map((event, index) => (
             <ConnectingLine
               key={index}
