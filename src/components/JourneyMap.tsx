@@ -62,7 +62,7 @@ const ConnectingLine = ({ start, end }: { start: { x: number; y: number }; end: 
       style={{ overflow: 'visible' }}
       initial="hidden"
       whileInView="visible"
-      viewport={{ once: true }}
+      viewport={{ once: true, margin: "-100px" }}
     >
       <motion.line
         x1={`${start.x}%`}
@@ -70,17 +70,17 @@ const ConnectingLine = ({ start, end }: { start: { x: number; y: number }; end: 
         x2={`${end.x}%`}
         y2={`${end.y}%`}
         stroke="currentColor"
-        strokeWidth="2"
+        strokeWidth="3"
         strokeDasharray={pathLength}
         strokeDashoffset={pathLength}
         variants={{
           hidden: { strokeDashoffset: pathLength },
           visible: {
             strokeDashoffset: 0,
-            transition: { duration: 1.5, ease: "easeInOut" }
+            transition: { duration: 2, ease: "easeInOut" }
           }
         }}
-        className="text-gray-300"
+        className="text-purple-400/70"
       />
     </motion.svg>
   );
@@ -110,14 +110,14 @@ const TimelineCard = ({ event }: { event: TimelineEvent }) => {
             className="absolute inset-0 bg-cover bg-center"
             style={{ 
               backgroundImage: `url(https://images.unsplash.com/${event.bgImage})`,
-              filter: 'brightness(0.7)'
+              filter: 'brightness(0.9)'
             }}
           />
-          <div className="absolute inset-0 bg-gradient-to-b from-black/60 to-black/20" />
+          <div className="absolute inset-0 bg-gradient-to-b from-black/40 to-black/60" />
           <div className="relative p-6 text-white">
             <h3 className="text-xl font-bold mb-1">{event.title}</h3>
-            <p className="text-sm text-white/80 mb-2">{event.year}</p>
-            <p className="text-sm text-white/90">{event.description}</p>
+            <p className="text-sm text-white/90 mb-2">{event.year}</p>
+            <p className="text-sm text-white/95">{event.description}</p>
           </div>
         </div>
       </motion.div>
@@ -143,10 +143,10 @@ const JourneyMap = () => {
       <div className="absolute inset-0 z-0">
         <div 
           className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1524661135-423995f22d0b')] 
-          bg-cover bg-center opacity-20 bg-fixed"
+          bg-cover bg-center opacity-40 bg-fixed"
           style={{ filter: 'brightness(1.2) contrast(0.8)' }}
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-background/90 to-background/70" />
+        <div className="absolute inset-0 bg-gradient-to-b from-background/70 to-background/50" />
       </div>
       
       <div className="container mx-auto px-4 relative z-10">
