@@ -21,11 +21,11 @@ const JourneyMap = () => {
         style={{ scale: mapScale, y: mapY }}
       >
         <div 
-          className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1501286353178-1ec871b47638')] 
-          bg-cover bg-center opacity-60 bg-fixed scale-150"
-          style={{ filter: 'brightness(1.2) contrast(0.8)' }}
+          className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1524661135-423995f22d0b?q=80&w=2874&auto=format')] 
+          bg-cover bg-center opacity-80 bg-fixed"
+          style={{ filter: 'brightness(1.2) contrast(0.8) saturate(1.2)' }}
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-background/70 to-background/50" />
+        <div className="absolute inset-0 bg-gradient-to-b from-background/30 via-background/20 to-background/30" />
       </motion.div>
       
       <div className="container mx-auto px-4 relative z-10">
