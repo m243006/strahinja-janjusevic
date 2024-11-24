@@ -1,19 +1,32 @@
-import { motion } from "framer-motion";
+import { motion, useScroll, useTransform } from "framer-motion";
 import { ConnectingLine } from "./journey/ConnectingLine";
 import { TimelineCard } from "./journey/TimelineCard";
 import { timeline } from "./journey/TimelineEvent";
+import { useRef } from "react";
 
 const JourneyMap = () => {
+  const containerRef = useRef<HTMLDivElement>(null);
+  const { scrollYProgress } = useScroll({
+    target: containerRef,
+    offset: ["start start", "end end"]
+  });
+
+  const mapScale = useTransform(scrollYProgress, [0, 1], [1, 1.5]);
+  const mapY = useTransform(scrollYProgress, [0, 1], ["0%", "-25%"]);
+
   return (
-    <div className="min-h-screen relative py-20">
-      <div className="absolute inset-0 z-0">
+    <div className="min-h-screen relative py-20" ref={containerRef}>
+      <motion.div 
+        className="absolute inset-0 z-0"
+        style={{ scale: mapScale, y: mapY }}
+      >
         <div 
           className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1501286353178-1ec871b47638')] 
           bg-cover bg-center opacity-60 bg-fixed scale-150"
           style={{ filter: 'brightness(1.2) contrast(0.8)' }}
         />
         <div className="absolute inset-0 bg-gradient-to-b from-background/70 to-background/50" />
-      </div>
+      </motion.div>
       
       <div className="container mx-auto px-4 relative z-10">
         <motion.h2
@@ -26,7 +39,7 @@ const JourneyMap = () => {
           My Journey
         </motion.h2>
 
-        <div className="relative h-[1500px]">
+        <div className="relative h-[2000px]">
           {timeline.slice(0, -1).map((event, index) => (
             <ConnectingLine
               key={index}

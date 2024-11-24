@@ -11,6 +11,19 @@ export interface TimelineEvent {
 
 export const timeline: TimelineEvent[] = [
   {
+    year: "2015-2019",
+    title: "Podgorica Montenegro High School",
+    description: "Classical high school education with focus on sciences",
+    details: "Completed high school education at one of Montenegro's premier institutions, developing strong foundations in sciences and mathematics while experiencing the rich cultural heritage of the Balkans.",
+    delay: 0.1,
+    position: { x: 10, y: 10 },
+    bgImage: "photo-1482938289607-e9573fc25ebb",
+    expandedImages: [
+      "photo-1482938289607-e9573fc25ebb",
+      "photo-1547652577-b4fe2c001414",
+    ]
+  },
+  {
     year: "2019-2023",
     title: "U.S. Naval Academy",
     description: "Dual degree in Cyber Operations and Computer Science",

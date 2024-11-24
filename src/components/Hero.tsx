@@ -3,7 +3,6 @@ import { motion } from "framer-motion";
 const Hero = () => {
   return (
     <section className="min-h-screen flex items-center justify-center relative overflow-hidden">
-      {/* World Map Background with better visibility */}
       <div className="absolute inset-0 z-0">
         <div 
           className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1524661135-423995f22d0b')] 
@@ -23,7 +22,10 @@ const Hero = () => {
           <div className="mb-8 relative">
             <div className="w-48 h-48 mx-auto relative">
               <div className="absolute inset-0 bg-gradient-to-r from-purple-100 to-blue-100 rounded-full animate-pulse"></div>
-              <img
+              <motion.img
+                initial={{ rotate: 0 }}
+                animate={{ rotate: 360 }}
+                transition={{ duration: 3, ease: "easeInOut" }}
                 src="/lovable-uploads/e13cb1d2-d97e-4c13-843e-db26f2cd5635.png"
                 alt="Profile"
                 className="w-full h-full object-cover rounded-full relative z-10 border-4 border-white shadow-lg"
