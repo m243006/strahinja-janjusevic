@@ -21,11 +21,11 @@ const JourneyMap = () => {
         style={{ scale: mapScale, y: mapY }}
       >
         <div 
-          className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1524661135-423995f22d0b?q=80&w=2874&auto=format')] 
-          bg-cover bg-center opacity-80 bg-fixed"
-          style={{ filter: 'brightness(1.2) contrast(0.8) saturate(1.2)' }}
+          className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1561541178-a1689e8ac55f')] 
+          bg-cover bg-center opacity-90 bg-fixed"
+          style={{ filter: 'brightness(0.9) contrast(1.1) sepia(0.3)' }}
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-background/30 via-background/20 to-background/30" />
+        <div className="absolute inset-0 bg-gradient-to-b from-background/20 via-background/10 to-background/20" />
       </motion.div>
       
       <div className="container mx-auto px-4 relative z-10">
@@ -34,9 +34,13 @@ const JourneyMap = () => {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
           viewport={{ once: true }}
-          className="text-4xl md:text-5xl font-bold text-center mb-16 bg-clip-text text-transparent bg-gradient-to-r from-purple-600 to-blue-600"
+          className="text-4xl md:text-5xl font-bold text-center mb-16 font-serif italic tracking-wider text-amber-900"
+          style={{
+            textShadow: '2px 2px 4px rgba(0,0,0,0.3)',
+            fontFamily: "'Playfair Display', serif"
+          }}
         >
-          My Journey
+          The Quest Continues
         </motion.h2>
 
         <div className="relative h-[2000px]">
