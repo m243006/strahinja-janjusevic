@@ -1,4 +1,4 @@
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import { useState } from "react";
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from "./ui/dialog";
 
@@ -10,6 +10,7 @@ interface TimelineEvent {
   details: string;
   position: { x: number; y: number };
   bgImage: string;
+  expandedImages: string[];
 }
 
 const timeline: TimelineEvent[] = [
@@ -19,8 +20,12 @@ const timeline: TimelineEvent[] = [
     description: "Dual degree in Cyber Operations and Computer Science",
     details: "Worked extensively with U.S. Military and NSA on cutting-edge cybersecurity projects. Led team initiatives and developed secure systems.",
     delay: 0.2,
-    position: { x: 15, y: 20 },
-    bgImage: "photo-1461749280684-dccba630e2f6" // Technology/coding related
+    position: { x: 15, y: 15 },
+    bgImage: "photo-1461749280684-dccba630e2f6",
+    expandedImages: [
+      "photo-1461749280684-dccba630e2f6",
+      "photo-1588666309990-d68f08e3d4a6",
+    ]
   },
   {
     year: "2022",
@@ -28,8 +33,12 @@ const timeline: TimelineEvent[] = [
     description: "Developed tools for incident response",
     details: "Created automated incident response tools that improved response time by 40%. Collaborated with security teams across multiple divisions.",
     delay: 0.4,
-    position: { x: 35, y: 45 },
-    bgImage: "photo-1494891848038-7bd202a2afeb" // Modern architecture/tech
+    position: { x: 35, y: 35 },
+    bgImage: "photo-1494891848038-7bd202a2afeb",
+    expandedImages: [
+      "photo-1494891848038-7bd202a2afeb",
+      "photo-1633419461186-7d40a38105ec",
+    ]
   },
   {
     year: "2023",
@@ -37,8 +46,12 @@ const timeline: TimelineEvent[] = [
     description: "Visualizing solar data",
     details: "Developed innovative visualization tools for solar research data, enabling scientists to better understand solar phenomena and their effects on Earth.",
     delay: 0.6,
-    position: { x: 65, y: 70 },
-    bgImage: "photo-1472396961693-142e6e269027" // Nature/space themed
+    position: { x: 65, y: 60 },
+    bgImage: "photo-1472396961693-142e6e269027",
+    expandedImages: [
+      "photo-1472396961693-142e6e269027",
+      "photo-1451187580459-43490279c0fa",
+    ]
   },
   {
     year: "2023-Present",
@@ -46,8 +59,12 @@ const timeline: TimelineEvent[] = [
     description: "AI applications in cybersecurity",
     details: "Currently researching advanced AI applications in cybersecurity at MIT CSAIL, focusing on threat detection and automated response systems.",
     delay: 0.8,
-    position: { x: 85, y: 95 },
-    bgImage: "photo-1504893524553-b855bce32c67" // Advanced/futuristic
+    position: { x: 75, y: 85 },
+    bgImage: "photo-1504893524553-b855bce32c67",
+    expandedImages: [
+      "photo-1504893524553-b855bce32c67",
+      "photo-1620712943543-bcc4688e7485",
+    ]
   }
 ];
 
@@ -88,6 +105,7 @@ const ConnectingLine = ({ start, end }: { start: { x: number; y: number }; end: 
 
 const TimelineCard = ({ event }: { event: TimelineEvent }) => {
   const [isOpen, setIsOpen] = useState(false);
+  const [selectedImageIndex, setSelectedImageIndex] = useState(0);
 
   return (
     <>
@@ -123,12 +141,27 @@ const TimelineCard = ({ event }: { event: TimelineEvent }) => {
       </motion.div>
 
       <Dialog open={isOpen} onOpenChange={setIsOpen}>
-        <DialogContent>
+        <DialogContent className="max-w-3xl">
           <DialogHeader>
-            <DialogTitle>{event.title}</DialogTitle>
+            <DialogTitle className="text-2xl">{event.title}</DialogTitle>
             <DialogDescription>
-              <p className="text-sm text-muted-foreground mb-2">{event.year}</p>
-              <p className="text-sm">{event.details}</p>
+              <p className="text-sm text-muted-foreground mb-4">{event.year}</p>
+              <div className="grid grid-cols-2 gap-4 mb-4">
+                {event.expandedImages.map((image, index) => (
+                  <div 
+                    key={index}
+                    className="relative aspect-video cursor-pointer overflow-hidden rounded-lg"
+                    onClick={() => setSelectedImageIndex(index)}
+                  >
+                    <img
+                      src={`https://images.unsplash.com/${image}`}
+                      alt={`${event.title} image ${index + 1}`}
+                      className="object-cover w-full h-full transition-transform duration-300 hover:scale-110"
+                    />
+                  </div>
+                ))}
+              </div>
+              <p className="text-base leading-relaxed">{event.details}</p>
             </DialogDescription>
           </DialogHeader>
         </DialogContent>
@@ -143,7 +176,7 @@ const JourneyMap = () => {
       <div className="absolute inset-0 z-0">
         <div 
           className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1524661135-423995f22d0b')] 
-          bg-cover bg-center opacity-40 bg-fixed"
+          bg-cover bg-center opacity-60 bg-fixed scale-125"
           style={{ filter: 'brightness(1.2) contrast(0.8)' }}
         />
         <div className="absolute inset-0 bg-gradient-to-b from-background/70 to-background/50" />
@@ -160,7 +193,7 @@ const JourneyMap = () => {
           My Journey
         </motion.h2>
 
-        <div className="relative h-[1200px]">
+        <div className="relative h-[1500px]">
           {timeline.slice(0, -1).map((event, index) => (
             <ConnectingLine
               key={index}
