@@ -31,9 +31,9 @@ export const ConnectingLine = ({ start, end, progress }: ConnectingLineProps) =>
         strokeWidth="3"
         strokeDasharray={pathLength}
         strokeDashoffset={lineProgress}
-        className="text-primary/50"
+        className="text-cyan-500/50"
         style={{
-          filter: 'drop-shadow(0 0 10px var(--primary))',
+          filter: 'drop-shadow(0 0 10px rgb(6 182 212 / 0.5))',
         }}
       />
       <motion.line
@@ -45,9 +45,9 @@ export const ConnectingLine = ({ start, end, progress }: ConnectingLineProps) =>
         strokeWidth="1"
         strokeDasharray={pathLength}
         strokeDashoffset={lineProgress}
-        className="text-primary"
+        className="text-cyan-500"
         style={{
-          filter: 'drop-shadow(0 0 5px var(--primary))',
+          filter: 'drop-shadow(0 0 5px rgb(6 182 212 / 0.5))',
         }}
       />
     </motion.svg>
