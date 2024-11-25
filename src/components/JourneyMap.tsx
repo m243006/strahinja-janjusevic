@@ -40,7 +40,7 @@ const JourneyMap = () => {
             fontFamily: "'Playfair Display', serif"
           }}
         >
-          The Quest Continues
+          My Journey
         </motion.h2>
 
         <div className="relative h-[2000px]">

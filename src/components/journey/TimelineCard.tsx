@@ -9,7 +9,6 @@ interface TimelineCardProps {
 
 export const TimelineCard = ({ event }: TimelineCardProps) => {
   const [isOpen, setIsOpen] = useState(false);
-  const [selectedImageIndex, setSelectedImageIndex] = useState(0);
 
   return (
     <>
@@ -25,21 +24,16 @@ export const TimelineCard = ({ event }: TimelineCardProps) => {
         }}
         onClick={() => setIsOpen(true)}
       >
-        <div 
-          className="relative overflow-hidden rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1 w-72 h-48"
-        >
-          <div 
-            className="absolute inset-0 bg-cover bg-center"
-            style={{ 
-              backgroundImage: `url(https://images.unsplash.com/${event.bgImage})`,
-              filter: 'brightness(0.9)'
-            }}
-          />
-          <div className="absolute inset-0 bg-gradient-to-b from-black/40 to-black/60" />
-          <div className="relative p-6 text-white">
-            <h3 className="text-xl font-bold mb-1">{event.title}</h3>
-            <p className="text-sm text-white/90 mb-2">{event.year}</p>
-            <p className="text-sm text-white/95">{event.description}</p>
+        <div className="relative">
+          {/* Journey Point */}
+          <div className="w-6 h-6 bg-purple-500 rounded-full shadow-lg hover:scale-110 transition-transform duration-300 relative z-10">
+            <div className="absolute w-4 h-4 bg-purple-300 rounded-full top-1 left-1 animate-pulse" />
+          </div>
+          
+          {/* Floating Label */}
+          <div className="absolute left-8 top-1/2 -translate-y-1/2 bg-white/90 backdrop-blur-sm rounded-lg shadow-lg p-3 min-w-[200px]">
+            <h3 className="text-sm font-bold text-purple-900">{event.title}</h3>
+            <p className="text-xs text-purple-700">{event.year}</p>
           </div>
         </div>
       </motion.div>
@@ -54,8 +48,7 @@ export const TimelineCard = ({ event }: TimelineCardProps) => {
                 {event.expandedImages.map((image, index) => (
                   <div 
                     key={index}
-                    className="relative aspect-video cursor-pointer overflow-hidden rounded-lg"
-                    onClick={() => setSelectedImageIndex(index)}
+                    className="relative aspect-video overflow-hidden rounded-lg"
                   >
                     <img
                       src={`https://images.unsplash.com/${image}`}
