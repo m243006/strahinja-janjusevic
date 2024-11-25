@@ -54,6 +54,67 @@ const MatrixBackground = () => {
   );
 };
 
+const AnimatedText = ({ text }: { text: string }) => {
+  const letters = Array.from(text);
+  
+  const container = {
+    hidden: { opacity: 0 },
+    visible: (i = 1) => ({
+      opacity: 1,
+      transition: { staggerChildren: 0.12, delayChildren: 0.04 * i },
+    }),
+  };
+
+  const child = {
+    visible: {
+      opacity: 1,
+      x: 0,
+      y: 0,
+      transition: {
+        type: "spring",
+        damping: 12,
+        stiffness: 200,
+      },
+    },
+    hidden: {
+      opacity: 0,
+      x: -20,
+      y: 10,
+      transition: {
+        type: "spring",
+        damping: 12,
+        stiffness: 200,
+      },
+    },
+  };
+
+  return (
+    <motion.h1
+      variants={container}
+      initial="hidden"
+      animate="visible"
+      className="text-5xl md:text-6xl font-bold mb-6 font-serif italic tracking-wider text-cyan-500"
+      style={{
+        textShadow: '0 0 10px rgba(6, 182, 212, 0.5)',
+        fontFamily: "'Playfair Display', serif"
+      }}
+    >
+      {letters.map((letter, index) => (
+        <motion.span
+          key={index}
+          variants={child}
+          style={{
+            display: 'inline-block',
+            marginRight: letter === ' ' ? '0.5em' : '0.02em',
+          }}
+        >
+          {letter}
+        </motion.span>
+      ))}
+    </motion.h1>
+  );
+};
+
 const Hero = () => {
   return (
     <section className="min-h-screen flex items-center justify-center relative overflow-hidden">
@@ -87,18 +148,7 @@ const Hero = () => {
               />
             </div>
           </div>
-          <motion.h1
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 0.3 }}
-            className="text-5xl md:text-6xl font-bold mb-6 font-serif italic tracking-wider text-cyan-500"
-            style={{
-              textShadow: '0 0 10px rgba(6, 182, 212, 0.5)',
-              fontFamily: "'Playfair Display', serif"
-            }}
-          >
-            Strahinja Janjusevic
-          </motion.h1>
+          <AnimatedText text="Strahinja Janjusevic" />
           <motion.p
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
