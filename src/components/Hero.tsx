@@ -1,4 +1,58 @@
 import { motion } from "framer-motion";
+import { useEffect, useRef } from "react";
+
+const MatrixBackground = () => {
+  const canvasRef = useRef<HTMLCanvasElement>(null);
+
+  useEffect(() => {
+    const canvas = canvasRef.current;
+    if (!canvas) return;
+
+    const ctx = canvas.getContext('2d');
+    if (!ctx) return;
+
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+
+    const chars = "01";
+    const fontSize = 14;
+    const columns = canvas.width / fontSize;
+    const drops: number[] = [];
+
+    for (let i = 0; i < columns; i++) {
+      drops[i] = 1;
+    }
+
+    const draw = () => {
+      ctx.fillStyle = 'rgba(0, 0, 0, 0.05)';
+      ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+      ctx.fillStyle = '#0f0';
+      ctx.font = `${fontSize}px monospace`;
+
+      for (let i = 0; i < drops.length; i++) {
+        const text = chars[Math.floor(Math.random() * chars.length)];
+        ctx.fillText(text, i * fontSize, drops[i] * fontSize);
+        
+        if (drops[i] * fontSize > canvas.height && Math.random() > 0.975) {
+          drops[i] = 0;
+        }
+        drops[i]++;
+      }
+    };
+
+    const interval = setInterval(draw, 33);
+    return () => clearInterval(interval);
+  }, []);
+
+  return (
+    <canvas
+      ref={canvasRef}
+      className="absolute inset-0 opacity-20"
+      style={{ filter: 'hue-rotate(180deg) brightness(1.5)' }}
+    />
+  );
+};
 
 const Hero = () => {
   return (
@@ -9,7 +63,8 @@ const Hero = () => {
           bg-cover bg-center opacity-30 bg-fixed"
           style={{ filter: 'brightness(1.2) contrast(0.8) sepia(0.2)' }}
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-background/80 via-background/50 to-background/80" />
+        <MatrixBackground />
+        <div className="absolute inset-0 bg-gradient-to-b from-background/90 via-background/70 to-background/90" />
       </div>
 
       <div className="container mx-auto px-4 z-10">
@@ -21,14 +76,14 @@ const Hero = () => {
         >
           <div className="mb-8 relative">
             <div className="w-48 h-48 mx-auto relative">
-              <div className="absolute inset-0 bg-gradient-to-r from-amber-100 to-amber-200 rounded-full animate-pulse"></div>
+              <div className="absolute inset-0 bg-gradient-to-r from-cyan-500 to-blue-500 rounded-full animate-pulse opacity-75"></div>
               <motion.img
                 initial={{ rotate: 0 }}
                 animate={{ rotate: 360 }}
                 transition={{ duration: 3, ease: "easeInOut", repeat: 0 }}
                 src="/lovable-uploads/e13cb1d2-d97e-4c13-843e-db26f2cd5635.png"
                 alt="Profile"
-                className="w-full h-full object-cover rounded-full relative z-10 border-4 border-amber-700 shadow-lg"
+                className="w-full h-full object-cover rounded-full relative z-10 border-4 border-cyan-500 shadow-lg shadow-cyan-500/50"
               />
             </div>
           </div>
@@ -36,9 +91,9 @@ const Hero = () => {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.3 }}
-            className="text-5xl md:text-6xl font-bold mb-6 font-serif italic tracking-wider text-amber-900"
+            className="text-5xl md:text-6xl font-bold mb-6 font-serif italic tracking-wider text-cyan-500"
             style={{
-              textShadow: '2px 2px 4px rgba(0,0,0,0.3)',
+              textShadow: '0 0 10px rgba(6, 182, 212, 0.5)',
               fontFamily: "'Playfair Display', serif"
             }}
           >
@@ -48,7 +103,7 @@ const Hero = () => {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.5 }}
-            className="text-xl md:text-2xl text-amber-800 max-w-3xl mx-auto leading-relaxed font-serif"
+            className="text-xl md:text-2xl text-cyan-300 max-w-3xl mx-auto leading-relaxed font-serif"
           >
             Master's student in Technology and Policy at MIT, embarking on a quest through cybersecurity and AI policy
           </motion.p>
