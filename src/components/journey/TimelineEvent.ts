@@ -16,7 +16,7 @@ export const timeline: TimelineEvent[] = [
     description: "Classical high school education with focus on sciences",
     details: "Completed high school education at one of Montenegro's premier institutions, developing strong foundations in sciences and mathematics while experiencing the rich cultural heritage of the Balkans.",
     delay: 0.1,
-    position: { x: 20, y: 15 },
+    position: { x: 45, y: 5 }, // Moved to top-center
     bgImage: "photo-1482938289607-e9573fc25ebb",
     expandedImages: [
       "photo-1482938289607-e9573fc25ebb",
