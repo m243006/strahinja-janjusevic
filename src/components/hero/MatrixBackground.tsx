@@ -23,7 +23,7 @@ const MatrixBackground = () => {
     }
 
     const draw = () => {
-      ctx.fillStyle = 'rgba(0, 0, 0, 0.04)'; // Made more transparent for higher contrast
+      ctx.fillStyle = 'rgba(0, 0, 0, 0.04)';
       ctx.fillRect(0, 0, canvas.width, canvas.height);
 
       ctx.fillStyle = '#0f0';
@@ -41,14 +41,28 @@ const MatrixBackground = () => {
     };
 
     const interval = setInterval(draw, 33);
-    return () => clearInterval(interval);
+
+    const handleResize = () => {
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+    };
+
+    window.addEventListener('resize', handleResize);
+
+    return () => {
+      clearInterval(interval);
+      window.removeEventListener('resize', handleResize);
+    };
   }, []);
 
   return (
     <canvas
       ref={canvasRef}
-      className="absolute inset-0 opacity-60" // Increased opacity from 40 to 60
-      style={{ filter: 'hue-rotate(180deg) brightness(1.5)' }}
+      className="absolute inset-0 opacity-60 transition-opacity duration-1000 ease-in-out"
+      style={{ 
+        filter: 'hue-rotate(180deg) brightness(1.5)',
+        mixBlendMode: 'screen'
+      }}
     />
   );
 };

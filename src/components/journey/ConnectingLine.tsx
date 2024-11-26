@@ -30,9 +30,9 @@ export const ConnectingLine = ({ start, end, progress, isActive }: ConnectingLin
   `;
 
   return (
-    <motion.svg
+    <svg
       className="absolute top-0 left-0 w-full h-full"
-      style={{ overflow: 'visible' }}
+      style={{ overflow: 'visible', zIndex: 5 }}
     >
       {/* Glow effect base */}
       <motion.path
@@ -84,6 +84,6 @@ export const ConnectingLine = ({ start, end, progress, isActive }: ConnectingLin
           filter: 'drop-shadow(0 0 3px rgb(6 182 212 / 1))',
         }}
       />
-    </motion.svg>
+    </svg>
   );
 };
