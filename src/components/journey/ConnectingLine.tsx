@@ -42,8 +42,9 @@ export const ConnectingLine = ({ start, end, progress, isActive }: ConnectingLin
         strokeWidth="8"
         strokeLinecap="round"
         strokeDasharray={pathLength}
-        strokeDashoffset={isActive ? 0 : pathLength}
-        transition={{ duration: 3.0 }}
+        initial={{ strokeDashoffset: pathLength }}
+        animate={{ strokeDashoffset: isActive ? 0 : pathLength }}
+        transition={{ duration: 3.0, ease: "easeInOut" }}
         className="text-cyan-500/20"
         style={{
           filter: 'blur(8px)',
@@ -58,8 +59,9 @@ export const ConnectingLine = ({ start, end, progress, isActive }: ConnectingLin
         strokeWidth="4"
         strokeLinecap="round"
         strokeDasharray={pathLength}
-        strokeDashoffset={isActive ? 0 : pathLength}
-        transition={{ duration: 3.0 }}
+        initial={{ strokeDashoffset: pathLength }}
+        animate={{ strokeDashoffset: isActive ? 0 : pathLength }}
+        transition={{ duration: 3.0, ease: "easeInOut" }}
         className="text-cyan-500"
         style={{
           filter: 'drop-shadow(0 0 8px rgb(6 182 212 / 0.5))',
@@ -74,8 +76,9 @@ export const ConnectingLine = ({ start, end, progress, isActive }: ConnectingLin
         strokeWidth="2"
         strokeLinecap="round"
         strokeDasharray={pathLength}
-        strokeDashoffset={isActive ? 0 : pathLength}
-        transition={{ duration: 3.0 }}
+        initial={{ strokeDashoffset: pathLength }}
+        animate={{ strokeDashoffset: isActive ? 0 : pathLength }}
+        transition={{ duration: 3.0, ease: "easeInOut" }}
         className="text-cyan-300"
         style={{
           filter: 'drop-shadow(0 0 3px rgb(6 182 212 / 1))',
