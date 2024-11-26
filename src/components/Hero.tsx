@@ -54,14 +54,14 @@ const MatrixBackground = () => {
   );
 };
 
-const AnimatedText = ({ text }: { text: string }) => {
+const AnimatedText = ({ text, delay = 0 }: { text: string; delay?: number }) => {
   const letters = Array.from(text);
   
   const container = {
     hidden: { opacity: 0 },
     visible: (i = 1) => ({
       opacity: 1,
-      transition: { staggerChildren: 0.12, delayChildren: 0.04 * i },
+      transition: { staggerChildren: 0.12, delayChildren: (0.04 * i) + delay },
     }),
   };
 
@@ -89,11 +89,11 @@ const AnimatedText = ({ text }: { text: string }) => {
   };
 
   return (
-    <motion.h1
+    <motion.div
       variants={container}
       initial="hidden"
       animate="visible"
-      className="text-5xl md:text-6xl font-bold mb-6 font-serif italic tracking-wider text-cyan-500"
+      className={text.length > 50 ? "text-xl md:text-2xl text-cyan-300 max-w-3xl mx-auto leading-relaxed font-serif" : "text-5xl md:text-6xl font-bold mb-6 font-serif italic tracking-wider text-cyan-500"}
       style={{
         textShadow: '0 0 10px rgba(6, 182, 212, 0.5)',
         fontFamily: "'Playfair Display', serif"
@@ -111,7 +111,7 @@ const AnimatedText = ({ text }: { text: string }) => {
           {letter}
         </motion.span>
       ))}
-    </motion.h1>
+    </motion.div>
   );
 };
 
@@ -149,14 +149,10 @@ const Hero = () => {
             </div>
           </div>
           <AnimatedText text="Strahinja Janjusevic" />
-          <motion.p
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 0.5 }}
-            className="text-xl md:text-2xl text-cyan-300 max-w-3xl mx-auto leading-relaxed font-serif"
-          >
-            Master's student in Technology and Policy at MIT, embarking on a quest through cybersecurity and AI policy
-          </motion.p>
+          <AnimatedText 
+            text="Master's student in Technology and Policy at MIT, embarking on a quest through cybersecurity and AI policy"
+            delay={1.5}
+          />
         </motion.div>
       </div>
     </section>
