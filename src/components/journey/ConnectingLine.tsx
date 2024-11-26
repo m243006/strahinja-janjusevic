@@ -29,10 +29,10 @@ export const ConnectingLine = ({ start, end, progress, isActive }: ConnectingLin
         x2={`${end.x}%`}
         y2={`${end.y}%`}
         stroke="currentColor"
-        strokeWidth="3"
+        strokeWidth="4"
         strokeDasharray={pathLength}
         strokeDashoffset={isActive ? 0 : pathLength}
-        transition={{ duration: 2.0 }}
+        transition={{ duration: 3.0 }} // Increased duration from 2.0 to 3.0
         className="text-cyan-500/50"
         style={{
           filter: 'drop-shadow(0 0 10px rgb(6 182 212 / 0.5))',
@@ -44,10 +44,10 @@ export const ConnectingLine = ({ start, end, progress, isActive }: ConnectingLin
         x2={`${end.x}%`}
         y2={`${end.y}%`}
         stroke="currentColor"
-        strokeWidth="1"
+        strokeWidth="2"
         strokeDasharray={pathLength}
         strokeDashoffset={isActive ? 0 : pathLength}
-        transition={{ duration: 2.0 }}
+        transition={{ duration: 3.0 }} // Increased duration from 2.0 to 3.0
         className="text-cyan-500"
         style={{
           filter: 'drop-shadow(0 0 5px rgb(6 182 212 / 0.5))',
