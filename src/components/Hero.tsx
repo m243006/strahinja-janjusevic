@@ -48,7 +48,7 @@ const MatrixBackground = () => {
   return (
     <canvas
       ref={canvasRef}
-      className="absolute inset-0 opacity-20"
+      className="absolute inset-0 opacity-40"
       style={{ filter: 'hue-rotate(180deg) brightness(1.5)' }}
     />
   );
@@ -115,6 +115,59 @@ const AnimatedText = ({ text }: { text: string }) => {
   );
 };
 
+const AnimatedParagraph = ({ text }: { text: string }) => {
+  const words = text.split(" ");
+  
+  const container = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: { staggerChildren: 0.08, delayChildren: 1.2 },
+    },
+  };
+
+  const child = {
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        type: "spring",
+        damping: 12,
+        stiffness: 200,
+      },
+    },
+    hidden: {
+      opacity: 0,
+      y: 20,
+      transition: {
+        type: "spring",
+        damping: 12,
+        stiffness: 200,
+      },
+    },
+  };
+
+  return (
+    <motion.p
+      variants={container}
+      initial="hidden"
+      animate="visible"
+      className="text-xl md:text-2xl text-cyan-300 max-w-3xl mx-auto leading-relaxed font-serif"
+    >
+      {words.map((word, index) => (
+        <motion.span
+          key={index}
+          variants={child}
+          className="inline-block"
+          style={{ marginRight: '0.3em' }}
+        >
+          {word}
+        </motion.span>
+      ))}
+    </motion.p>
+  );
+};
+
 const Hero = () => {
   return (
     <section className="min-h-screen flex items-center justify-center relative overflow-hidden">
@@ -149,14 +202,9 @@ const Hero = () => {
             </div>
           </div>
           <AnimatedText text="Strahinja Janjusevic" />
-          <motion.p
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 0.5 }}
-            className="text-xl md:text-2xl text-cyan-300 max-w-3xl mx-auto leading-relaxed font-serif"
-          >
-            Master's student in Technology and Policy at MIT, embarking on a quest through cybersecurity and AI policy
-          </motion.p>
+          <AnimatedParagraph
+            text="Master's student in Technology and Policy at MIT, embarking on a quest through cybersecurity and AI policy"
+          />
         </motion.div>
       </div>
     </section>

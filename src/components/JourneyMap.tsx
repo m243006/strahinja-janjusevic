@@ -2,10 +2,11 @@ import { motion, useScroll, useTransform } from "framer-motion";
 import { ConnectingLine } from "./journey/ConnectingLine";
 import { TimelineCard } from "./journey/TimelineCard";
 import { timeline } from "./journey/TimelineEvent";
-import { useRef } from "react";
+import { useRef, useState } from "react";
 
 const JourneyMap = () => {
   const containerRef = useRef<HTMLDivElement>(null);
+  const [currentPoint, setCurrentPoint] = useState(0);
   const { scrollYProgress } = useScroll({
     target: containerRef,
     offset: ["start start", "end end"]
@@ -15,6 +16,10 @@ const JourneyMap = () => {
   const mapY = useTransform(scrollYProgress, [0, 1], ["0%", "-25%"]);
   const opacity = useTransform(scrollYProgress, [0, 0.2, 0.8, 1], [0.3, 1, 1, 0.3]);
 
+  const handlePointClick = (index: number) => {
+    setCurrentPoint(index + 1);
+  };
+
   return (
     <div className="min-h-screen relative py-20" ref={containerRef}>
       <motion.div 
@@ -23,7 +28,7 @@ const JourneyMap = () => {
       >
         <div 
           className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1561541178-a1689e8ac55f')] 
-          bg-cover bg-center opacity-30 bg-fixed"
+          bg-cover bg-center opacity-40 bg-fixed"
           style={{ filter: 'brightness(0.7) contrast(1.2) hue-rotate(180deg)' }}
         />
         <div className="absolute inset-0 bg-gradient-to-b from-background/80 via-background/60 to-background/80" />
@@ -50,11 +55,16 @@ const JourneyMap = () => {
               start={event.position}
               end={timeline[index + 1].position}
               progress={scrollYProgress}
+              isActive={index < currentPoint}
             />
           ))}
           
           {timeline.map((event, index) => (
-            <TimelineCard key={index} event={event} />
+            <TimelineCard 
+              key={index} 
+              event={event} 
+              onPointClick={() => handlePointClick(index)}
+            />
           ))}
         </div>
       </div>
