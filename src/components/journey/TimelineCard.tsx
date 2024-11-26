@@ -32,9 +32,12 @@ export const TimelineCard = ({ event, onPointClick, isActive }: TimelineCardProp
         onClick={handleClick}
       >
         <div className="relative">
-          {/* Journey Point - Adjusted size to w-18/h-18 */}
-          <div className="w-18 h-18 bg-cyan-500 rounded-full shadow-lg hover:scale-110 transition-transform duration-300 relative z-10">
-            <div className="absolute w-16 h-16 bg-cyan-300 rounded-full top-1 left-1 animate-[pulse_2s_cubic-bezier(0.4,0,0.6,1)_infinite]" />
+          {/* Journey Point */}
+          <div className="w-16 h-16 bg-cyan-500 rounded-full shadow-lg hover:scale-110 transition-transform duration-300 relative z-10">
+            {/* Cyan pulse */}
+            <div className="absolute w-14 h-14 bg-cyan-300 rounded-full top-1 left-1 animate-[pulse_2s_cubic-bezier(0.4,0,0.6,1)_infinite]" />
+            {/* Purple pulse */}
+            <div className="absolute w-12 h-12 bg-purple-400 rounded-full top-2 left-2 animate-[pulse_3s_cubic-bezier(0.4,0,0.6,1)_infinite]" />
           </div>
           
           {/* Floating Label */}

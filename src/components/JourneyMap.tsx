@@ -24,7 +24,7 @@ const JourneyMap = () => {
   return (
     <div className="min-h-screen relative py-20" ref={containerRef}>
       <motion.div 
-        className="absolute inset-0 z-0"
+        className="absolute inset-0 z-0 group"
         style={{ scale: mapScale, y: mapY, opacity }}
       >
         <div 

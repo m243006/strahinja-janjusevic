@@ -58,7 +58,7 @@ const MatrixBackground = () => {
   return (
     <canvas
       ref={canvasRef}
-      className="absolute inset-0 opacity-60 transition-opacity duration-1000 ease-in-out"
+      className="absolute inset-0 opacity-0 transition-opacity duration-1000 ease-in-out group-hover:opacity-60"
       style={{ 
         filter: 'hue-rotate(180deg) brightness(1.5)',
         mixBlendMode: 'screen'
