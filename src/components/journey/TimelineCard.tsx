@@ -32,13 +32,13 @@ export const TimelineCard = ({ event, onPointClick, isActive }: TimelineCardProp
         onClick={handleClick}
       >
         <div className="relative">
-          {/* Journey Point */}
-          <div className="w-16 h-16 bg-cyan-500 rounded-full shadow-lg hover:scale-110 transition-transform duration-300 relative z-10">
-            <div className={`absolute w-14 h-14 bg-cyan-300 rounded-full top-1 left-1 ${isActive ? 'animate-[pulse_2s_cubic-bezier(0.4,0,0.6,1)_infinite]' : ''}`} />
+          {/* Journey Point - Increased size from w-16/h-16 to w-20/h-20 */}
+          <div className="w-20 h-20 bg-cyan-500 rounded-full shadow-lg hover:scale-110 transition-transform duration-300 relative z-10">
+            <div className={`absolute w-18 h-18 bg-cyan-300 rounded-full top-1 left-1 ${isActive ? 'animate-[pulse_2s_cubic-bezier(0.4,0,0.6,1)_infinite]' : ''}`} />
           </div>
           
-          {/* Floating Label */}
-          <div className="absolute left-20 top-1/2 -translate-y-1/2 bg-white/90 backdrop-blur-sm rounded-lg shadow-lg p-4 min-w-[250px]">
+          {/* Floating Label - Adjusted positioning for larger point */}
+          <div className="absolute left-24 top-1/2 -translate-y-1/2 bg-white/90 backdrop-blur-sm rounded-lg shadow-lg p-4 min-w-[250px]">
             <h3 className="text-lg font-bold text-cyan-900">{event.title}</h3>
             <p className="text-sm text-cyan-700">{event.year}</p>
           </div>
