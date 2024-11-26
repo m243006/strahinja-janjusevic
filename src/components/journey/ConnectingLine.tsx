@@ -31,37 +31,20 @@ export const ConnectingLine = ({ start, end, progress, isActive }: ConnectingLin
 
   return (
     <svg
-      className="absolute top-0 left-0 w-full h-full pointer-events-none"
-      style={{ overflow: 'visible' }}
+      className="absolute top-0 left-0 w-full h-full"
+      style={{ overflow: 'visible', zIndex: 20 }}
     >
       {/* Background line */}
       <path
         d={path}
         fill="none"
         stroke="currentColor"
-        strokeWidth="8"
+        strokeWidth="12"
         strokeLinecap="round"
-        className="text-cyan-500/10"
-      />
-
-      {/* Glow effect base */}
-      <motion.path
-        d={path}
-        fill="none"
-        stroke="currentColor"
-        strokeWidth="8"
-        strokeLinecap="round"
-        strokeDasharray={pathLength}
-        initial={{ strokeDashoffset: pathLength }}
-        animate={{ strokeDashoffset: isActive ? 0 : pathLength }}
-        transition={{ duration: 3.0, ease: "easeInOut" }}
         className="text-cyan-500/20"
-        style={{
-          filter: 'blur(8px)',
-        }}
       />
 
-      {/* Main line */}
+      {/* Animated line */}
       <motion.path
         d={path}
         fill="none"
@@ -71,7 +54,7 @@ export const ConnectingLine = ({ start, end, progress, isActive }: ConnectingLin
         strokeDasharray={pathLength}
         initial={{ strokeDashoffset: pathLength }}
         animate={{ strokeDashoffset: isActive ? 0 : pathLength }}
-        transition={{ duration: 3.0, ease: "easeInOut" }}
+        transition={{ duration: 1.5, ease: "easeInOut" }}
         className="text-cyan-500"
         style={{
           filter: 'drop-shadow(0 0 8px rgb(6 182 212 / 0.5))',
@@ -88,7 +71,7 @@ export const ConnectingLine = ({ start, end, progress, isActive }: ConnectingLin
         strokeDasharray={pathLength}
         initial={{ strokeDashoffset: pathLength }}
         animate={{ strokeDashoffset: isActive ? 0 : pathLength }}
-        transition={{ duration: 3.0, ease: "easeInOut" }}
+        transition={{ duration: 1.5, ease: "easeInOut" }}
         className="text-cyan-300"
         style={{
           filter: 'drop-shadow(0 0 3px rgb(6 182 212 / 1))',

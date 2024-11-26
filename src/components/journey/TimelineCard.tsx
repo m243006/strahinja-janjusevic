@@ -24,26 +24,29 @@ export const TimelineCard = ({ event, onPointClick, isActive }: TimelineCardProp
         whileInView={{ opacity: 1, scale: 1 }}
         transition={{ duration: 0.5, delay: event.delay }}
         viewport={{ once: true }}
-        className="absolute cursor-pointer"
+        className="absolute"
         style={{
           left: `${event.position.x}%`,
           top: `${event.position.y}%`,
+          zIndex: 30
         }}
         onClick={handleClick}
       >
-        <div className="relative">
+        <div className="relative cursor-pointer">
           {/* Journey Point */}
-          <div className="w-16 h-16 bg-cyan-500 rounded-full shadow-lg hover:scale-110 transition-transform duration-300 relative z-10">
-            {/* Cyan pulse */}
-            <div className="absolute w-14 h-14 bg-cyan-300 rounded-full top-1 left-1 animate-[pulse_2s_cubic-bezier(0.4,0,0.6,1)_infinite]" />
-            {/* Purple pulse */}
-            <div className="absolute w-12 h-12 bg-purple-400 rounded-full top-2 left-2 animate-[pulse_3s_cubic-bezier(0.4,0,0.6,1)_infinite]" />
+          <div className="w-16 h-16 bg-cyan-500 rounded-full shadow-lg hover:scale-110 transition-transform duration-300">
+            {/* Outer pulse */}
+            <div className="absolute w-14 h-14 bg-cyan-300/50 rounded-full top-1 left-1 animate-[pulse_2s_cubic-bezier(0.4,0,0.6,1)_infinite]" />
+            {/* Middle pulse */}
+            <div className="absolute w-12 h-12 bg-purple-400/50 rounded-full top-2 left-2 animate-[pulse_3s_cubic-bezier(0.4,0,0.6,1)_infinite]" />
+            {/* Inner pulse */}
+            <div className="absolute w-10 h-10 bg-purple-600/50 rounded-full top-3 left-3 animate-[pulse_4s_cubic-bezier(0.4,0,0.6,1)_infinite]" />
           </div>
           
           {/* Floating Label */}
           <div className="absolute left-20 top-1/2 -translate-y-1/2 bg-white/90 backdrop-blur-sm rounded-lg shadow-lg p-4 min-w-[250px]">
             <h3 className="text-lg font-bold text-cyan-900">{event.title}</h3>
-            <p className="text-sm text-cyan-700">{event.year}</p>
+            <div className="text-sm text-cyan-700">{event.year}</div>
           </div>
         </div>
       </motion.div>
@@ -51,10 +54,10 @@ export const TimelineCard = ({ event, onPointClick, isActive }: TimelineCardProp
       <Dialog open={isOpen} onOpenChange={setIsOpen}>
         <DialogContent className="max-w-3xl">
           <DialogHeader>
-            <DialogTitle className="text-2xl">{event.title}</DialogTitle>
-            <DialogDescription>
-              <p className="text-sm text-muted-foreground mb-4">{event.year}</p>
-              <div className="grid grid-cols-2 gap-4 mb-4">
+            <DialogTitle>{event.title}</DialogTitle>
+            <div className="space-y-4">
+              <div className="text-sm text-muted-foreground">{event.year}</div>
+              <div className="grid grid-cols-2 gap-4">
                 {event.expandedImages.map((image, index) => (
                   <div 
                     key={index}
@@ -68,8 +71,8 @@ export const TimelineCard = ({ event, onPointClick, isActive }: TimelineCardProp
                   </div>
                 ))}
               </div>
-              <p className="text-base leading-relaxed">{event.details}</p>
-            </DialogDescription>
+              <div className="text-base leading-relaxed">{event.details}</div>
+            </div>
           </DialogHeader>
         </DialogContent>
       </Dialog>
