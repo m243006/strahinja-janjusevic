@@ -5,16 +5,10 @@ import { TimelineEvent } from "./TimelineEvent";
 
 interface TimelineCardProps {
   event: TimelineEvent;
-  onPointClick: () => void;
 }
 
-export const TimelineCard = ({ event, onPointClick }: TimelineCardProps) => {
+export const TimelineCard = ({ event }: TimelineCardProps) => {
   const [isOpen, setIsOpen] = useState(false);
-
-  const handleClick = () => {
-    setIsOpen(true);
-    onPointClick();
-  };
 
   return (
     <>
@@ -28,18 +22,18 @@ export const TimelineCard = ({ event, onPointClick }: TimelineCardProps) => {
           left: `${event.position.x}%`,
           top: `${event.position.y}%`,
         }}
-        onClick={handleClick}
+        onClick={() => setIsOpen(true)}
       >
         <div className="relative">
           {/* Journey Point */}
-          <div className="w-8 h-8 bg-cyan-500 rounded-full shadow-lg hover:scale-110 transition-transform duration-300 relative z-10">
-            <div className="absolute w-6 h-6 bg-cyan-300 rounded-full top-1 left-1 animate-[pulse_2s_cubic-bezier(0.4,0,0.6,1)_infinite]" />
+          <div className="w-6 h-6 bg-purple-500 rounded-full shadow-lg hover:scale-110 transition-transform duration-300 relative z-10">
+            <div className="absolute w-4 h-4 bg-purple-300 rounded-full top-1 left-1 animate-pulse" />
           </div>
           
           {/* Floating Label */}
-          <div className="absolute left-10 top-1/2 -translate-y-1/2 bg-white/10 backdrop-blur-sm rounded-lg shadow-lg p-3 min-w-[200px]">
-            <h3 className="text-sm font-bold text-cyan-300">{event.title}</h3>
-            <p className="text-xs text-cyan-200">{event.year}</p>
+          <div className="absolute left-8 top-1/2 -translate-y-1/2 bg-white/90 backdrop-blur-sm rounded-lg shadow-lg p-3 min-w-[200px]">
+            <h3 className="text-sm font-bold text-purple-900">{event.title}</h3>
+            <p className="text-xs text-purple-700">{event.year}</p>
           </div>
         </div>
       </motion.div>

@@ -54,14 +54,14 @@ const MatrixBackground = () => {
   );
 };
 
-const AnimatedText = ({ text, delay = 0 }: { text: string; delay?: number }) => {
+const AnimatedText = ({ text }: { text: string }) => {
   const letters = Array.from(text);
   
   const container = {
     hidden: { opacity: 0 },
     visible: (i = 1) => ({
       opacity: 1,
-      transition: { staggerChildren: 0.12, delayChildren: (0.04 * i) + delay },
+      transition: { staggerChildren: 0.12, delayChildren: 0.04 * i },
     }),
   };
 
@@ -89,11 +89,11 @@ const AnimatedText = ({ text, delay = 0 }: { text: string; delay?: number }) => 
   };
 
   return (
-    <motion.div
+    <motion.h1
       variants={container}
       initial="hidden"
       animate="visible"
-      className={text.length > 50 ? "text-xl md:text-2xl text-cyan-300 max-w-3xl mx-auto leading-relaxed font-serif" : "text-5xl md:text-6xl font-bold mb-6 font-serif italic tracking-wider text-cyan-500"}
+      className="text-5xl md:text-6xl font-bold mb-6 font-serif italic tracking-wider text-cyan-500"
       style={{
         textShadow: '0 0 10px rgba(6, 182, 212, 0.5)',
         fontFamily: "'Playfair Display', serif"
@@ -111,7 +111,7 @@ const AnimatedText = ({ text, delay = 0 }: { text: string; delay?: number }) => 
           {letter}
         </motion.span>
       ))}
-    </motion.div>
+    </motion.h1>
   );
 };
 
@@ -149,10 +149,14 @@ const Hero = () => {
             </div>
           </div>
           <AnimatedText text="Strahinja Janjusevic" />
-          <AnimatedText 
-            text="Master's student in Technology and Policy at MIT, embarking on a quest through cybersecurity and AI policy"
-            delay={1.5}
-          />
+          <motion.p
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 0.5 }}
+            className="text-xl md:text-2xl text-cyan-300 max-w-3xl mx-auto leading-relaxed font-serif"
+          >
+            Master's student in Technology and Policy at MIT, embarking on a quest through cybersecurity and AI policy
+          </motion.p>
         </motion.div>
       </div>
     </section>

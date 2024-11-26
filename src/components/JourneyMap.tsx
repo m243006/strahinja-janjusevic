@@ -2,11 +2,10 @@ import { motion, useScroll, useTransform } from "framer-motion";
 import { ConnectingLine } from "./journey/ConnectingLine";
 import { TimelineCard } from "./journey/TimelineCard";
 import { timeline } from "./journey/TimelineEvent";
-import { useRef, useState } from "react";
+import { useRef } from "react";
 
 const JourneyMap = () => {
   const containerRef = useRef<HTMLDivElement>(null);
-  const [currentPoint, setCurrentPoint] = useState(-1);
   const { scrollYProgress } = useScroll({
     target: containerRef,
     offset: ["start start", "end end"]
@@ -27,7 +26,6 @@ const JourneyMap = () => {
           bg-cover bg-center opacity-30 bg-fixed"
           style={{ filter: 'brightness(0.7) contrast(1.2) hue-rotate(180deg)' }}
         />
-        <MatrixBackground />
         <div className="absolute inset-0 bg-gradient-to-b from-background/80 via-background/60 to-background/80" />
       </motion.div>
       
@@ -52,16 +50,11 @@ const JourneyMap = () => {
               start={event.position}
               end={timeline[index + 1].position}
               progress={scrollYProgress}
-              isActive={index <= currentPoint}
             />
           ))}
           
           {timeline.map((event, index) => (
-            <TimelineCard 
-              key={index} 
-              event={event} 
-              onPointClick={() => setCurrentPoint(index)}
-            />
+            <TimelineCard key={index} event={event} />
           ))}
         </div>
       </div>

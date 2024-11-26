@@ -4,10 +4,9 @@ interface ConnectingLineProps {
   start: { x: number; y: number };
   end: { x: number; y: number };
   progress: MotionValue<number>;
-  isActive: boolean;
 }
 
-export const ConnectingLine = ({ start, end, progress, isActive }: ConnectingLineProps) => {
+export const ConnectingLine = ({ start, end, progress }: ConnectingLineProps) => {
   const pathLength = Math.sqrt(
     Math.pow(end.x - start.x, 2) + Math.pow(end.y - start.y, 2)
   );
@@ -29,13 +28,12 @@ export const ConnectingLine = ({ start, end, progress, isActive }: ConnectingLin
         x2={`${end.x}%`}
         y2={`${end.y}%`}
         stroke="currentColor"
-        strokeWidth="4"
+        strokeWidth="3"
         strokeDasharray={pathLength}
-        strokeDashoffset={isActive ? 0 : pathLength}
+        strokeDashoffset={lineProgress}
         className="text-cyan-500/50"
         style={{
           filter: 'drop-shadow(0 0 10px rgb(6 182 212 / 0.5))',
-          transition: 'stroke-dashoffset 3s ease-out'
         }}
       />
       <motion.line
@@ -44,13 +42,12 @@ export const ConnectingLine = ({ start, end, progress, isActive }: ConnectingLin
         x2={`${end.x}%`}
         y2={`${end.y}%`}
         stroke="currentColor"
-        strokeWidth="2"
+        strokeWidth="1"
         strokeDasharray={pathLength}
-        strokeDashoffset={isActive ? 0 : pathLength}
+        strokeDashoffset={lineProgress}
         className="text-cyan-500"
         style={{
           filter: 'drop-shadow(0 0 5px rgb(6 182 212 / 0.5))',
-          transition: 'stroke-dashoffset 3s ease-out'
         }}
       />
     </motion.svg>
