@@ -50,7 +50,12 @@ const JourneyMap = () => {
           </motion.h2>
 
           <div className="relative h-[2000px]">
-            <svg className="absolute inset-0 w-full h-full" style={{ zIndex: 24 }}>
+            <svg 
+              className="absolute inset-0 w-full h-full" 
+              style={{ zIndex: 24 }}
+              viewBox="0 0 100 100"
+              preserveAspectRatio="none"
+            >
               {timeline.slice(0, -1).map((event, index) => (
                 <ConnectingLine
                   key={index}

@@ -17,17 +17,20 @@ export const ConnectingLine = ({ start, end, progress }: ConnectingLineProps) =>
     [0, pathLength / 2, pathLength]
   );
 
-  const midX = (start.x + end.x) / 2;
-  const midY = (start.y + end.y) / 2;
+  // Calculate control points for a smooth curve
+  const controlPoint1X = start.x + (end.x - start.x) / 4;
+  const controlPoint1Y = start.y;
+  const controlPoint2X = start.x + (end.x - start.x) * 3/4;
+  const controlPoint2Y = end.y;
   
   const path = `
     M ${start.x} ${start.y}
-    Q ${midX} ${start.y} ${midX} ${midY}
-    Q ${midX} ${end.y} ${end.x} ${end.y}
+    C ${controlPoint1X} ${controlPoint1Y} ${controlPoint2X} ${controlPoint2Y} ${end.x} ${end.y}
   `;
 
   return (
     <>
+      {/* Background line */}
       <path
         d={path}
         fill="none"
@@ -37,6 +40,7 @@ export const ConnectingLine = ({ start, end, progress }: ConnectingLineProps) =>
         className="text-cyan-500/20"
       />
 
+      {/* Animated line */}
       <motion.path
         d={path}
         fill="none"
@@ -54,6 +58,7 @@ export const ConnectingLine = ({ start, end, progress }: ConnectingLineProps) =>
         }}
       />
 
+      {/* Glow effect */}
       <motion.path
         d={path}
         fill="none"
