@@ -4,10 +4,9 @@ interface ConnectingLineProps {
   start: { x: number; y: number };
   end: { x: number; y: number };
   progress: MotionValue<number>;
-  isActive: boolean;
 }
 
-export const ConnectingLine = ({ start, end, progress, isActive }: ConnectingLineProps) => {
+export const ConnectingLine = ({ start, end, progress }: ConnectingLineProps) => {
   const pathLength = Math.sqrt(
     Math.pow(end.x - start.x, 2) + Math.pow(end.y - start.y, 2)
   );
@@ -18,11 +17,9 @@ export const ConnectingLine = ({ start, end, progress, isActive }: ConnectingLin
     [0, pathLength / 2, pathLength]
   );
 
-  // Calculate the control points for the curve
   const midX = (start.x + end.x) / 2;
   const midY = (start.y + end.y) / 2;
   
-  // Create a curved path
   const path = `
     M ${start.x} ${start.y}
     Q ${midX} ${start.y} ${midX} ${midY}
@@ -31,7 +28,6 @@ export const ConnectingLine = ({ start, end, progress, isActive }: ConnectingLin
 
   return (
     <>
-      {/* Background line */}
       <path
         d={path}
         fill="none"
@@ -41,7 +37,6 @@ export const ConnectingLine = ({ start, end, progress, isActive }: ConnectingLin
         className="text-cyan-500/20"
       />
 
-      {/* Animated line */}
       <motion.path
         d={path}
         fill="none"
@@ -50,7 +45,8 @@ export const ConnectingLine = ({ start, end, progress, isActive }: ConnectingLin
         strokeLinecap="round"
         strokeDasharray={pathLength}
         initial={{ strokeDashoffset: pathLength }}
-        animate={{ strokeDashoffset: isActive ? 0 : pathLength }}
+        whileInView={{ strokeDashoffset: 0 }}
+        viewport={{ once: true }}
         transition={{ duration: 1.5, ease: "easeInOut" }}
         className="text-cyan-500"
         style={{
@@ -58,7 +54,6 @@ export const ConnectingLine = ({ start, end, progress, isActive }: ConnectingLin
         }}
       />
 
-      {/* Bright center line */}
       <motion.path
         d={path}
         fill="none"
@@ -67,7 +62,8 @@ export const ConnectingLine = ({ start, end, progress, isActive }: ConnectingLin
         strokeLinecap="round"
         strokeDasharray={pathLength}
         initial={{ strokeDashoffset: pathLength }}
-        animate={{ strokeDashoffset: isActive ? 0 : pathLength }}
+        whileInView={{ strokeDashoffset: 0 }}
+        viewport={{ once: true }}
         transition={{ duration: 1.5, ease: "easeInOut" }}
         className="text-cyan-300"
         style={{
