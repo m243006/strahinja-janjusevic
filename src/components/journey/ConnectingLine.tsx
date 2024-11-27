@@ -24,22 +24,13 @@ export const ConnectingLine = ({ start, end, progress, isActive }: ConnectingLin
   
   // Create a curved path
   const path = `
-    M ${start.x}% ${start.y}%
-    Q ${midX}% ${start.y}% ${midX}% ${midY}%
-    Q ${midX}% ${end.y}% ${end.x}% ${end.y}%
+    M ${start.x} ${start.y}
+    Q ${midX} ${start.y} ${midX} ${midY}
+    Q ${midX} ${end.y} ${end.x} ${end.y}
   `;
 
   return (
-    <svg
-      className="absolute top-0 left-0 w-full h-full pointer-events-none"
-      style={{ 
-        overflow: 'visible',
-        position: 'absolute',
-        width: '100%',
-        height: '100%',
-        zIndex: 25
-      }}
-    >
+    <>
       {/* Background line */}
       <path
         d={path}
@@ -83,6 +74,6 @@ export const ConnectingLine = ({ start, end, progress, isActive }: ConnectingLin
           filter: 'drop-shadow(0 0 3px rgb(6 182 212 / 1))',
         }}
       />
-    </svg>
+    </>
   );
 };

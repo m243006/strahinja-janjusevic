@@ -4,6 +4,7 @@ import { TimelineCard } from "./journey/TimelineCard";
 import { timeline } from "./journey/TimelineEvent";
 import { useRef, useState } from "react";
 import MatrixBackground from "./hero/MatrixBackground";
+import SocialLinks from "./SocialLinks";
 
 const JourneyMap = () => {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -22,7 +23,8 @@ const JourneyMap = () => {
   };
 
   return (
-    <div className="min-h-screen relative py-20" ref={containerRef}>
+    <>
+      <div className="min-h-screen relative py-20" ref={containerRef}>
       <motion.div 
         className="absolute inset-0 z-0"
         style={{ scale: mapScale, y: mapY, opacity }}
@@ -37,8 +39,8 @@ const JourneyMap = () => {
         </div>
         <div className="absolute inset-0 bg-gradient-to-b from-background/80 via-background/60 to-background/80 z-20" />
       </motion.div>
-      
-      <div className="container mx-auto px-4 relative z-30">
+
+        <div className="container mx-auto px-4 relative z-30">
         <motion.h2
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -52,30 +54,32 @@ const JourneyMap = () => {
           My Journey
         </motion.h2>
 
-        <div className="relative h-[2000px]">
-          <div className="absolute inset-0" style={{ zIndex: 24 }}>
-            {timeline.slice(0, -1).map((event, index) => (
-              <ConnectingLine
-                key={index}
-                start={event.position}
-                end={timeline[index + 1].position}
-                progress={scrollYProgress}
+          <div className="relative h-[2000px]">
+            <svg className="absolute inset-0 w-full h-full" style={{ zIndex: 24 }}>
+              {timeline.slice(0, -1).map((event, index) => (
+                <ConnectingLine
+                  key={index}
+                  start={event.position}
+                  end={timeline[index + 1].position}
+                  progress={scrollYProgress}
+                  isActive={index < currentPoint}
+                />
+              ))}
+            </svg>
+            
+            {timeline.map((event, index) => (
+              <TimelineCard 
+                key={index} 
+                event={event} 
+                onPointClick={() => handlePointClick(index)}
                 isActive={index < currentPoint}
               />
             ))}
           </div>
-          
-          {timeline.map((event, index) => (
-            <TimelineCard 
-              key={index} 
-              event={event} 
-              onPointClick={() => handlePointClick(index)}
-              isActive={index < currentPoint}
-            />
-          ))}
         </div>
       </div>
-    </div>
+      <SocialLinks />
+    </>
   );
 };
 
