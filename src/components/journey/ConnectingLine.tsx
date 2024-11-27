@@ -31,7 +31,7 @@ export const ConnectingLine = ({ start, end, progress, isActive }: ConnectingLin
 
   return (
     <svg
-      className="absolute top-0 left-0 w-full h-full"
+      className="absolute top-0 left-0 w-full h-full pointer-events-none"
       style={{ overflow: 'visible', zIndex: 20 }}
     >
       {/* Background line */}

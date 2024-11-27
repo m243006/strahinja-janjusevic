@@ -24,19 +24,21 @@ const JourneyMap = () => {
   return (
     <div className="min-h-screen relative py-20" ref={containerRef}>
       <motion.div 
-        className="absolute inset-0 z-0 group"
+        className="absolute inset-0 z-0"
         style={{ scale: mapScale, y: mapY, opacity }}
       >
         <div 
           className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1561541178-a1689e8ac55f')] 
-          bg-cover bg-center opacity-40 bg-fixed transition-opacity duration-1000"
+          bg-cover bg-center opacity-40 bg-fixed transition-opacity duration-1000 z-0"
           style={{ filter: 'brightness(0.7) contrast(1.2) hue-rotate(180deg)' }}
         />
-        <MatrixBackground />
-        <div className="absolute inset-0 bg-gradient-to-b from-background/80 via-background/60 to-background/80 transition-opacity duration-1000" />
+        <div className="absolute inset-0 z-10">
+          <MatrixBackground />
+        </div>
+        <div className="absolute inset-0 bg-gradient-to-b from-background/80 via-background/60 to-background/80 z-20" />
       </motion.div>
       
-      <div className="container mx-auto px-4 relative z-10">
+      <div className="container mx-auto px-4 relative z-30">
         <motion.h2
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
