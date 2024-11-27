@@ -53,15 +53,17 @@ const JourneyMap = () => {
         </motion.h2>
 
         <div className="relative h-[2000px]">
-          {timeline.slice(0, -1).map((event, index) => (
-            <ConnectingLine
-              key={index}
-              start={event.position}
-              end={timeline[index + 1].position}
-              progress={scrollYProgress}
-              isActive={index < currentPoint}
-            />
-          ))}
+          <div className="absolute inset-0" style={{ zIndex: 24 }}>
+            {timeline.slice(0, -1).map((event, index) => (
+              <ConnectingLine
+                key={index}
+                start={event.position}
+                end={timeline[index + 1].position}
+                progress={scrollYProgress}
+                isActive={index < currentPoint}
+              />
+            ))}
+          </div>
           
           {timeline.map((event, index) => (
             <TimelineCard 
