@@ -35,9 +35,9 @@ export const ConnectingLine = ({ start, end, progress }: ConnectingLineProps) =>
         d={path}
         fill="none"
         stroke="currentColor"
-        strokeWidth="12"
+        strokeWidth="6"
         strokeLinecap="round"
-        className="text-cyan-500/20"
+        className="text-cyan-500/10"
       />
 
       {/* Animated line */}
@@ -45,7 +45,7 @@ export const ConnectingLine = ({ start, end, progress }: ConnectingLineProps) =>
         d={path}
         fill="none"
         stroke="currentColor"
-        strokeWidth="4"
+        strokeWidth="2"
         strokeLinecap="round"
         strokeDasharray={pathLength}
         initial={{ strokeDashoffset: pathLength }}
@@ -63,7 +63,7 @@ export const ConnectingLine = ({ start, end, progress }: ConnectingLineProps) =>
         d={path}
         fill="none"
         stroke="currentColor"
-        strokeWidth="2"
+        strokeWidth="1"
         strokeLinecap="round"
         strokeDasharray={pathLength}
         initial={{ strokeDashoffset: pathLength }}
