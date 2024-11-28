@@ -19,12 +19,13 @@ export const ConnectingLine = ({ start, end, progress }: ConnectingLineProps) =>
 
   // Calculate control points for a more natural S-curve
   const midY = (start.y + end.y) / 2;
-  const curveIntensity = 15; // Controls how much the line curves
+  const curveIntensity = 10; // Reduced from 15 for more subtle curves
+  const horizontalOffset = Math.abs(end.x - start.x) * 0.2; // Add horizontal variation
   
-  const controlPoint1X = start.x + (end.x - start.x) * 0.25;
+  const controlPoint1X = start.x + horizontalOffset;
   const controlPoint1Y = midY - curveIntensity;
   
-  const controlPoint2X = start.x + (end.x - start.x) * 0.75;
+  const controlPoint2X = end.x - horizontalOffset;
   const controlPoint2Y = midY + curveIntensity;
   
   const path = `
@@ -39,7 +40,7 @@ export const ConnectingLine = ({ start, end, progress }: ConnectingLineProps) =>
         d={path}
         fill="none"
         stroke="currentColor"
-        strokeWidth="1.5"
+        strokeWidth="1"
         strokeLinecap="round"
         className="text-cyan-500/5"
       />
@@ -49,7 +50,7 @@ export const ConnectingLine = ({ start, end, progress }: ConnectingLineProps) =>
         d={path}
         fill="none"
         stroke="currentColor"
-        strokeWidth="1"
+        strokeWidth="0.75"
         strokeLinecap="round"
         strokeDasharray={pathLength}
         initial={{ strokeDashoffset: pathLength }}
@@ -58,7 +59,7 @@ export const ConnectingLine = ({ start, end, progress }: ConnectingLineProps) =>
         transition={{ duration: 1.5, ease: "easeInOut" }}
         className="text-cyan-500"
         style={{
-          filter: 'drop-shadow(0 0 4px rgb(6 182 212 / 0.3))',
+          filter: 'drop-shadow(0 0 3px rgb(6 182 212 / 0.2))',
         }}
       />
 
@@ -67,7 +68,7 @@ export const ConnectingLine = ({ start, end, progress }: ConnectingLineProps) =>
         d={path}
         fill="none"
         stroke="currentColor"
-        strokeWidth="0.5"
+        strokeWidth="0.25"
         strokeLinecap="round"
         strokeDasharray={pathLength}
         initial={{ strokeDashoffset: pathLength }}
@@ -76,7 +77,7 @@ export const ConnectingLine = ({ start, end, progress }: ConnectingLineProps) =>
         transition={{ duration: 1.5, ease: "easeInOut" }}
         className="text-cyan-300"
         style={{
-          filter: 'drop-shadow(0 0 2px rgb(6 182 212 / 0.5))',
+          filter: 'drop-shadow(0 0 1px rgb(6 182 212 / 0.3))',
         }}
       />
     </>

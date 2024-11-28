@@ -42,7 +42,7 @@ export const timeline: TimelineEvent[] = [
     description: "Developed tools for incident response",
     details: "Created automated incident response tools that improved response time by 40%. Collaborated with security teams across multiple divisions.",
     delay: 0.4,
-    position: { x: 60, y: 55 },
+    position: { x: 55, y: 55 },  // Shifted left from 60
     bgImage: "photo-1485833077593-4278bba3f11f",
     expandedImages: [
       "photo-1485833077593-4278bba3f11f",
@@ -55,7 +55,7 @@ export const timeline: TimelineEvent[] = [
     description: "Visualizing solar data",
     details: "Developed innovative visualization tools for solar research data, enabling scientists to better understand solar phenomena and their effects on Earth.",
     delay: 0.6,
-    position: { x: 80, y: 75 },
+    position: { x: 70, y: 75 },  // Shifted left from 80
     bgImage: "photo-1472396961693-142e6e269027",
     expandedImages: [
       "photo-1472396961693-142e6e269027",
@@ -68,7 +68,7 @@ export const timeline: TimelineEvent[] = [
     description: "AI applications in cybersecurity",
     details: "Currently researching advanced AI applications in cybersecurity at MIT CSAIL, focusing on threat detection and automated response systems.",
     delay: 0.8,
-    position: { x: 90, y: 95 },
+    position: { x: 80, y: 95 },  // Shifted left from 90
     bgImage: "photo-1466721591366-2d5fba72006d",
     expandedImages: [
       "photo-1466721591366-2d5fba72006d",
