@@ -54,6 +54,7 @@ export const TimelineCard = ({ event }: TimelineCardProps) => {
                 src={`https://images.unsplash.com/${event.bgImage}`}
                 alt={event.title}
                 className="w-full h-[200px] object-cover hover:scale-105 transition-transform duration-300"
+                loading="lazy"
               />
               <div className="p-4">
                 <h4 className="text-lg font-semibold mb-2">{event.description}</h4>
@@ -80,6 +81,7 @@ export const TimelineCard = ({ event }: TimelineCardProps) => {
                       src={`https://images.unsplash.com/${image}`}
                       alt={`${event.title} image ${index + 1}`}
                       className="object-cover w-full h-full transition-transform duration-300 hover:scale-110"
+                      loading="lazy"
                     />
                   </div>
                 ))}
