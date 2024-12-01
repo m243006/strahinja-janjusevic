@@ -16,7 +16,7 @@ export const timeline: TimelineEvent[] = [
     description: "Classical high school education with focus on sciences",
     details: "Completed high school education at one of Montenegro's premier institutions, developing strong foundations in sciences and mathematics while experiencing the rich cultural heritage of the Balkans.",
     delay: 0.1,
-    position: { x: 15, y: 5 },  // Moved further up and left
+    position: { x: 10, y: 5 },  // Moved even further left and up
     bgImage: "photo-1482938289607-e9573fc25ebb",
     expandedImages: [
       "photo-1482938289607-e9573fc25ebb",
@@ -29,7 +29,7 @@ export const timeline: TimelineEvent[] = [
     description: "Dual degree in Cyber Operations and Computer Science",
     details: "Worked extensively with U.S. Military and NSA on cutting-edge cybersecurity projects. Led team initiatives and developed secure systems.",
     delay: 0.2,
-    position: { x: 30, y: 25 },  // Adjusted position
+    position: { x: 25, y: 25 },  // Adjusted position
     bgImage: "photo-1493962853295-0fd70327578a",
     expandedImages: [
       "photo-1493962853295-0fd70327578a",
@@ -42,7 +42,7 @@ export const timeline: TimelineEvent[] = [
     description: "Developed tools for incident response",
     details: "Created automated incident response tools that improved response time by 40%. Collaborated with security teams across multiple divisions.",
     delay: 0.3,
-    position: { x: 20, y: 45 },  // Moved further left and up
+    position: { x: 15, y: 45 },  // Moved further left
     bgImage: "photo-1485833077593-4278bba3f11f",
     expandedImages: [
       "photo-1485833077593-4278bba3f11f",
@@ -55,7 +55,7 @@ export const timeline: TimelineEvent[] = [
     description: "Visualizing solar data",
     details: "Developed innovative visualization tools for solar research data, enabling scientists to better understand solar phenomena and their effects on Earth.",
     delay: 0.4,
-    position: { x: 35, y: 65 },  // Moved up
+    position: { x: 30, y: 65 },  // Moved up
     bgImage: "photo-1472396961693-142e6e269027",
     expandedImages: [
       "photo-1472396961693-142e6e269027",
@@ -68,7 +68,7 @@ export const timeline: TimelineEvent[] = [
     description: "AI applications in cybersecurity",
     details: "Currently researching advanced AI applications in cybersecurity at MIT CSAIL, focusing on threat detection and automated response systems.",
     delay: 0.5,
-    position: { x: 15, y: 85 },  // Moved further left and up
+    position: { x: 10, y: 85 },  // Moved further left
     bgImage: "photo-1466721591366-2d5fba72006d",
     expandedImages: [
       "photo-1466721591366-2d5fba72006d",
