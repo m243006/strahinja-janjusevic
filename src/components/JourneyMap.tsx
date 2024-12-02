@@ -5,6 +5,7 @@ import { timeline } from "./journey/TimelineEvent";
 import { useRef } from "react";
 import MatrixBackground from "./hero/MatrixBackground";
 import SocialLinks from "./SocialLinks";
+import { Card, CardContent } from "./ui/card";
 
 const JourneyMap = () => {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -13,9 +14,27 @@ const JourneyMap = () => {
     offset: ["start start", "end end"]
   });
 
-  const mapScale = useTransform(scrollYProgress, [0, 1], [1, 1.1]); // Reduced scale even more
-  const mapY = useTransform(scrollYProgress, [0, 1], ["0%", "-10%"]); // Reduced movement
+  const mapScale = useTransform(scrollYProgress, [0, 1], [1, 1.1]);
+  const mapY = useTransform(scrollYProgress, [0, 1], ["0%", "-10%"]);
   const opacity = useTransform(scrollYProgress, [0, 0.2, 0.8, 1], [0.3, 1, 1, 0.3]);
+
+  const staticCards = [
+    {
+      image: "photo-1649972904349-6e44c42644a7",
+      title: "Remote Work Setup",
+      description: "Dedicated workspace for focused development and research"
+    },
+    {
+      image: "photo-1519389950473-47ba0277781c",
+      title: "Team Collaboration",
+      description: "Working with brilliant minds across different projects"
+    },
+    {
+      image: "photo-1581090464777-f3220bbe1b8b",
+      title: "Innovation Focus",
+      description: "Always exploring new ideas and technologies"
+    }
+  ];
 
   return (
     <>
@@ -67,6 +86,25 @@ const JourneyMap = () => {
                 key={index} 
                 event={event}
               />
+            ))}
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-20">
+            {staticCards.map((card, index) => (
+              <Card key={index} className="bg-background/80 backdrop-blur border-cyan-500/20">
+                <CardContent className="p-4">
+                  <div className="aspect-video overflow-hidden rounded-lg mb-4">
+                    <img
+                      src={`https://images.unsplash.com/${card.image}`}
+                      alt={card.title}
+                      className="object-cover w-full h-full"
+                      loading="lazy"
+                    />
+                  </div>
+                  <h3 className="text-lg font-semibold text-cyan-500 mb-2">{card.title}</h3>
+                  <p className="text-muted-foreground">{card.description}</p>
+                </CardContent>
+              </Card>
             ))}
           </div>
         </div>
