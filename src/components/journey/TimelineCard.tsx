@@ -27,6 +27,11 @@ export const TimelineCard = ({ event }: TimelineCardProps) => {
         onClick={() => setIsOpen(true)}
       >
         <div className="relative cursor-pointer group">
+          <div className="absolute -left-32 top-1/2 -translate-y-1/2 flex items-center gap-2 text-cyan-400 font-medium animate-pulse">
+            <span>Click me</span>
+            <MoveRight className="w-4 h-4 animate-bounce" />
+          </div>
+
           <div className="w-16 h-16 bg-cyan-500 rounded-full shadow-lg hover:scale-110 transition-transform duration-300">
             <div className="absolute w-14 h-14 bg-cyan-300/50 rounded-full top-1 left-1 animate-[pulse_2s_cubic-bezier(0.4,0,0.6,1)_infinite]" />
             <div className="absolute w-12 h-12 bg-purple-400/50 rounded-full top-2 left-2 animate-[pulse_3s_cubic-bezier(0.4,0,0.6,1)_infinite]" />
@@ -36,11 +41,6 @@ export const TimelineCard = ({ event }: TimelineCardProps) => {
           <div className="absolute left-20 top-1/2 -translate-y-1/2 bg-white/90 backdrop-blur-sm rounded-lg shadow-lg p-4 min-w-[250px]">
             <h3 className="text-lg font-bold text-cyan-900">{event.title}</h3>
             <div className="text-sm text-cyan-700">{event.year}</div>
-          </div>
-
-          <div className="absolute -right-12 top-1/2 -translate-y-1/2 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center gap-2 text-cyan-400 font-medium">
-            <span>Click me</span>
-            <MoveRight className="w-4 h-4 animate-bounce" />
           </div>
         </div>
       </motion.div>
