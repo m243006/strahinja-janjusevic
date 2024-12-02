@@ -41,7 +41,7 @@ const JourneyMap = () => {
 
   return (
     <>
-      <div className="min-h-screen relative py-20" ref={containerRef}>
+      <div className="min-h-screen relative py-10" ref={containerRef}>
         <motion.div 
           className="fixed inset-0 z-0"
           style={{ scale: mapScale, y: mapY, opacity }}
@@ -58,7 +58,7 @@ const JourneyMap = () => {
 
         <div className="container mx-auto px-4 relative z-30">
           <h2
-            className="text-4xl md:text-5xl font-bold text-center mb-16 font-serif italic tracking-wider text-cyan-500"
+            className="text-4xl md:text-5xl font-bold text-center mb-8 font-serif italic tracking-wider text-cyan-500"
             style={{
               textShadow: '0 0 20px rgba(6, 182, 212, 0.5)',
               fontFamily: "'Playfair Display', serif"
@@ -67,7 +67,7 @@ const JourneyMap = () => {
             My Journey
           </h2>
 
-          <div className="relative h-[2000px]">
+          <div className="relative h-[1500px]">
             <svg 
               className="absolute inset-0 w-full h-full" 
               style={{ zIndex: 24 }}
@@ -120,7 +120,9 @@ const JourneyMap = () => {
           </div>
         </div>
       </div>
-      <SocialLinks />
+      <div className="py-10">
+        <SocialLinks />
+      </div>
     </>
   );
 };

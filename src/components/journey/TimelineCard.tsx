@@ -27,10 +27,12 @@ export const TimelineCard = ({ event }: TimelineCardProps) => {
         onClick={() => setIsOpen(true)}
       >
         <div className="relative cursor-pointer group">
-          <div className="absolute -left-32 top-1/2 -translate-y-1/2 flex items-center gap-2 text-cyan-400 font-medium animate-pulse">
-            <span>Click me</span>
-            <MoveRight className="w-4 h-4 animate-bounce" />
-          </div>
+          {event.year === "2015-2019" && (
+            <div className="absolute -left-32 top-1/2 -translate-y-1/2 flex items-center gap-2 text-cyan-400 font-medium animate-pulse">
+              <span>Click me</span>
+              <MoveRight className="w-4 h-4 animate-bounce" />
+            </div>
+          )}
 
           <div className="w-16 h-16 bg-cyan-500 rounded-full shadow-lg hover:scale-110 transition-transform duration-300">
             <div className="absolute w-14 h-14 bg-cyan-300/50 rounded-full top-1 left-1 animate-[pulse_2s_cubic-bezier(0.4,0,0.6,1)_infinite]" />
