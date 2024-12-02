@@ -22,17 +22,20 @@ const JourneyMap = () => {
     {
       image: "photo-1649972904349-6e44c42644a7",
       title: "Remote Work Setup",
-      description: "Dedicated workspace for focused development and research"
+      description: "Dedicated workspace for focused development and research",
+      position: { x: 65, y: 15 }
     },
     {
       image: "photo-1519389950473-47ba0277781c",
       title: "Team Collaboration",
-      description: "Working with brilliant minds across different projects"
+      description: "Working with brilliant minds across different projects",
+      position: { x: 55, y: 45 }
     },
     {
       image: "photo-1581090464777-f3220bbe1b8b",
       title: "Innovation Focus",
-      description: "Always exploring new ideas and technologies"
+      description: "Always exploring new ideas and technologies",
+      position: { x: 60, y: 75 }
     }
   ];
 
@@ -87,24 +90,32 @@ const JourneyMap = () => {
                 event={event}
               />
             ))}
-          </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-20">
             {staticCards.map((card, index) => (
-              <Card key={index} className="bg-background/80 backdrop-blur border-cyan-500/20">
-                <CardContent className="p-4">
-                  <div className="aspect-video overflow-hidden rounded-lg mb-4">
-                    <img
-                      src={`https://images.unsplash.com/${card.image}`}
-                      alt={card.title}
-                      className="object-cover w-full h-full"
-                      loading="lazy"
-                    />
-                  </div>
-                  <h3 className="text-lg font-semibold text-cyan-500 mb-2">{card.title}</h3>
-                  <p className="text-muted-foreground">{card.description}</p>
-                </CardContent>
-              </Card>
+              <div
+                key={index}
+                className="absolute w-64"
+                style={{
+                  left: `${card.position.x}%`,
+                  top: `${card.position.y}%`,
+                  zIndex: 25
+                }}
+              >
+                <Card className="bg-background/80 backdrop-blur border-cyan-500/20">
+                  <CardContent className="p-4">
+                    <div className="aspect-video overflow-hidden rounded-lg mb-4">
+                      <img
+                        src={`https://images.unsplash.com/${card.image}`}
+                        alt={card.title}
+                        className="object-cover w-full h-full"
+                        loading="lazy"
+                      />
+                    </div>
+                    <h3 className="text-lg font-semibold text-cyan-500 mb-2">{card.title}</h3>
+                    <p className="text-muted-foreground">{card.description}</p>
+                  </CardContent>
+                </Card>
+              </div>
             ))}
           </div>
         </div>
