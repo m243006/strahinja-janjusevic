@@ -7,19 +7,19 @@ const SocialLinks = () => {
     {
       icon: <Instagram className="w-8 h-8" />,
       name: "Instagram",
-      url: "https://instagram.com/yourusername",
+      url: "https://www.instagram.com/strajo22/",
       color: "hover:text-pink-500"
     },
     {
       icon: <Linkedin className="w-8 h-8" />,
       name: "LinkedIn",
-      url: "https://linkedin.com/in/yourusername",
+      url: "https://www.linkedin.com/in/strahinja-janjusevic-8a15a4241/",
       color: "hover:text-blue-500"
     },
     {
       icon: <Github className="w-8 h-8" />,
       name: "GitHub",
-      url: "https://github.com/yourusername",
+      url: "https://github.com/m243006",
       color: "hover:text-purple-500"
     }
   ];
