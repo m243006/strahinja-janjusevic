@@ -41,7 +41,7 @@ const JourneyMap = () => {
 
   return (
     <>
-      <div className="min-h-screen relative py-10" ref={containerRef}>
+      <div className="min-h-screen relative pt-5 pb-10" ref={containerRef}>
         <motion.div 
           className="fixed inset-0 z-0"
           style={{ scale: mapScale, y: mapY, opacity }}
