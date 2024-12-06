@@ -11,10 +11,10 @@ export interface TimelineEvent {
 
 export const timeline: TimelineEvent[] = [
   {
-    year: "2015-2019",
-    title: "Podgorica Montenegro High School",
-    description: "Classical high school education with focus on sciences",
-    details: "Completed high school education at one of Montenegro's premier institutions, developing strong foundations in sciences and mathematics while experiencing the rich cultural heritage of the Balkans.",
+    year: "2020-2024",
+    title: "U.S. Naval Academy",
+    description: "Bachelor of Science - Dual Major in Cyber Operations (NSA-CAE) and Computer Science",
+    details: "Selected as one of 20 students for the NSA-CAE track, demonstrating technical proficiency in Cybersecurity. Served as Squad Leader responsible for Midshipmen development and as Drill Officer leading 140 people in military exercises.",
     delay: 0.1,
     position: { x: 15, y: 5 },
     bgImage: "photo-1482938289607-e9573fc25ebb",
@@ -24,10 +24,10 @@ export const timeline: TimelineEvent[] = [
     ]
   },
   {
-    year: "2019-2023",
-    title: "U.S. Naval Academy",
-    description: "Dual degree in Cyber Operations and Computer Science",
-    details: "Worked extensively with U.S. Military and NSA on cutting-edge cybersecurity projects. Led team initiatives and developed secure systems.",
+    year: "2022",
+    title: "Microsoft Cloud Security Internship",
+    description: "Developed API for URL scanning and incident analysis",
+    details: "Contributed to incident analysis and spearheaded the development of an API for URL scanning, optimizing response to cyber threats. Gained valuable insights into leadership within cybersecurity operations as part of one of the world's largest incident response teams.",
     delay: 0.2,
     position: { x: 30, y: 25 },
     bgImage: "photo-1493962853295-0fd70327578a",
@@ -37,10 +37,10 @@ export const timeline: TimelineEvent[] = [
     ]
   },
   {
-    year: "2022",
-    title: "Microsoft Internship",
-    description: "Developed tools for incident response",
-    details: "Created automated incident response tools that improved response time by 40%. Collaborated with security teams across multiple divisions.",
+    year: "2023",
+    title: "NASA Internship",
+    description: "Developed Helios website for solar data visualization",
+    details: "Played a pivotal role in developing Helios website, utilizing 3D rendering technology to visualize solar images with data from the Helioviewer API. Conducted magnetic field line extrapolations crucial for comprehending the sun's magnetic structure.",
     delay: 0.3,
     position: { x: 20, y: 45 },
     bgImage: "photo-1485833077593-4278bba3f11f",
@@ -51,9 +51,9 @@ export const timeline: TimelineEvent[] = [
   },
   {
     year: "2023",
-    title: "NASA Internship",
-    description: "Visualizing solar data",
-    details: "Developed innovative visualization tools for solar research data, enabling scientists to better understand solar phenomena and their effects on Earth.",
+    title: "Capstone Project",
+    description: "Threat Intelligence and Behaviour Analysis Research",
+    details: "Created a new operational methodology utilizing reputation that would enable the systematic harvesting of threat intelligence data for threat actor identification and tracking. Developed new approaches to network intrusion detection aimed at achieving attribution.",
     delay: 0.4,
     position: { x: 35, y: 65 },
     bgImage: "photo-1472396961693-142e6e269027",
@@ -63,10 +63,10 @@ export const timeline: TimelineEvent[] = [
     ]
   },
   {
-    year: "2023-Present",
+    year: "2024-Present",
     title: "MIT Graduate Research",
-    description: "AI applications in cybersecurity",
-    details: "Currently researching advanced AI applications in cybersecurity at MIT CSAIL, focusing on threat detection and automated response systems.",
+    description: "Master's in Technology and Policy",
+    details: "Pursuing a Master of Science in Technology and Policy with a focus on Artificial Intelligence and Cyber Security at MIT. Selected projects include research in AI applications for cybersecurity and policy development.",
     delay: 0.5,
     position: { x: 15, y: 80 },
     bgImage: "photo-1466721591366-2d5fba72006d",
@@ -78,8 +78,8 @@ export const timeline: TimelineEvent[] = [
   {
     year: "2024-Present",
     title: "MIT ALFA Group",
-    description: "Advanced research in AI and cybersecurity",
-    details: "Contributing to cutting-edge research in AI policy and cybersecurity as part of MIT's renowned ALFA (Artificial Intelligence Foundations and Applications) group.",
+    description: "Artificial Adversarial Intelligence Research",
+    details: "Research focused on computationally replicating Adversarial Intelligence, developing ALFA agents competing in CybORG while using Large Language Models and BRON for support with coevolutionary algorithms.",
     delay: 0.6,
     position: { x: 30, y: 95 },
     bgImage: "photo-1485827404703-89b55fcc595e",
