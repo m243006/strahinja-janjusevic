@@ -20,21 +20,21 @@ const JourneyMap = () => {
 
   const staticCards = [
     {
-      image: "photo-1649972904349-6e44c42644a7",
-      title: "Remote Work Setup",
-      description: "Dedicated workspace for focused development and research",
+      image: "photo-1521791136064-7986c2920216",
+      title: "People Matter",
+      description: "Building meaningful connections and fostering collaboration",
       position: { x: 65, y: 15 }
     },
     {
-      image: "photo-1519389950473-47ba0277781c",
-      title: "Team Collaboration",
-      description: "Working with brilliant minds across different projects",
+      image: "photo-1516383740770-fbcc5ccbece0",
+      title: "Wisdom in Humility",
+      description: "If you want to improve, be content to be thought foolish and stupid",
       position: { x: 55, y: 45 }
     },
     {
-      image: "photo-1581090464777-f3220bbe1b8b",
-      title: "Innovation Focus",
-      description: "Always exploring new ideas and technologies",
+      image: "photo-1511895426328-dc8714191300",
+      title: "Family",
+      description: "The foundation of strength and support",
       position: { x: 60, y: 75 }
     }
   ];
