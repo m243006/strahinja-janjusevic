@@ -34,7 +34,7 @@ const Hero = () => {
             Strahinja Janjusevic
           </motion.h1>
           <AnimatedText
-            text="Master's student in Technology and Policy at MIT, embarking on a quest through cybersecurity and AI policy"
+            text="Master's student in Technology and Policy at MIT, researching uses of AI in cybersecurity"
             className="text-xl md:text-2xl text-cyan-300 max-w-3xl mx-auto leading-relaxed font-serif"
           />
         </motion.div>
