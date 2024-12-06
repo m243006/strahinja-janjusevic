@@ -27,9 +27,9 @@ const JourneyMap = () => {
     },
     {
       image: "photo-1516383740770-fbcc5ccbece0",
-      title: "Wisdom in Humility",
-      description: "If you want to improve, be content to be thought foolish and stupid",
-      position: { x: 55, y: 45 }
+      title: "Temperance",
+      description: "The virtue of moderation and self-restraint in action",
+      position: { x: 75, y: 45 }
     },
     {
       image: "photo-1511895426328-dc8714191300",
