@@ -56,7 +56,7 @@ const JourneyMap = () => {
           <div className="absolute inset-0 bg-gradient-to-b from-background/80 via-background/60 to-background/80" />
         </motion.div>
 
-        <div className="container mx-auto px-4 relative z-30">
+        <div className="container mx-auto px-4 relative z-10">
           <h2
             className="text-4xl md:text-5xl font-bold text-center mb-8 font-serif italic tracking-wider text-cyan-500"
             style={{
@@ -70,7 +70,7 @@ const JourneyMap = () => {
           <div className="relative h-[1500px]">
             <svg 
               className="absolute inset-0 w-full h-full" 
-              style={{ zIndex: 24 }}
+              style={{ zIndex: 20 }}
               viewBox="0 0 100 100"
               preserveAspectRatio="none"
             >
@@ -94,20 +94,20 @@ const JourneyMap = () => {
             {staticCards.map((card, index) => (
               <div
                 key={index}
-                className="absolute w-64"
+                className="absolute w-64 cursor-pointer hover:scale-105 transition-transform duration-300"
                 style={{
                   left: `${card.position.x}%`,
                   top: `${card.position.y}%`,
-                  zIndex: 25
+                  zIndex: 40
                 }}
               >
-                <Card className="bg-background/80 backdrop-blur border-cyan-500/20">
+                <Card className="bg-background/80 backdrop-blur border-cyan-500/20 hover:border-cyan-500/40">
                   <CardContent className="p-4">
                     <div className="aspect-video overflow-hidden rounded-lg mb-4">
                       <img
                         src={`https://images.unsplash.com/${card.image}`}
                         alt={card.title}
-                        className="object-cover w-full h-full"
+                        className="object-cover w-full h-full transform hover:scale-110 transition-transform duration-300"
                         loading="lazy"
                       />
                     </div>
@@ -120,7 +120,7 @@ const JourneyMap = () => {
           </div>
         </div>
       </div>
-      <div className="py-10">
+      <div className="py-10 relative z-50">
         <SocialLinks />
       </div>
     </>
