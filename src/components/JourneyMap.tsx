@@ -91,32 +91,35 @@ const JourneyMap = () => {
               />
             ))}
 
-            {staticCards.map((card, index) => (
-              <div
-                key={index}
-                className="absolute w-64 cursor-pointer hover:scale-105 transition-transform duration-300"
-                style={{
-                  left: `${card.position.x}%`,
-                  top: `${card.position.y}%`,
-                  zIndex: 40
-                }}
-              >
-                <Card className="bg-background/80 backdrop-blur border-cyan-500/20 hover:border-cyan-500/40">
-                  <CardContent className="p-4">
-                    <div className="aspect-video overflow-hidden rounded-lg mb-4">
-                      <img
-                        src={`https://images.unsplash.com/${card.image}`}
-                        alt={card.title}
-                        className="object-cover w-full h-full transform hover:scale-110 transition-transform duration-300"
-                        loading="lazy"
-                      />
-                    </div>
-                    <h3 className="text-lg font-semibold text-cyan-500 mb-2">{card.title}</h3>
-                    <p className="text-muted-foreground">{card.description}</p>
-                  </CardContent>
-                </Card>
-              </div>
-            ))}
+            {/* Static cards - hidden on mobile */}
+            <div className="hidden md:block">
+              {staticCards.map((card, index) => (
+                <div
+                  key={index}
+                  className="absolute w-64 cursor-pointer hover:scale-105 transition-transform duration-300"
+                  style={{
+                    left: `${card.position.x}%`,
+                    top: `${card.position.y}%`,
+                    zIndex: 40
+                  }}
+                >
+                  <Card className="bg-background/80 backdrop-blur border-cyan-500/20 hover:border-cyan-500/40">
+                    <CardContent className="p-4">
+                      <div className="aspect-video overflow-hidden rounded-lg mb-4">
+                        <img
+                          src={`https://images.unsplash.com/${card.image}`}
+                          alt={card.title}
+                          className="object-cover w-full h-full transform hover:scale-110 transition-transform duration-300"
+                          loading="lazy"
+                        />
+                      </div>
+                      <h3 className="text-lg font-semibold text-cyan-500 mb-2">{card.title}</h3>
+                      <p className="text-muted-foreground">{card.description}</p>
+                    </CardContent>
+                  </Card>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </div>
