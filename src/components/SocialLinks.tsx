@@ -5,19 +5,19 @@ import { Github, Instagram, Linkedin } from "lucide-react";
 const SocialLinks = () => {
   const socialLinks = [
     {
-      icon: <Instagram className="w-6 h-6 md:w-8 md:h-8" />,
+      icon: <Instagram className="w-8 h-8" />,
       name: "Instagram",
       url: "https://www.instagram.com/strajo22/",
       color: "hover:text-pink-500"
     },
     {
-      icon: <Linkedin className="w-6 h-6 md:w-8 md:h-8" />,
+      icon: <Linkedin className="w-8 h-8" />,
       name: "LinkedIn",
       url: "https://www.linkedin.com/in/strahinja-janjusevic-8a15a4241/",
       color: "hover:text-blue-500"
     },
     {
-      icon: <Github className="w-6 h-6 md:w-8 md:h-8" />,
+      icon: <Github className="w-8 h-8" />,
       name: "GitHub",
       url: "https://github.com/m243006",
       color: "hover:text-purple-500"
@@ -40,13 +40,13 @@ const SocialLinks = () => {
   };
 
   return (
-    <div className="container mx-auto px-4 py-10 md:py-20">
+    <div className="container mx-auto px-4 py-20">
       <motion.div
         variants={container}
         initial="hidden"
         whileInView="show"
         viewport={{ once: true }}
-        className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 md:gap-8"
+        className="grid grid-cols-1 md:grid-cols-3 gap-8"
       >
         {socialLinks.map((link, index) => (
           <motion.div key={index} variants={item}>
@@ -57,14 +57,14 @@ const SocialLinks = () => {
               className="block"
             >
               <Card className="group hover:scale-105 transition-transform duration-300">
-                <CardContent className="p-4 md:p-6">
+                <CardContent className="p-6">
                   <motion.div
-                    className={`flex flex-col items-center space-y-2 md:space-y-4 ${link.color}`}
+                    className={`flex flex-col items-center space-y-4 ${link.color}`}
                     whileHover={{ scale: 1.05 }}
                     transition={{ type: "spring", stiffness: 300 }}
                   >
                     {link.icon}
-                    <span className="text-base md:text-lg font-semibold">{link.name}</span>
+                    <span className="text-lg font-semibold">{link.name}</span>
                   </motion.div>
                 </CardContent>
               </Card>
