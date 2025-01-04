@@ -58,7 +58,7 @@ const JourneyMap = () => {
 
         <div className="container mx-auto px-4 relative z-10">
           <h2
-            className="text-4xl md:text-5xl font-bold text-center mb-8 font-serif italic tracking-wider text-cyan-500"
+            className="text-3xl md:text-5xl font-bold text-center mb-8 font-serif italic tracking-wider text-cyan-500"
             style={{
               textShadow: '0 0 20px rgba(6, 182, 212, 0.5)',
               fontFamily: "'Playfair Display', serif"
@@ -67,9 +67,9 @@ const JourneyMap = () => {
             My Journey
           </h2>
 
-          <div className="relative h-[1500px]">
+          <div className="relative h-[2000px] md:h-[1500px]">
             <svg 
-              className="absolute inset-0 w-full h-full" 
+              className="absolute inset-0 w-full h-full hidden md:block" 
               style={{ zIndex: 20 }}
               viewBox="0 0 100 100"
               preserveAspectRatio="none"
@@ -94,10 +94,11 @@ const JourneyMap = () => {
             {staticCards.map((card, index) => (
               <div
                 key={index}
-                className="absolute w-64 cursor-pointer hover:scale-105 transition-transform duration-300"
+                className="absolute w-full md:w-64 cursor-pointer hover:scale-105 transition-transform duration-300 px-4 md:px-0"
                 style={{
                   left: `${card.position.x}%`,
                   top: `${card.position.y}%`,
+                  transform: `translateX(-50%)`,
                   zIndex: 40
                 }}
               >
@@ -112,7 +113,7 @@ const JourneyMap = () => {
                       />
                     </div>
                     <h3 className="text-lg font-semibold text-cyan-500 mb-2">{card.title}</h3>
-                    <p className="text-muted-foreground">{card.description}</p>
+                    <p className="text-muted-foreground text-sm md:text-base">{card.description}</p>
                   </CardContent>
                 </Card>
               </div>
