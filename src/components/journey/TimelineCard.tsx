@@ -66,12 +66,12 @@ export const TimelineCard = ({ event }: TimelineCardProps) => {
                 {event.expandedImages.map((image, index) => (
                   <div 
                     key={index}
-                    className="relative aspect-video overflow-hidden rounded-lg shadow-md"
+                    className="relative aspect-video bg-black/5 rounded-lg shadow-md flex items-center justify-center overflow-hidden"
                   >
                     <img
                       src={getImageUrl(image)}
                       alt={`${event.title} image ${index + 1}`}
-                      className="object-cover w-full h-full transition-transform duration-300 hover:scale-110"
+                      className="object-contain w-full h-full"
                     />
                   </div>
                 ))}
