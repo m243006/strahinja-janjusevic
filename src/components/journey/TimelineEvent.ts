@@ -19,7 +19,7 @@ export const timeline: TimelineEvent[] = [
     position: { x: 15, y: 5 },
     bgImage: "/public/lovable-uploads/13468a15-c480-49f5-a07a-ff29333dd9f7.png",
     expandedImages: [
-      "/public/lovable-uploads/Book.png",
+      "lovable-uploads/Book.png",
       "/lovable-uploads/5cb60864-a1b6-48fc-9509-2a71111471e8.png",
     ]
   },
