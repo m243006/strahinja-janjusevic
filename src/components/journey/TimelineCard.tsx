@@ -57,16 +57,16 @@ export const TimelineCard = ({ event }: TimelineCardProps) => {
       </motion.div>
 
       <Dialog open={isOpen} onOpenChange={setIsOpen}>
-        <DialogContent className="max-w-3xl">
+        <DialogContent className="max-w-4xl max-h-[80vh] overflow-y-auto">
           <DialogHeader>
-            <DialogTitle>{event.title}</DialogTitle>
-            <div className="space-y-4">
-              <div className="text-sm text-muted-foreground">{event.year}</div>
-              <div className="grid grid-cols-2 gap-4">
+            <DialogTitle className="text-2xl font-bold mb-4">{event.title}</DialogTitle>
+            <div className="space-y-6">
+              <div className="text-lg text-muted-foreground font-medium">{event.year}</div>
+              <div className="grid grid-cols-2 gap-6">
                 {event.expandedImages.map((image, index) => (
                   <div 
                     key={index}
-                    className="relative aspect-video overflow-hidden rounded-lg"
+                    className="relative aspect-video overflow-hidden rounded-lg shadow-md"
                   >
                     <img
                       src={getImageUrl(image)}
@@ -76,7 +76,7 @@ export const TimelineCard = ({ event }: TimelineCardProps) => {
                   </div>
                 ))}
               </div>
-              <div className="text-base leading-relaxed">{event.details}</div>
+              <div className="text-lg leading-relaxed prose max-w-none">{event.details}</div>
             </div>
           </DialogHeader>
         </DialogContent>
