@@ -21,7 +21,7 @@ export const timeline: TimelineEvent[] = [
     expandedImages: [
       "/lovable-uploads/Book.png",
       "/lovable-uploads/5cb60864-a1b6-48fc-9509-2a71111471e8.png",
-      "/lovable-uploads/5cb60864-a1b6-48fc-9509-2a71111471e8.png",
+      "/lovable-uploads/9de2e6b8-2c1b-4e26-88b3-bd9e00ccec90.png",
     ]
   },
   {
