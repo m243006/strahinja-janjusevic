@@ -11,6 +11,15 @@ interface TimelineCardProps {
 export const TimelineCard = ({ event }: TimelineCardProps) => {
   const [isOpen, setIsOpen] = useState(false);
 
+  const getImageUrl = (imageUrl: string) => {
+    // If it starts with 'photo-', it's an Unsplash image
+    if (imageUrl.startsWith('photo-')) {
+      return `https://images.unsplash.com/${imageUrl}`;
+    }
+    // Otherwise, it's a local image
+    return imageUrl;
+  };
+
   return (
     <>
       <motion.div
@@ -60,7 +69,7 @@ export const TimelineCard = ({ event }: TimelineCardProps) => {
                     className="relative aspect-video overflow-hidden rounded-lg"
                   >
                     <img
-                      src={`https://images.unsplash.com/${image}`}
+                      src={getImageUrl(image)}
                       alt={`${event.title} image ${index + 1}`}
                       className="object-cover w-full h-full transition-transform duration-300 hover:scale-110"
                     />
