@@ -17,9 +17,9 @@ export const timeline: TimelineEvent[] = [
     details: "Selected as one of 20 students for the NSA-CAE track, demonstrating technical proficiency in Cybersecurity. Served as Squad Leader responsible for Midshipmen development and as Drill Officer leading 140 people in military exercises.",
     delay: 0.1,
     position: { x: 15, y: 5 },
-    bgImage: "/lovable-uploads/13468a15-c480-49f5-a07a-ff29333dd9f7.png",
+    bgImage: "/public/lovable-uploads/13468a15-c480-49f5-a07a-ff29333dd9f7.png",
     expandedImages: [
-      "/lovable-uploads/9de2e6b8-2c1b-4e26-88b3-bd9e00ccec90.png",
+      "/public/lovable-uploads/9de2e6b8-2c1b-4e26-88b3-bd9e00ccec90.png",
       "/lovable-uploads/5cb60864-a1b6-48fc-9509-2a71111471e8.png",
     ]
   },
