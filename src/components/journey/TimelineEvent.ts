@@ -27,7 +27,7 @@ export const timeline: TimelineEvent[] = [
     year: "2022",
     title: "Microsoft Cloud Security Internship",
     description: "Developed API for URL scanning and incident analysis",
-    details: "As a Cloud Security Intern at Microsoft, I contributed to one of the world’s largest incident response teams, gaining hands-on experience in analyzing and mitigating cyber threats. I spearheaded the development of an API for URL scanning, which streamlined the detection of malicious links and enhanced the team’s ability to respond to security incidents efficiently. This project not only improved operational workflows but also provided valuable insights into the challenges of securing cloud-based systems at scale. Working alongside industry leaders, I deepened my understanding of cybersecurity operations and the critical role of leadership in managing high-stakes environments. This experience solidified my passion for leveraging technology to address complex security challenges and prepared me for advanced work in AI-driven cybersecurity.",
+    details: "As a Cloud Security Intern at Microsoft, I contributed to one of the world’s largest incident response teams, gaining hands-on experience in analyzing and mitigating cyber threats. This project not only improved operational workflows but also provided valuable insights into the challenges of securing cloud-based systems at scale. Working alongside amazing industry leaders, I deepened my understanding of cybersecurity operations and the critical role of leadership in managing high-stakes environments. This experience solidified my passion for leveraging technology to address complex security challenges and prepared me for advanced work in AI-driven cybersecurity.",
     delay: 0.2,
     position: { x: 30, y: 25 },
     bgImage: "photo-1493962853295-0fd70327578a",
@@ -38,29 +38,28 @@ export const timeline: TimelineEvent[] = [
   },
   {
     year: "2023",
-    title: "NASA Internship",
+    title: "NASA Goddard Internship",
     description: "Developed Helios website for solar data visualization",
-    details: "During my internship at NASA, I played a pivotal role in advancing solar research by contributing to the development of the Helios website, which utilized 3D rendering technology to visualize solar images using data from the Helioviewer API. This project not only enhanced the accessibility of solar data but also provided researchers with powerful tools to study the sun’s dynamic behavior. Additionally, I conducted magnetic field line extrapolations, a critical component in understanding the sun’s magnetic structure, and developed code that supported broader research initiatives. Working at NASA allowed me to apply my technical skills to real-world scientific challenges, deepening my appreciation for the role of technology in advancing space exploration and expanding our understanding of the universe.",
+    details: "During my internship at NASA, I played a role in advancing solar research by contributing to the development of the Helios website, which utilized 3D rendering technology to visualize solar images using data from the Helioviewer API. This project not only enhanced the accessibility of solar data but also provided researchers with powerful tools to study the sun’s dynamic behavior. Additionally, I conducted magnetic field line extrapolations, a critical component in understanding the sun’s magnetic structure, and developed code that supported broader research initiatives. Working at NASA allowed me to apply my technical skills to real-world scientific challenges, deepening my appreciation for the role of technology in advancing space exploration and expanding our understanding of the universe.",
     delay: 0.3,
     position: { x: 20, y: 45 },
     bgImage: "photo-1485833077593-4278bba3f11f",
     expandedImages: [
       "/lovable-uploads/Nas.jpg",
       "/lovable-uploads/Planete.jpg",
-      "/lovable-uploads/Launch.jpg",
     ]
   },
   {
     year: "2023",
     title: "Capstone Project",
     description: "Threat Intelligence and Behaviour Analysis Research",
-    details: "For my capstone project at the United States Naval Academy, I developed an innovative methodology to track and attribute threat actors by leveraging reputation-based systems. This approach enabled the systematic harvesting of threat intelligence data, allowing for the identification of new targets and maintaining continuity on known adversaries by detecting changes in their tradecraft. By focusing on reputation as a key metric, the project introduced a novel framework for network intrusion detection that not only enhanced threat visibility but also improved the ability to attribute malicious activities to specific actors. This work showcased my ability to think critically about cybersecurity challenges and create practical, forward-thinking solutions to address evolving threats in the digital landscape.",
+    details: "For my capstone project at the United States Naval Academy, We developed an innovative methodology to track and attribute threat actors by leveraging IP reputation. This approach enabled the systematic harvesting of threat intelligence data, allowing for the identification of new targets and maintaining continuity on known adversaries by detecting changes in their tradecraft. By focusing on reputation as a key metric, the project introduced a novel framework for network intrusion detection that not only enhanced threat visibility but also improved the ability to attribute malicious activities to specific actors.",
     delay: 0.4,
     position: { x: 35, y: 65 },
     bgImage: "photo-1472396961693-142e6e269027",
     expandedImages: [
-      "/lovable-uploads/Grupna.jpg",
-      "/lovable-uploads/IMG_5551.jpg",
+      "/lovable-uploads/Grupna.png",
+      "/lovable-uploads/IMG_5551.png",
     ]
   },
   {
