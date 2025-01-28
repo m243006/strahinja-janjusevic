@@ -27,7 +27,7 @@ const JourneyMap = () => {
 
   const staticCards = [
     {
-      image: "/lovable-uploads/People.PNG",
+      image: "/lovable-uploads/Peop.PNG",
       title: "People Matter",
       description: "Through connection, collaboration, and compassion that we find purpose, create impact, and build a legacy that outlasts our individual achievements.",
       position: { x: 65, y: 15 }
