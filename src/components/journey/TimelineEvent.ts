@@ -40,7 +40,7 @@ export const timeline: TimelineEvent[] = [
     year: "2023",
     title: "NASA Internship",
     description: "Developed Helios website for solar data visualization",
-    details: "Played a pivotal role in developing Helios website, utilizing 3D rendering technology to visualize solar images with data from the Helioviewer API. Conducted magnetic field line extrapolations crucial for comprehending the sun's magnetic structure.",
+    details: "During my internship at NASA, I played a pivotal role in advancing solar research by contributing to the development of the Helios website, which utilized 3D rendering technology to visualize solar images using data from the Helioviewer API. This project not only enhanced the accessibility of solar data but also provided researchers with powerful tools to study the sun’s dynamic behavior. Additionally, I conducted magnetic field line extrapolations, a critical component in understanding the sun’s magnetic structure, and developed code that supported broader research initiatives. Working at NASA allowed me to apply my technical skills to real-world scientific challenges, deepening my appreciation for the role of technology in advancing space exploration and expanding our understanding of the universe.",
     delay: 0.3,
     position: { x: 20, y: 45 },
     bgImage: "photo-1485833077593-4278bba3f11f",
