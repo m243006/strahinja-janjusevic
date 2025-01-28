@@ -18,21 +18,29 @@ const JourneyMap = () => {
   const mapY = useTransform(scrollYProgress, [0, 1], ["0%", "-10%"]);
   const opacity = useTransform(scrollYProgress, [0, 0.2, 0.8, 1], [0.3, 1, 1, 0.3]);
 
+  const interests = [
+    "Currently learning: Advanced AI/ML 🤖",
+    "Reading: Quantum Computing Papers 📚",
+    "Building: Cybersecurity Tools 🛠️",
+    "Researching: Zero Trust Architecture 🔒",
+    "Exploring: Naval Technology Innovations ⚓",
+  ];
+
   const staticCards = [
     {
-      image: "/public/lovable-uploads/People.PNG",
+      image: "photo-1605810230434-7631ac76ec81",
       title: "People Matter",
       description: "Through connection, collaboration, and compassion that we find purpose, create impact, and build a legacy that outlasts our individual achievements.",
       position: { x: 65, y: 15 }
     },
     {
-      image: "/public/lovable-uploads/Friends.PNG",
+      image: "photo-1519389950473-47ba0277781c",
       title: "Friends",
       description: "Turn moments into memories and challenges into triumphs.",
       position: { x: 75, y: 45 }
     },
     {
-      image: "/public/lovable-uploads/Fam.PNG",
+      image: "photo-1721322800607-8c38375eef04",
       title: "Family",
       description: "Purpose and support.",
       position: { x: 60, y: 75 }
@@ -66,6 +74,30 @@ const JourneyMap = () => {
           >
             My Journey
           </h2>
+
+          {/* Running Tape */}
+          <div className="w-full overflow-hidden mb-8 bg-background/40 backdrop-blur-sm rounded-lg p-4">
+            <motion.div
+              animate={{
+                x: [0, -1000],
+              }}
+              transition={{
+                x: {
+                  repeat: Infinity,
+                  repeatType: "loop",
+                  duration: 20,
+                  ease: "linear",
+                }
+              }}
+              className="whitespace-nowrap inline-block"
+            >
+              {interests.map((interest, index) => (
+                <span key={index} className="mx-8 text-cyan-400 text-lg">
+                  {interest}
+                </span>
+              ))}
+            </motion.div>
+          </div>
 
           <div className="relative h-[1500px]">
             <svg 
@@ -109,7 +141,7 @@ const JourneyMap = () => {
                         <img
                           src={`https://images.unsplash.com/${card.image}`}
                           alt={card.title}
-                          className="object-cover w-full h-full transform hover:scale-110 transition-transform duration-300"
+                          className="object-contain w-full h-full transform hover:scale-110 transition-transform duration-300"
                           loading="lazy"
                         />
                       </div>
