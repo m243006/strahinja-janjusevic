@@ -28,19 +28,19 @@ const JourneyMap = () => {
 
   const staticCards = [
     {
-      image: "photo-1605810230434-7631ac76ec81",
+      image: "/lovable-uploads/People.PNG",
       title: "People Matter",
       description: "Through connection, collaboration, and compassion that we find purpose, create impact, and build a legacy that outlasts our individual achievements.",
       position: { x: 65, y: 15 }
     },
     {
-      image: "photo-1519389950473-47ba0277781c",
+      image: "/lovable-uploads/Friends.PNG",
       title: "Friends",
       description: "Turn moments into memories and challenges into triumphs.",
       position: { x: 75, y: 45 }
     },
     {
-      image: "photo-1721322800607-8c38375eef04",
+      image: "/lovable-uploads/Fam.PNG",
       title: "Family",
       description: "Purpose and support.",
       position: { x: 60, y: 75 }
@@ -74,30 +74,6 @@ const JourneyMap = () => {
           >
             My Journey
           </h2>
-
-          {/* Running Tape */}
-          <div className="w-full overflow-hidden mb-8 bg-background/40 backdrop-blur-sm rounded-lg p-4">
-            <motion.div
-              animate={{
-                x: [0, -1000],
-              }}
-              transition={{
-                x: {
-                  repeat: Infinity,
-                  repeatType: "loop",
-                  duration: 20,
-                  ease: "linear",
-                }
-              }}
-              className="whitespace-nowrap inline-block"
-            >
-              {interests.map((interest, index) => (
-                <span key={index} className="mx-8 text-cyan-400 text-lg">
-                  {interest}
-                </span>
-              ))}
-            </motion.div>
-          </div>
 
           <div className="relative h-[1500px]">
             <svg 
@@ -139,7 +115,7 @@ const JourneyMap = () => {
                     <CardContent className="p-4">
                       <div className="aspect-video overflow-hidden rounded-lg mb-4">
                         <img
-                          src={`https://images.unsplash.com/${card.image}`}
+                          src={card.image}
                           alt={card.title}
                           className="object-contain w-full h-full transform hover:scale-110 transition-transform duration-300"
                           loading="lazy"
@@ -152,6 +128,30 @@ const JourneyMap = () => {
                 </div>
               ))}
             </div>
+          </div>
+
+          {/* Running Tape - Now positioned after the timeline */}
+          <div className="w-full overflow-hidden my-8 bg-background/40 backdrop-blur-sm rounded-lg p-4">
+            <motion.div
+              animate={{
+                x: [0, -1000],
+              }}
+              transition={{
+                x: {
+                  repeat: Infinity,
+                  repeatType: "loop",
+                  duration: 20,
+                  ease: "linear",
+                }
+              }}
+              className="whitespace-nowrap inline-block"
+            >
+              {interests.map((interest, index) => (
+                <span key={index} className="mx-8 text-cyan-400 text-lg">
+                  {interest}
+                </span>
+              ))}
+            </motion.div>
           </div>
         </div>
       </div>
