@@ -130,37 +130,39 @@ const JourneyMap = () => {
             </div>
           </div>
 
-          {/* Current Interests Section */}
-          <h3 className="text-2xl font-bold text-center mb-4 text-cyan-500"
-              style={{
-                textShadow: '0 0 10px rgba(6, 182, 212, 0.3)',
-                fontFamily: "'Playfair Display', serif"
-              }}>
-            Current Interests and Events
-          </h3>
+          {/* Add significant spacing before the Current Interests section */}
+          <div className="mt-32">
+            <h3 className="text-2xl font-bold text-center mb-4 text-cyan-500"
+                style={{
+                  textShadow: '0 0 10px rgba(6, 182, 212, 0.3)',
+                  fontFamily: "'Playfair Display', serif"
+                }}>
+              Current Interests and Events
+            </h3>
 
-          {/* Running Tape */}
-          <div className="w-full overflow-hidden my-8 bg-background/40 backdrop-blur-sm rounded-lg p-4">
-            <motion.div
-              animate={{
-                x: [0, -1000],
-              }}
-              transition={{
-                x: {
-                  repeat: Infinity,
-                  repeatType: "loop",
-                  duration: 20,
-                  ease: "linear",
-                }
-              }}
-              className="whitespace-nowrap inline-block"
-            >
-              {interests.map((interest, index) => (
-                <span key={index} className="mx-8 text-cyan-400 text-lg">
-                  {interest}
-                </span>
-              ))}
-            </motion.div>
+            {/* Running Tape */}
+            <div className="w-full overflow-hidden my-8 bg-background/40 backdrop-blur-sm rounded-lg p-4">
+              <motion.div
+                animate={{
+                  x: [0, -1000],
+                }}
+                transition={{
+                  x: {
+                    repeat: Infinity,
+                    repeatType: "loop",
+                    duration: 20,
+                    ease: "linear",
+                  }
+                }}
+                className="whitespace-nowrap inline-block"
+              >
+                {interests.map((interest, index) => (
+                  <span key={index} className="mx-8 text-cyan-400 text-lg">
+                    {interest}
+                  </span>
+                ))}
+              </motion.div>
+            </div>
           </div>
         </div>
       </div>
