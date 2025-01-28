@@ -130,7 +130,16 @@ const JourneyMap = () => {
             </div>
           </div>
 
-          {/* Running Tape - Now positioned after the timeline */}
+          {/* Current Interests Section */}
+          <h3 className="text-2xl font-bold text-center mb-4 text-cyan-500"
+              style={{
+                textShadow: '0 0 10px rgba(6, 182, 212, 0.3)',
+                fontFamily: "'Playfair Display', serif"
+              }}>
+            Current Interests and Events
+          </h3>
+
+          {/* Running Tape */}
           <div className="w-full overflow-hidden my-8 bg-background/40 backdrop-blur-sm rounded-lg p-4">
             <motion.div
               animate={{
