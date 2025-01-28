@@ -20,8 +20,7 @@ export const timeline: TimelineEvent[] = [
     bgImage: "/public/lovable-uploads/13468a15-c480-49f5-a07a-ff29333dd9f7.png",
     expandedImages: [
       "/lovable-uploads/Book.png",
-      "/lovable-uploads/5cb60864-a1b6-48fc-9509-2a71111471e8.png",
-      "/lovable-uploads/1678212662564.jpg",
+      "/lovable-uploads/UMD.jpg",
     ]
   },
   {
@@ -46,8 +45,9 @@ export const timeline: TimelineEvent[] = [
     position: { x: 20, y: 45 },
     bgImage: "photo-1485833077593-4278bba3f11f",
     expandedImages: [
-      "photo-1485833077593-4278bba3f11f",
-      "photo-1633419461186-7d40a38105ec",
+      "/lovable-uploads/Nas.jpg",
+      "/lovable-uploads/Planete.jpg",
+      "/lovable-uploads/Launch.jpg",
     ]
   },
   {
@@ -59,7 +59,7 @@ export const timeline: TimelineEvent[] = [
     position: { x: 35, y: 65 },
     bgImage: "photo-1472396961693-142e6e269027",
     expandedImages: [
-      "photo-1472396961693-142e6e269027",
+      "/lovable-uploads/Nas.jpg",
       "photo-1451187580459-43490279c0fa",
     ]
   },
@@ -72,8 +72,8 @@ export const timeline: TimelineEvent[] = [
     position: { x: 15, y: 80 },
     bgImage: "photo-1466721591366-2d5fba72006d",
     expandedImages: [
-      "photo-1466721591366-2d5fba72006d",
-      "photo-1620712943543-bcc4688e7485",
+      "/lovable-uploads/Cerfificate.jpg",
+      "/lovable-uploads/Sched.jpg",
     ]
   },
   {
