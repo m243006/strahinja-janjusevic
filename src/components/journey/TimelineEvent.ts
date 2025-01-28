@@ -12,7 +12,7 @@ export interface TimelineEvent {
 export const timeline: TimelineEvent[] = [
   {
     year: "2020-2024",
-    title: "U.S. Naval Academy",
+    title: "U.S. Naval Academy (click here)",
     description: "Bachelor of Science - Dual Major in Cyber Operations (NSA-CAE) and Computer Science",
     details: "During my time at the United States Naval Academy, I pursued a dual major in Cyber Operations and Computer Science, graduating with a strong foundation in both technical expertise and leadership. As part of the prestigious NSA Centers of Academic Excellence (CAE) program, I honed my skills in cybersecurity, focusing on threat intelligence, network defense, and operational methodologies. Beyond academics, I was a part of a team that competed at the University of Maryland Data Challenge, where we secured the award for Outstanding Cybersecurity Project by enhancing code and infrastructure to create a more secure environment. Additionally, I served in leadership roles as a Squad Leader and Drill Officer, mentoring peers and ensuring the success of over 140 midshipmen. These experiences instilled a strong sense of discipline and teamwork.",
     delay: 0.1,
