@@ -19,11 +19,10 @@ const JourneyMap = () => {
   const opacity = useTransform(scrollYProgress, [0, 0.2, 0.8, 1], [0.3, 1, 1, 0.3]);
 
   const interests = [
-    "Currently learning: Advanced AI/ML 🤖",
-    "Reading: Quantum Computing Papers 📚",
-    "Building: Cybersecurity Tools 🛠️",
-    "Researching: Zero Trust Architecture 🔒",
-    "Exploring: Naval Technology Innovations ⚓",
+    "Attending: Harvard European Conference: Leader or Dreamer? (Feb 1st) 🤖",
+    "Attenging: National Security Conference: MIT 📚",
+    "Building RAGs and Vertical AI agents 🛠️",
+    "Researching: Cybersecuirty in Maritime Industry 🔒",
   ];
 
   const staticCards = [
