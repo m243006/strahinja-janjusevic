@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { Card, CardContent } from "./ui/card";
-import { Github, Instagram, Linkedin } from "lucide-react";
+import { Instagram, Linkedin } from "lucide-react";
 
 const SocialLinks = () => {
   const socialLinks = [
@@ -15,12 +15,6 @@ const SocialLinks = () => {
       name: "LinkedIn",
       url: "https://www.linkedin.com/in/strahinja-janjusevic-8a15a4241/",
       color: "hover:text-blue-500"
-    },
-    {
-      icon: <Github className="w-6 h-6" />,
-      name: "GitHub",
-      url: "https://github.com/m243006",
-      color: "hover:text-purple-500"
     }
   ];
 
@@ -49,7 +43,7 @@ const SocialLinks = () => {
         className="flex justify-center gap-4"
       >
         {socialLinks.map((link, index) => (
-          <motion.div key={index} variants={item} className="w-20">
+          <motion.div key={index} className="w-20">
             <a
               href={link.url}
               target="_blank"
