@@ -32,8 +32,8 @@ export const timeline: TimelineEvent[] = [
     position: { x: 30, y: 25 },
     bgImage: "photo-1493962853295-0fd70327578a",
     expandedImages: [
-      "photo-1493962853295-0fd70327578a",
-      "photo-1588666309990-d68f08e3d4a6",
+      "/lovable-uploads/Badge.png",
+      "/lovable-uploads/Office.jpg",
     ]
   },
   {
@@ -59,8 +59,8 @@ export const timeline: TimelineEvent[] = [
     position: { x: 35, y: 65 },
     bgImage: "photo-1472396961693-142e6e269027",
     expandedImages: [
-      "/lovable-uploads/Nas.jpg",
-      "photo-1451187580459-43490279c0fa",
+      "/lovable-uploads/Grupna.jpg",
+      "/lovable-uploads/IMG_5551.jpg",
     ]
   },
   {
