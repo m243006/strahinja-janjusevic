@@ -32,8 +32,8 @@ export const timeline: TimelineEvent[] = [
     position: { x: 30, y: 25 },
     bgImage: "photo-1493962853295-0fd70327578a",
     expandedImages: [
-      "/lovable-uploads/Badge.png",
-      "/lovable-uploads/Office.jpg",
+      "/lovable-uploads/Badge.PNG",
+      "/lovable-uploads/Office.png",
     ]
   },
   {
@@ -71,7 +71,7 @@ export const timeline: TimelineEvent[] = [
     position: { x: 15, y: 80 },
     bgImage: "photo-1466721591366-2d5fba72006d",
     expandedImages: [
-      "/lovable-uploads/Cerfificate.jpg",
+      "/lovable-uploads/Certificate.jpg",
       "/lovable-uploads/Sched.jpg",
     ]
   },
@@ -79,7 +79,7 @@ export const timeline: TimelineEvent[] = [
     year: "2024-Present",
     title: "MIT ALFA Group",
     description: "Artificial Adversarial Intelligence Research",
-    details: "My research focuses on advancing the intersection of artificial intelligence and cybersecurity, with a particular emphasis on adversarial intelligence and threat detection. At MIT’s Computer Science and Artificial Intelligence Laboratory (CSAIL), I am working with the Anyscale Learning For All (ALFA) group to computationally replicate adversarial behaviors, exploring how AI agents can compete, learn, and adapt in simulated environments like CybORG. Leveraging Large Language Models (LLMs) and the BRON knowledge graph, I am developing coevolutionary algorithms to enhance the capabilities of AI-driven cybersecurity systems. Previously, during my capstone project at the Naval Academy, I pioneered a novel methodology for tracking threat actors using reputation-based systems, enabling the systematic harvesting of threat intelligence and improving network intrusion detection. My research aims to push the boundaries of AI and cybersecurity, creating innovative solutions to address evolving threats in digital and military domains.",
+    details: "My research focuses on advancing the intersection of artificial intelligence and cybersecurity, with a particular emphasis on adversarial intelligence and threat detection. At MIT’s Computer Science and Artificial Intelligence Laboratory (CSAIL), I am working with the Anyscale Learning For All (ALFA) group to computationally replicate adversarial behaviors, exploring how AI agents can compete, learn, and adapt in simulated environments like CybORG. Leveraging Large Language Models (LLMs) and the BRON knowledge graph, ALFA is developing coevolutionary algorithms to enhance the capabilities of AI-driven cybersecurity systems.",
     delay: 0.6,
     position: { x: 30, y: 95 },
     bgImage: "photo-1485827404703-89b55fcc595e",
