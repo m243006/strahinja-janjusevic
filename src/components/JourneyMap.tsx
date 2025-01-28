@@ -20,19 +20,19 @@ const JourneyMap = () => {
 
   const staticCards = [
     {
-      image: "/lovable-uploads/People.PNG",
+      image: "/public/lovable-uploads/People.PNG",
       title: "People Matter",
       description: "Through connection, collaboration, and compassion that we find purpose, create impact, and build a legacy that outlasts our individual achievements.",
       position: { x: 65, y: 15 }
     },
     {
-      image: "/lovable-uploads/Friends.PNG",
+      image: "/public/lovable-uploads/Friends.PNG",
       title: "Friends",
       description: "Turn moments into memories and challenges into triumphs.",
       position: { x: 75, y: 45 }
     },
     {
-      image: "/lovable-uploads/Fam.PNG",
+      image: "/public/lovable-uploads/Fam.PNG",
       title: "Family",
       description: "Purpose and support.",
       position: { x: 60, y: 75 }
