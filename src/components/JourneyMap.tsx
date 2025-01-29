@@ -20,7 +20,7 @@ const JourneyMap = () => {
 
   const interests = [
     "Attending: Harvard European Conference: Leader or Dreamer? (Feb 1st) 🤖",
-    "Attenging: National Security Conference: MIT 📚",
+    "Attending: National Security Conference: MIT 📚",
     "Building RAGs and Vertical AI agents 🛠️",
     "Researching: Cybersecuirty in Maritime Industry 🔒",
   ];
