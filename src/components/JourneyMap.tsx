@@ -22,7 +22,7 @@ const JourneyMap = () => {
     "Attending: Harvard European Conference: Leader or Dreamer? (Feb 1st) 🤖",
     "Attending: National Security Conference: MIT 📚",
     "Building RAGs and Vertical AI agents 🛠️",
-    "Researching: Cybersecuirty in Maritime Industry 🔒",
+    "Researching: Cybersecurity in Maritime Industry 🔒",
   ];
 
   const staticCards = [
