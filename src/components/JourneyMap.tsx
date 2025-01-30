@@ -113,7 +113,7 @@ const JourneyMap = () => {
           <div className="relative h-[1500px]">
             <svg 
               className="absolute inset-0 w-full h-full" 
-              style={{ zIndex: 20 }}
+              style={{ zIndex: 20, transform: 'translateX(10%)' }}
               viewBox="0 0 100 100"
               preserveAspectRatio="none"
             >
@@ -133,40 +133,30 @@ const JourneyMap = () => {
                 event={event}
               />
             ))}
-
-            {/* Static cards - hidden on mobile */}
-            <div className="hidden md:block">
-              {staticCards.map((card, index) => (
-                <div
-                  key={index}
-                  className="absolute w-64 cursor-pointer hover:scale-105 transition-transform duration-300"
-                  style={{
-                    left: `${card.position.x}%`,
-                    top: `${card.position.y}%`,
-                    zIndex: 40
-                  }}
-                >
-                  <Card className="bg-background/80 backdrop-blur border-cyan-500/20 hover:border-cyan-500/40">
-                    <CardContent className="p-4">
-                      <div className="aspect-video overflow-hidden rounded-lg mb-4">
-                        <img
-                          src={card.image}
-                          alt={card.title}
-                          className="object-contain w-full h-full transform hover:scale-110 transition-transform duration-300"
-                          loading="lazy"
-                        />
-                      </div>
-                      <h3 className="text-lg font-semibold text-cyan-500 mb-2">{card.title}</h3>
-                      <p className="text-muted-foreground">{card.description}</p>
-                    </CardContent>
-                  </Card>
-                </div>
-              ))}
-            </div>
           </div>
         </div>
       </div>
-      <div className="py-6 md:py-10 relative z-50">
+
+      {/* Static cards in one line */}
+      <div className="container mx-auto px-4 py-8">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8">
+          {staticCards.map((card, index) => (
+            <Card key={index} className="bg-background/80 backdrop-blur border-cyan-500/20 hover:border-cyan-500/40 hover:scale-105 transition-transform duration-300">
+              <CardContent className="p-4">
+                <div className="aspect-video overflow-hidden rounded-lg mb-4">
+                  <img
+                    src={card.image}
+                    alt={card.title}
+                    className="object-contain w-full h-full transform hover:scale-110 transition-transform duration-300"
+                    loading="lazy"
+                  />
+                </div>
+                <h3 className="text-lg font-semibold text-cyan-500 mb-2">{card.title}</h3>
+                <p className="text-muted-foreground text-sm">{card.description}</p>
+              </CardContent>
+            </Card>
+          ))}
+        </div>
         <SocialLinks />
       </div>
     </>
