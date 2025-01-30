@@ -112,7 +112,7 @@ const JourneyMap = () => {
 
           <div className="relative h-[1500px]">
             <svg 
-              className="absolute inset-0 w-full h-full hidden md:block" 
+              className="absolute inset-0 w-full h-full" 
               style={{ zIndex: 20 }}
               viewBox="0 0 100 100"
               preserveAspectRatio="none"
