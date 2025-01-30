@@ -64,9 +64,9 @@ const JourneyMap = () => {
         </motion.div>
 
         <div className="container mx-auto px-4 relative z-10">
-          {/* Current Interests Section - Moved to top */}
-          <div className="mb-20">
-            <h3 className="text-2xl font-bold text-center mb-4 text-cyan-500"
+          {/* Current Interests Section */}
+          <div className="mb-10 md:mb-20">
+            <h3 className="text-xl md:text-2xl font-bold text-center mb-4 text-cyan-500"
                 style={{
                   textShadow: '0 0 10px rgba(6, 182, 212, 0.3)',
                   fontFamily: "'Playfair Display', serif"
@@ -74,8 +74,8 @@ const JourneyMap = () => {
               Current Interests and Events
             </h3>
 
-            {/* Running Tape */}
-            <div className="w-full overflow-hidden my-8 bg-background/40 backdrop-blur-sm rounded-lg p-4">
+            {/* Running Tape - Mobile Optimized */}
+            <div className="w-full overflow-hidden my-4 md:my-8 bg-background/40 backdrop-blur-sm rounded-lg p-2 md:p-4">
               <motion.div
                 animate={{
                   x: [0, -1000],
@@ -91,7 +91,7 @@ const JourneyMap = () => {
                 className="whitespace-nowrap inline-block"
               >
                 {interests.map((interest, index) => (
-                  <span key={index} className="mx-8 text-cyan-400 text-lg">
+                  <span key={index} className="mx-4 md:mx-8 text-sm md:text-lg text-cyan-400">
                     {interest}
                   </span>
                 ))}
@@ -101,7 +101,7 @@ const JourneyMap = () => {
 
           {/* Journey Section */}
           <h2
-            className="text-4xl md:text-5xl font-bold text-center mb-8 font-serif italic tracking-wider text-cyan-500"
+            className="text-3xl md:text-5xl font-bold text-center mb-6 md:mb-8 font-serif italic tracking-wider text-cyan-500"
             style={{
               textShadow: '0 0 20px rgba(6, 182, 212, 0.5)',
               fontFamily: "'Playfair Display', serif"
@@ -112,7 +112,7 @@ const JourneyMap = () => {
 
           <div className="relative h-[1500px]">
             <svg 
-              className="absolute inset-0 w-full h-full" 
+              className="absolute inset-0 w-full h-full hidden md:block" 
               style={{ zIndex: 20 }}
               viewBox="0 0 100 100"
               preserveAspectRatio="none"
@@ -166,7 +166,7 @@ const JourneyMap = () => {
           </div>
         </div>
       </div>
-      <div className="py-10 relative z-50">
+      <div className="py-6 md:py-10 relative z-50">
         <SocialLinks />
       </div>
     </>

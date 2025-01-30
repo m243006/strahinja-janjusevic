@@ -72,4 +72,9 @@
       transform: translateY(0);
     }
   }
+
+  .writing-vertical-lr {
+    writing-mode: vertical-lr;
+    text-orientation: mixed;
+  }
 }

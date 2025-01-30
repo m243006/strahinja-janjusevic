@@ -21,8 +21,24 @@ const Hero = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
-          className="text-center"
+          className="text-center relative"
         >
+          {/* Scroll Down Indicator */}
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: [0.3, 1, 0.3] }}
+            transition={{
+              repeat: Infinity,
+              duration: 2,
+              ease: "easeInOut"
+            }}
+            className="absolute left-4 top-1/2 transform -translate-y-1/2 hidden md:block"
+          >
+            <div className="writing-vertical-lr text-cyan-500 text-sm font-light tracking-wider">
+              scroll down
+            </div>
+          </motion.div>
+
           <ProfileImage />
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -33,8 +49,9 @@ const Hero = () => {
               type: "spring",
               stiffness: 100
             }}
+            className="mt-6 md:mt-8"
           >
-            <h1 className="text-5xl md:text-6xl font-bold mb-6 font-serif italic tracking-wider">
+            <h1 className="text-3xl md:text-6xl font-bold mb-4 md:mb-6 font-serif italic tracking-wider px-2">
               <motion.span
                 className="inline-block text-cyan-500"
                 whileHover={{ 
@@ -67,7 +84,7 @@ const Hero = () => {
           </motion.div>
           <AnimatedText
             text="Master's student candidate in Technology and Policy at MIT, researching uses of AI in cybersecurity"
-            className="text-xl md:text-2xl text-cyan-300 max-w-3xl mx-auto leading-relaxed font-serif"
+            className="text-lg md:text-2xl text-cyan-300 max-w-3xl mx-auto leading-relaxed font-serif px-4"
           />
         </motion.div>
       </div>
