@@ -19,8 +19,7 @@ const JourneyMap = () => {
   const opacity = useTransform(scrollYProgress, [0, 0.2, 0.8, 1], [0.3, 1, 1, 0.3]);
 
   const interests = [
-    "Attending: Harvard European Conference: Leader or Dreamer? (Feb 1st) 🤖",
-    "Attending: National Security Conference: MIT 📚",
+    "Attending: National Security Conference: MIT SLOAN and HARVARD BUSINESS SCHOOL📚",
     "Big Hackaton in Sarajevo hosted by SarAI (May) 🤖",
     "Building RAGs and Vertical AI agents 🛠️",
     "Researching: Cybersecurity in Maritime Industry 🔒",
