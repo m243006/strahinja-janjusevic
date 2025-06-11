@@ -1,4 +1,3 @@
-
 import { motion } from "framer-motion";
 import { ArrowLeft, Calendar, User, Clock } from "lucide-react";
 import { Link } from "react-router-dom";
@@ -86,6 +85,25 @@ const BlogPost = () => {
               we are now seeing the emergence of AI-powered tools that can reason, plan, and execute complex 
               attack sequences.
             </p>
+
+            {/* Embedded Video */}
+            <div className="mb-8">
+              <Card className="bg-background/40 backdrop-blur border-cyan-500/20">
+                <CardContent className="p-6">
+                  <h3 className="text-xl font-semibold text-cyan-500 mb-4">
+                    AI in Offensive Security: A Visual Overview
+                  </h3>
+                  <div className="relative w-full" style={{ paddingBottom: '56.25%' }}>
+                    <iframe
+                      src="https://drive.google.com/file/d/1WE0eJHh3abFg0Fxpv6eWVsrJXMZL_ww6/preview"
+                      className="absolute top-0 left-0 w-full h-full rounded-lg"
+                      allow="autoplay"
+                      title="AI in Offensive Security Overview"
+                    />
+                  </div>
+                </CardContent>
+              </Card>
+            </div>
 
             <p className="text-foreground leading-relaxed mb-6">
               These systems are no longer theoretical or science fiction; they are being actively developed and 
