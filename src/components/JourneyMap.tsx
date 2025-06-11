@@ -1,22 +1,30 @@
+
 import { motion, useScroll, useTransform } from "framer-motion";
 import { ConnectingLine } from "./journey/ConnectingLine";
 import { TimelineCard } from "./journey/TimelineCard";
 import { timeline } from "./journey/TimelineEvent";
-import { useRef } from "react";
-import MatrixBackground from "./hero/MatrixBackground";
+import { useRef, useState, useEffect, lazy, Suspense } from "react";
 import SocialLinks from "./SocialLinks";
 import { Card, CardContent } from "./ui/card";
+import LoadingSkeleton from "./LoadingSkeleton";
+
+// Lazy load the optimized matrix background
+const OptimizedMatrixBackground = lazy(() => import("./hero/OptimizedMatrixBackground"));
 
 const JourneyMap = () => {
   const containerRef = useRef<HTMLDivElement>(null);
+  const [isLoaded, setIsLoaded] = useState(false);
+  const [imageLoadCount, setImageLoadCount] = useState(0);
+  
   const { scrollYProgress } = useScroll({
     target: containerRef,
     offset: ["start start", "end end"]
   });
 
-  const mapScale = useTransform(scrollYProgress, [0, 1], [1, 1.1]);
-  const mapY = useTransform(scrollYProgress, [0, 1], ["0%", "-10%"]);
-  const opacity = useTransform(scrollYProgress, [0, 0.2, 0.8, 1], [0.3, 1, 1, 0.3]);
+  // Reduced transform ranges for better performance
+  const mapScale = useTransform(scrollYProgress, [0, 1], [1, 1.05]);
+  const mapY = useTransform(scrollYProgress, [0, 1], ["0%", "-5%"]);
+  const opacity = useTransform(scrollYProgress, [0, 0.2, 0.8, 1], [0.5, 1, 1, 0.5]);
 
   const interests = [
     "Vectra AI Data Science Internship: Building AI Hackers 🤖",
@@ -45,6 +53,23 @@ const JourneyMap = () => {
     }
   ];
 
+  // Track image loading for better UX
+  useEffect(() => {
+    const totalImages = staticCards.length + timeline.length;
+    if (imageLoadCount >= totalImages * 0.7) { // Load when 70% of images are ready
+      setIsLoaded(true);
+    }
+  }, [imageLoadCount]);
+
+  const handleImageLoad = () => {
+    setImageLoadCount(prev => prev + 1);
+  };
+
+  // Show loading skeleton while images are loading
+  if (!isLoaded) {
+    return <LoadingSkeleton />;
+  }
+
   return (
     <>
       <div className="min-h-screen relative pt-5 pb-10" ref={containerRef}>
@@ -55,10 +80,12 @@ const JourneyMap = () => {
         >
           <div 
             className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1561541178-a1689e8ac55f')] 
-            bg-cover bg-center opacity-40 bg-fixed"
-            style={{ filter: 'brightness(0.7) contrast(1.2) hue-rotate(180deg)' }}
+            bg-cover bg-center opacity-30 bg-fixed"
+            style={{ filter: 'brightness(0.8) contrast(1.1) hue-rotate(180deg)' }}
           />
-          <MatrixBackground />
+          <Suspense fallback={<div />}>
+            <OptimizedMatrixBackground />
+          </Suspense>
           <div className="absolute inset-0 bg-gradient-to-b from-background/80 via-background/60 to-background/80" />
         </motion.div>
 
@@ -73,7 +100,7 @@ const JourneyMap = () => {
               Current Interests and Events
             </h3>
 
-            {/* Running Tape - Mobile Optimized */}
+            {/* Running Tape - Optimized animation */}
             <div className="w-full overflow-hidden my-4 md:my-8 bg-background/40 backdrop-blur-sm rounded-lg p-2 md:p-4">
               <motion.div
                 animate={{
@@ -83,7 +110,7 @@ const JourneyMap = () => {
                   x: {
                     repeat: Infinity,
                     repeatType: "loop",
-                    duration: 20,
+                    duration: 25, // Slower animation for better performance
                     ease: "linear",
                   }
                 }}
@@ -130,6 +157,7 @@ const JourneyMap = () => {
               <TimelineCard 
                 key={index} 
                 event={event}
+                onImageLoad={handleImageLoad}
               />
             ))}
 
@@ -153,6 +181,7 @@ const JourneyMap = () => {
                           alt={card.title}
                           className="object-contain w-full h-full transform hover:scale-110 transition-transform duration-300"
                           loading="lazy"
+                          onLoad={handleImageLoad}
                         />
                       </div>
                       <h3 className="text-lg font-semibold text-cyan-500 mb-2">{card.title}</h3>
@@ -178,6 +207,7 @@ const JourneyMap = () => {
                     alt={card.title}
                     className="object-contain w-full h-full transform hover:scale-110 transition-transform duration-300"
                     loading="lazy"
+                    onLoad={handleImageLoad}
                   />
                 </div>
                 <h3 className="text-lg font-semibold text-cyan-500 mb-2">{card.title}</h3>
