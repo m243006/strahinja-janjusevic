@@ -1,3 +1,4 @@
+
 import { motion, useScroll, useTransform } from "framer-motion";
 import { ConnectingLine } from "./journey/ConnectingLine";
 import { TimelineCard } from "./journey/TimelineCard";
@@ -19,7 +20,7 @@ const JourneyMap = () => {
   const opacity = useTransform(scrollYProgress, [0, 0.2, 0.8, 1], [0.3, 1, 1, 0.3]);
 
   const interests = [
-    "Attending: National Security Conference: MIT SLOAN and HARVARD BUSINESS SCHOOL📚",
+    "Vectra AI Data Science Internship: Building AI Hackers 🤖",
     "Big Hackaton in Sarajevo hosted by SarAI (May) 🤖",
     "Building RAGs and Vertical AI agents 🛠️",
     "Researching: Cybersecurity in Maritime Industry 🔒",
