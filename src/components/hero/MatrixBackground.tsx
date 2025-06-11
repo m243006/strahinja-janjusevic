@@ -1,3 +1,4 @@
+
 import { useEffect, useRef } from "react";
 
 const MatrixBackground = () => {
@@ -40,7 +41,7 @@ const MatrixBackground = () => {
       }
     };
 
-    const interval = setInterval(draw, 33);
+    const interval = setInterval(draw, 67); // Reduced from 33ms to 67ms (30fps to 15fps)
 
     const handleResize = () => {
       canvas.width = window.innerWidth;
