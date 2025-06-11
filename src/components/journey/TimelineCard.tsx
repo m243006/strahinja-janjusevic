@@ -28,7 +28,7 @@ export const TimelineCard = ({ event, onImageLoad }: TimelineCardProps) => {
         <CardContent className="p-4">
           <div className="aspect-video overflow-hidden rounded-lg mb-4">
             <img
-              src={event.image}
+              src={event.bgImage}
               alt={event.title}
               className="object-contain w-full h-full transform hover:scale-110 transition-transform duration-300"
               loading="lazy"
@@ -38,9 +38,6 @@ export const TimelineCard = ({ event, onImageLoad }: TimelineCardProps) => {
           <div className="flex items-center gap-2 mb-2">
             <Badge variant="secondary" className="bg-cyan-500/20 text-cyan-400 border-cyan-500/30">
               {event.year}
-            </Badge>
-            <Badge variant="outline" className="border-cyan-500/30 text-cyan-400">
-              {event.category}
             </Badge>
           </div>
           <h3 className="text-lg font-semibold text-cyan-500 mb-2 leading-tight">
