@@ -72,29 +72,49 @@ const McpBlogPost = () => {
         {/* Article Content */}
         <article className="prose prose-lg max-w-none text-foreground">
           <section id="introduction" className="mb-12">
+            <h2 className="text-3xl font-bold mb-6 text-cyan-400">New Technologies bring new risks: MCP-Powered Swarm C2</h2>
+            
             <p className="text-lg leading-relaxed mb-6">
               In my last post, <Link to="/blog/ai-offensive-security" className="text-cyan-500 hover:text-cyan-400 underline">"The Cutting Edge: AI's Inevitable Rise in Offensive Security,"</Link> I explored how AI is beginning to automate and augment red team operations. We're moving from manually driven tools to autonomous agents that can strategize and adapt. However, as the provided research paper, "MCP as a Malicious Control Protocol - Red Teaming with AI Agents," highlights, many current generative red teaming methods face challenges like hallucinations, context limitations, and trade-offs between specialized models and more general, modular frameworks.
             </p>
             
             <p className="text-lg leading-relaxed mb-6">
-              Today, I want to dive deep into a solution proposed in that paper that marks a paradigm shift for command and control (C2): the Model Context Protocol (MCP). This isn't just an incremental improvement; it's a new way of thinking about agent coordination and stealth.
+              Today, I want to dive deep into a solution proposed in that paper that marks a paradigm shift for command and control (C2): the <strong className="text-cyan-400">Model Context Protocol (MCP)</strong>. This isn't just an incremental improvement; it's a new way of thinking about command and control.
             </p>
+
+            <p className="text-lg leading-relaxed mb-6">
+              Traditional C2 frameworks, for all their utility, operate on a predictable, rhythmic cycle: the implant "beacons" back to the C2 server to check for new commands. This regularity is a significant operational security (OPSEC) risk. Modern NDR solutions are specifically tuned to spot these patterns. Once an NDR flags that consistent heartbeat, the implant and the operation are burned.
+            </p>
+
+            <p className="text-lg leading-relaxed mb-6">
+              The MCP architecture fundamentally changes this model by enabling <strong className="text-cyan-400">asynchronous, parallel operations</strong> without any periodic beaconing. Instead of a constant check-in, agents communicate covertly, blending their traffic with what looks like normal enterprise AI activity. This is the core of its strength: it hides in the noise of legitimate network chatter, making it exceptionally difficult for defenders to isolate.
+            </p>
+
+            <Card className="bg-cyan-950/20 border-cyan-400/30 p-6 my-8">
+              <h3 className="text-lg font-semibold text-cyan-300 mb-4">MCP Architecture Components</h3>
+              <p className="text-cyan-200 mb-4">Our architecture has 3 main components. The MCP agent has two legs of communication: one with the MCP server and another with the LLM Provider, in this case, Anthropic.</p>
+              <ol className="list-decimal list-inside space-y-2 text-cyan-200">
+                <li><strong>MCP Server:</strong> Where the high-level task is assigned and returned.</li>
+                <li><strong>MCP Agent:</strong> Connects to the MCP Server to pick up the task, disconnects, and reports later. The MCP agent also has back-and-forth communication with the LLM API that is executing the attack.</li>
+                <li><strong>Anthropic API:</strong> The actual attacker in this case. With a combination of a good system prompt and a high-level task, we are able to make the benign LLM conduct full exploits and report when the task is completed.</li>
+              </ol>
+            </Card>
           </section>
 
           <section id="beyond-beaconing" className="mb-12">
-            <h2 className="text-3xl font-bold mb-6 text-cyan-400">Beyond Beaconing: The Rise of Covert, Asynchronous C2</h2>
+            <h2 className="text-3xl font-bold mb-6 text-cyan-400">Beyond Beaconing</h2>
             
             <p className="text-lg leading-relaxed mb-6">
-              Traditional C2 frameworks, for all their utility, operate on a predictable, rhythmic cycle: the implant "beacons" back to the C2 server to check for new commands. This regularity is a significant operational security (OPSEC) risk. Modern Endpoint Detection and Response (EDR) solutions are specifically tuned to spot these patterns. Once an EDR flags that consistent heartbeat, the implant and the operation are burned.
+              The figure below illustrates a Cobalt Strike attack, clearly showing beaconing patterns. When the attacker engages, significant spikes represent large amounts of data being transmitted, primarily command outputs.
             </p>
-            
+
             <p className="text-lg leading-relaxed mb-6">
-              The MCP architecture fundamentally breaks this model. As the paper details, it enables asynchronous, parallel operations without any periodic beaconing. Instead of a constant check-in, agents communicate covertly, blending their traffic with what looks like normal enterprise AI activity. This is the core of its strength: it hides in the noise of legitimate network chatter, making it exceptionally difficult for defenders to isolate.
+              Conversely, our agentic framework demonstrates how communication appears with event-driven architecture. This communication is event-driven; a task is assigned to an agent connected to the MCP. The agent picks up the task and closes the connection with the MCP server. After performing its task, the agent reconnects to the server and reports its findings. In our representation, two such cases (two attacks) are depicted. The large blue spike in the second spike of each attack indicates the point where the agent sends back all important information.
             </p>
             
             <Card className="bg-cyan-950/20 border-cyan-400/30 p-6 my-8">
               <p className="text-cyan-200 italic">
-                <strong>Figure Suggestion 1:</strong> This is the perfect place for a comparative diagram. On one side, show a traditional C2 with arrows representing periodic beacons going from the compromised host to the C2 server. On the other side, illustrate the MCP model, showing sporadic, irregular communication from multiple agents blending with other network traffic. Title it something like: "Traditional Beaconing vs. MCP Asynchronous Communication."
+                <strong>Traditional vs. MCP Communication Patterns:</strong> Traditional C2 frameworks show consistent beaconing patterns that are easily detected by NDR solutions. MCP-powered agents communicate asynchronously, blending with legitimate AI traffic and making detection significantly more challenging.
               </p>
             </Card>
           </section>
@@ -120,7 +140,7 @@ const McpBlogPost = () => {
             
             <Card className="bg-cyan-950/20 border-cyan-400/30 p-6 my-8">
               <p className="text-cyan-200 italic">
-                <strong>Figure Suggestion 2:</strong> Here, a conceptual visualization of the swarm would be powerful. You could show a network diagram with multiple, small agent icons spreading out, with dotted lines connecting them to a central MCP hub, illustrating the real-time intelligence sharing. This visualizes the concept of coordinated, parallel operations. You could label it: "The MCP-Powered Agent Swarm."
+                <strong>The MCP-Powered Agent Swarm:</strong> A conceptual visualization showing multiple agents spreading across network segments, connected through the MCP hub for real-time intelligence sharing and coordinated parallel operations.
               </p>
             </Card>
           </section>
@@ -129,7 +149,11 @@ const McpBlogPost = () => {
             <h2 className="text-3xl font-bold mb-6 text-cyan-400">A Real-World Case Study: Rapid Domain Compromise</h2>
             
             <p className="text-lg leading-relaxed mb-6">
-              This isn't just theoretical. The paper presents a case study of a Red Team Agent deployment using this very architecture. The result? The agent swarm achieved rapid domain compromise in a simulated enterprise environment. This demonstrates the practical, real-world effectiveness of moving beyond monolithic agents to a coordinated, MCP-driven swarm. It combines the high-level planning capabilities of Large Language Models (LLMs) with a C2 framework that is both stealthy and highly efficient.
+              This isn't just theoretical. The paper presents a case study of a Red Team Agent deployment using this very architecture. The result? The agent swarm achieved rapid domain compromise in a simulated enterprise environment. This demonstrates the practical, real-world effectiveness of moving beyond monolithic agents to a coordinated, MCP-driven swarm.
+            </p>
+
+            <p className="text-lg leading-relaxed mb-6">
+              The architecture combines the high-level planning capabilities of Large Language Models (LLMs) with a C2 framework that is both stealthy and highly efficient. By leveraging the Model Context Protocol, we create a system where benign LLMs can be guided to conduct full exploits while maintaining the appearance of legitimate AI activity.
             </p>
           </section>
 
@@ -143,6 +167,17 @@ const McpBlogPost = () => {
             <p className="text-lg leading-relaxed mb-6">
               The cutting edge isn't just about a single, smarter AI; it's about making them work together, silently and effectively. As we continue to push the boundaries of what's possible in offensive security, MCP represents a fundamental shift in how we think about agent coordination, detection evasion, and the future of autonomous red teaming.
             </p>
+
+            <Card className="bg-cyan-950/20 border-cyan-400/30 p-6 my-8">
+              <h3 className="text-lg font-semibold text-cyan-300 mb-4">Key Advantages of MCP Architecture</h3>
+              <ul className="list-disc list-inside space-y-2 text-cyan-200">
+                <li>Event-driven communication eliminates predictable beaconing patterns</li>
+                <li>Asynchronous operations blend with legitimate AI traffic</li>
+                <li>Distributed agents increase resilience and operational capability</li>
+                <li>Real-time intelligence sharing enables rapid adaptation</li>
+                <li>Polymorphic characteristics enhance evasion capabilities</li>
+              </ul>
+            </Card>
           </section>
         </article>
 
