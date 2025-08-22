@@ -1,10 +1,11 @@
 import { motion } from "framer-motion";
-import { ArrowLeft } from "lucide-react";
+import { ArrowLeft, ZoomIn, ZoomOut } from "lucide-react";
 import { Link } from "react-router-dom";
 import { Canvas } from "@react-three/fiber";
 import { OrbitControls, Environment } from "@react-three/drei";
-import { Suspense } from "react";
+import { Suspense, useRef } from "react";
 import BlogCard3D from "@/components/blog/BlogCard3D";
+import { Button } from "@/components/ui/button";
 
 const blogPosts = [
   {
@@ -26,6 +27,24 @@ const blogPosts = [
 ];
 
 const BlogList = () => {
+  const cameraRef = useRef<any>(null);
+  
+  const handleZoomIn = () => {
+    if (cameraRef.current) {
+      const currentDistance = cameraRef.current.object.position.length();
+      const newDistance = Math.max(currentDistance * 0.8, 3);
+      cameraRef.current.object.position.normalize().multiplyScalar(newDistance);
+    }
+  };
+  
+  const handleZoomOut = () => {
+    if (cameraRef.current) {
+      const currentDistance = cameraRef.current.object.position.length();
+      const newDistance = Math.min(currentDistance * 1.25, 15);
+      cameraRef.current.object.position.normalize().multiplyScalar(newDistance);
+    }
+  };
+
   return (
     <motion.div
       initial={{ opacity: 0 }}
@@ -47,16 +66,49 @@ const BlogList = () => {
 
         {/* Blog List Header */}
         <header className="mb-12">
-          <h1 className="text-4xl md:text-5xl font-bold mb-6 text-cyan-500 font-serif">
-            Blog Posts
-          </h1>
-          <p className="text-lg text-muted-foreground">
+          <motion.h1 
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+            className="text-5xl md:text-7xl font-bold mb-6 font-serif relative"
+          >
+            <span className="bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-600 bg-clip-text text-transparent animate-pulse">
+              Blog Posts
+            </span>
+            <div className="absolute -inset-1 bg-gradient-to-r from-cyan-400/20 via-blue-500/20 to-purple-600/20 blur-lg -z-10 animate-pulse" />
+          </motion.h1>
+          <motion.p 
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.4 }}
+            className="text-lg text-muted-foreground"
+          >
             Exploring the intersection of AI, cybersecurity, and offensive security research.
-          </p>
+          </motion.p>
         </header>
 
         {/* Blog Posts 3D Scene */}
-        <div className="h-[800px] w-full">
+        <div className="h-[800px] w-full relative">
+          {/* Zoom Controls */}
+          <div className="absolute top-4 right-4 z-20 flex flex-col gap-2">
+            <Button 
+              variant="outline" 
+              size="icon"
+              onClick={handleZoomIn}
+              className="bg-background/80 backdrop-blur-sm border-primary/20 hover:bg-primary/10"
+            >
+              <ZoomIn className="w-4 h-4" />
+            </Button>
+            <Button 
+              variant="outline" 
+              size="icon"
+              onClick={handleZoomOut}
+              className="bg-background/80 backdrop-blur-sm border-primary/20 hover:bg-primary/10"
+            >
+              <ZoomOut className="w-4 h-4" />
+            </Button>
+          </div>
+          
           <Canvas camera={{ position: [0, 0, 8], fov: 60 }}>
             <Suspense fallback={null}>
               <Environment preset="night" />
@@ -77,11 +129,14 @@ const BlogList = () => {
               ))}
               
               <OrbitControls 
+                ref={cameraRef}
                 enablePan={true}
                 enableZoom={false}
                 enableRotate={true}
                 maxDistance={15}
                 minDistance={3}
+                enableDamping={true}
+                dampingFactor={0.05}
               />
             </Suspense>
           </Canvas>
@@ -90,7 +145,7 @@ const BlogList = () => {
         {/* Navigation Instructions */}
         <div className="mt-8 text-center">
           <p className="text-muted-foreground text-sm">
-            Click and drag to rotate • Double-click cards to read articles
+            Click and drag to rotate • Use zoom buttons to get closer • Double-click cards to read articles
           </p>
         </div>
       </div>
