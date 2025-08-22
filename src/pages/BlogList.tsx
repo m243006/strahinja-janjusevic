@@ -1,7 +1,10 @@
 import { motion } from "framer-motion";
-import { ArrowLeft, Calendar, User, Clock } from "lucide-react";
+import { ArrowLeft } from "lucide-react";
 import { Link } from "react-router-dom";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Canvas } from "@react-three/fiber";
+import { OrbitControls, Environment } from "@react-three/drei";
+import { Suspense } from "react";
+import BlogCard3D from "@/components/blog/BlogCard3D";
 
 const blogPosts = [
   {
@@ -52,54 +55,43 @@ const BlogList = () => {
           </p>
         </header>
 
-        {/* Blog Posts Grid */}
-        <div className="space-y-8">
-          {blogPosts.map((post, index) => (
-            <motion.div
-              key={post.id}
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
-            >
-              <Card className="bg-background/60 backdrop-blur border-cyan-500/20 hover:border-cyan-500/40 transition-all duration-300 group">
-                <CardHeader>
-                  <CardTitle className="text-2xl font-bold text-cyan-500 group-hover:text-cyan-400 transition-colors">
-                    <Link to={post.slug} className="hover:underline">
-                      {post.title}
-                    </Link>
-                  </CardTitle>
-                  
-                  <div className="flex flex-wrap gap-4 text-muted-foreground text-sm">
-                    <div className="flex items-center">
-                      <User className="w-4 h-4 mr-2" />
-                      <span>By Strahinja Janjusevic</span>
-                    </div>
-                    <div className="flex items-center">
-                      <Calendar className="w-4 h-4 mr-2" />
-                      <span>{post.date}</span>
-                    </div>
-                    <div className="flex items-center">
-                      <Clock className="w-4 h-4 mr-2" />
-                      <span>{post.readTime}</span>
-                    </div>
-                  </div>
-                </CardHeader>
-                
-                <CardContent>
-                  <p className="text-muted-foreground mb-4 leading-relaxed">
-                    {post.excerpt}
-                  </p>
-                  
-                  <Link
-                    to={post.slug}
-                    className="inline-flex items-center text-cyan-500 hover:text-cyan-400 transition-colors font-medium"
-                  >
-                    Read Full Article →
-                  </Link>
-                </CardContent>
-              </Card>
-            </motion.div>
-          ))}
+        {/* Blog Posts 3D Scene */}
+        <div className="h-[800px] w-full">
+          <Canvas camera={{ position: [0, 0, 8], fov: 60 }}>
+            <Suspense fallback={null}>
+              <Environment preset="night" />
+              <ambientLight intensity={0.3} />
+              <pointLight position={[10, 10, 10]} intensity={1} color="#06b6d4" />
+              <pointLight position={[-10, -10, -10]} intensity={0.5} color="#3b82f6" />
+              
+              {blogPosts.map((post, index) => (
+                <BlogCard3D
+                  key={post.id}
+                  title={post.title}
+                  excerpt={post.excerpt}
+                  date={post.date}
+                  readTime={post.readTime}
+                  slug={post.slug}
+                  position={[index * 5 - 2.5, 0, 0]}
+                />
+              ))}
+              
+              <OrbitControls 
+                enablePan={true}
+                enableZoom={true}
+                enableRotate={true}
+                maxDistance={15}
+                minDistance={3}
+              />
+            </Suspense>
+          </Canvas>
+        </div>
+        
+        {/* Navigation Instructions */}
+        <div className="mt-8 text-center">
+          <p className="text-muted-foreground text-sm">
+            Click and drag to rotate • Scroll to zoom • Click cards to read articles
+          </p>
         </div>
       </div>
     </motion.div>
