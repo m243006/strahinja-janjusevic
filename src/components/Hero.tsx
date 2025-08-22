@@ -103,7 +103,7 @@ const Hero = () => {
             }}
             className="mt-8 md:mt-12"
           >
-            <Link to="/blog/ai-offensive-security">
+            <Link to="/blog">
               <Button 
                 variant="outline" 
                 size="lg"

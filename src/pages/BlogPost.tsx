@@ -17,11 +17,11 @@ const BlogPost = () => {
         {/* Header Navigation */}
         <div className="mb-8">
           <Link
-            to="/"
+            to="/blog"
             className="inline-flex items-center text-cyan-500 hover:text-cyan-400 transition-colors"
           >
             <ArrowLeft className="w-4 h-4 mr-2" />
-            Back to Home
+            Back to Blog
           </Link>
         </div>
 
