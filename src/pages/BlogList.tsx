@@ -5,7 +5,6 @@ import { Canvas } from "@react-three/fiber";
 import { OrbitControls, Environment } from "@react-three/drei";
 import { Suspense } from "react";
 import BlogCard3D from "@/components/blog/BlogCard3D";
-import MatrixBackground from "@/components/hero/MatrixBackground";
 
 const blogPosts = [
   {
@@ -34,12 +33,7 @@ const BlogList = () => {
       transition={{ duration: 0.5 }}
       className="min-h-screen bg-background relative overflow-hidden"
     >
-      {/* Matrix Background */}
-      <div className="absolute inset-0 z-0">
-        <MatrixBackground />
-        <div className="absolute inset-0 bg-gradient-to-b from-background/90 via-background/70 to-background/90" />
-      </div>
-      <div className="container mx-auto px-4 py-8 max-w-4xl relative z-10">
+      <div className="container mx-auto px-4 py-8 max-w-4xl relative">
         {/* Header Navigation */}
         <div className="mb-8">
           <Link
@@ -96,7 +90,7 @@ const BlogList = () => {
         {/* Navigation Instructions */}
         <div className="mt-8 text-center">
           <p className="text-muted-foreground text-sm">
-            Click and drag to rotate • Scroll to zoom • Double-click cards to read articles
+            Click and drag to rotate • Scroll to zoom and enlarge • Double-click cards to read articles
           </p>
         </div>
       </div>
