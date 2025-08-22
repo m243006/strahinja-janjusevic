@@ -71,7 +71,7 @@ const McpBlogPost = () => {
 
         {/* Article Content */}
         <article className="prose prose-lg max-w-none text-foreground">
-          <section id="introduction" className="mb-12">
+          <section className="mb-12">
             <h2 className="text-3xl font-bold mb-6 text-cyan-400">New Technologies bring new risks: MCP-Powered Swarm C2</h2>
             
             <p className="text-lg leading-relaxed mb-6">
@@ -90,18 +90,17 @@ const McpBlogPost = () => {
               The MCP architecture fundamentally changes this model by enabling asynchronous, parallel operations without any periodic beaconing. Instead of a constant check-in, agents communicate covertly, blending their traffic with what looks like normal enterprise AI activity. This is the core of its strength: it hides in the noise of legitimate network chatter, making it exceptionally difficult for defenders to isolate.
             </p>
 
-            <Card className="bg-cyan-950/20 border-cyan-400/30 p-6 my-8">
-              <p className="text-cyan-200 mb-4">Our architecture (figure above) has 3 main components. The MCP agent has two legs of communication: one with the MCP server and another with the LLM Provider, in this case, Anthropic.</p>
-              <ol className="list-decimal list-inside space-y-2 text-cyan-200">
-                <li><strong>MCP Server:</strong> Where the high-level task is assigned and returned.</li>
-                <li><strong>MCP Agent:</strong> Connects to the MCP Server to pick up the task, disconnects, and reports later. The MCP agent also has back-and-forth communication with the LLM API that is executing the attack.</li>
-                <li><strong>Anthropic API:</strong> The actual attacker in this case. With a combination of a good system prompt and a high-level task, we are able to make the benign LLM conduct full exploits and report when the task is completed.</li>
-              </ol>
-            </Card>
-          </section>
+            <p className="text-lg leading-relaxed mb-6">
+              Our architecture (figure above) has 3 main components. The MCP agent has two legs of communication: one with the MCP server and another with the LLM Provider, in this case, Anthropic.
+            </p>
 
-          <section id="beyond-beaconing" className="mb-12">
-            <h2 className="text-3xl font-bold mb-6 text-cyan-400">Beyond Beaconing</h2>
+            <ol className="list-decimal list-inside space-y-3 mb-8 text-lg">
+              <li><strong>MCP Server:</strong> Where the high-level task is assigned and returned.</li>
+              <li><strong>MCP Agent:</strong> Connects to the MCP Server to pick up the task, disconnects, and reports later. The MCP agent also has back-and-forth communication with the LLM API that is executing the attack.</li>
+              <li><strong>Anthropic API:</strong> The actual attacker in this case. With a combination of a good system prompt and a high-level task, we are able to make the benign LLM conduct full exploits and report when the task is completed.</li>
+            </ol>
+
+            <h3 className="text-2xl font-bold mb-6 text-cyan-400">Beyond Beaconing</h3>
             
             <p className="text-lg leading-relaxed mb-6">
               The figure below illustrates a Cobalt Strike attack, clearly showing beaconing patterns. When the attacker engages, significant spikes represent large amounts of data being transmitted, primarily command outputs.
