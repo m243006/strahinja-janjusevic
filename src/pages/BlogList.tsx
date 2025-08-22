@@ -78,7 +78,7 @@ const BlogList = () => {
               
               <OrbitControls 
                 enablePan={true}
-                enableZoom={true}
+                enableZoom={false}
                 enableRotate={true}
                 maxDistance={15}
                 minDistance={3}
@@ -90,7 +90,7 @@ const BlogList = () => {
         {/* Navigation Instructions */}
         <div className="mt-8 text-center">
           <p className="text-muted-foreground text-sm">
-            Click and drag to rotate • Scroll to zoom and enlarge • Double-click cards to read articles
+            Click and drag to rotate • Double-click cards to read articles
           </p>
         </div>
       </div>
