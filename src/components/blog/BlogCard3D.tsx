@@ -62,21 +62,20 @@ const BlogCard3D = ({ title, excerpt, date, readTime, slug, position }: BlogCard
       {/* HTML Content Overlay */}
       <Html
         transform
-        occlude
-        position={[0, 0, 0.11]}
+        occlude={false}
+        position={[0, 0, 0.15]}
+        distanceFactor={10}
         style={{
-          width: '320px',
-          height: '400px',
-          padding: '20px',
-          color: 'white',
-          fontSize: '14px',
+          width: '380px',
+          height: '480px',
+          padding: '0',
           pointerEvents: 'auto',
         }}
       >
-        <div className="w-full h-full flex flex-col justify-between bg-transparent">
+        <div className="w-full h-full p-6 bg-slate-900/95 backdrop-blur-sm rounded-lg border border-cyan-500/30 flex flex-col justify-between">
           {/* Header */}
           <div>
-            <h3 className="text-lg font-bold text-cyan-400 mb-3 leading-tight">
+            <h3 className="text-xl font-bold text-cyan-400 mb-4 leading-tight">
               <Link 
                 to={slug} 
                 className="hover:text-cyan-300 transition-colors hover:underline"
@@ -85,17 +84,17 @@ const BlogCard3D = ({ title, excerpt, date, readTime, slug, position }: BlogCard
               </Link>
             </h3>
             
-            <div className="flex flex-wrap gap-2 text-xs text-gray-400 mb-4">
+            <div className="flex flex-wrap gap-3 text-sm text-gray-400 mb-6">
               <div className="flex items-center">
-                <User className="w-3 h-3 mr-1" />
+                <User className="w-4 h-4 mr-1" />
                 <span>Strahinja Janjusevic</span>
               </div>
               <div className="flex items-center">
-                <Calendar className="w-3 h-3 mr-1" />
+                <Calendar className="w-4 h-4 mr-1" />
                 <span>{date}</span>
               </div>
               <div className="flex items-center">
-                <Clock className="w-3 h-3 mr-1" />
+                <Clock className="w-4 h-4 mr-1" />
                 <span>{readTime}</span>
               </div>
             </div>
@@ -103,7 +102,7 @@ const BlogCard3D = ({ title, excerpt, date, readTime, slug, position }: BlogCard
           
           {/* Content */}
           <div className="flex-1">
-            <p className="text-gray-300 text-sm leading-relaxed mb-4 line-clamp-6">
+            <p className="text-gray-200 text-base leading-relaxed mb-6">
               {excerpt}
             </p>
           </div>
@@ -112,7 +111,7 @@ const BlogCard3D = ({ title, excerpt, date, readTime, slug, position }: BlogCard
           <div>
             <Link
               to={slug}
-              className="inline-flex items-center text-cyan-500 hover:text-cyan-400 transition-colors font-medium text-sm"
+              className="inline-flex items-center text-cyan-500 hover:text-cyan-400 transition-colors font-medium text-base bg-slate-800/50 px-4 py-2 rounded-md hover:bg-slate-800 transition-all"
             >
               Read Full Article →
             </Link>
