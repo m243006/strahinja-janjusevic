@@ -29,7 +29,7 @@ export const timeline: TimelineEvent[] = [
     year: "2022",
     title: "Microsoft Cloud Security Internship",
     description: "Developed API for URL scanning and incident analysis",
-    details: "As a Cloud Security Intern at Microsoft, I contributed to one of the world's largest incident response teams, gaining hands-on experience in analyzing and mitigating cyber threats. This project not only improved operational workflows but also provided valuable insights into the challenges of securing cloud-based systems at scale. Working alongside amazing industry leaders, I deepened my understanding of cybersecurity operations and the critical role of leadership in managing high-stakes environments. This experience solidified my passion for leveraging technology to address complex security challenges and prepared me for advanced work in AI-driven cybersecurity.",
+    details: "As a Cloud Security Intern at Microsoft, I contributed to one of the world’s largest incident response teams, gaining hands-on experience in analyzing and mitigating cyber threats. This project not only improved operational workflows but also provided valuable insights into the challenges of securing cloud-based systems at scale. Working alongside amazing industry leaders, I deepened my understanding of cybersecurity operations and the critical role of leadership in managing high-stakes environments. This experience solidified my passion for leveraging technology to address complex security challenges and prepared me for advanced work in AI-driven cybersecurity.",
     delay: 0.2,
     position: { x: 30, y: 25 },
     bgImage: "photo-1493962853295-0fd70327578a",
@@ -42,7 +42,7 @@ export const timeline: TimelineEvent[] = [
     year: "2023",
     title: "NASA Goddard Internship",
     description: "Developed Helios website for solar data visualization",
-    details: "During my internship at NASA, I played a role in advancing solar research by contributing to the development of the Helios website, which utilized 3D rendering technology to visualize solar images using data from the Helioviewer API. This project not only enhanced the accessibility of solar data but also provided researchers with powerful tools to study the sun's dynamic behavior. Additionally, I conducted magnetic field line extrapolations, a critical component in understanding the sun's magnetic structure, and developed code that supported broader research initiatives. Working at NASA allowed me to apply my technical skills to real-world scientific challenges, deepening my appreciation for the role of technology in advancing space exploration and expanding our understanding of the universe.",
+    details: "During my internship at NASA, I played a role in advancing solar research by contributing to the development of the Helios website, which utilized 3D rendering technology to visualize solar images using data from the Helioviewer API. This project not only enhanced the accessibility of solar data but also provided researchers with powerful tools to study the sun’s dynamic behavior. Additionally, I conducted magnetic field line extrapolations, a critical component in understanding the sun’s magnetic structure, and developed code that supported broader research initiatives. Working at NASA allowed me to apply my technical skills to real-world scientific challenges, deepening my appreciation for the role of technology in advancing space exploration and expanding our understanding of the universe.",
     delay: 0.3,
     position: { x: 20, y: 45 },
     bgImage: "photo-1485833077593-4278bba3f11f",
@@ -68,7 +68,7 @@ export const timeline: TimelineEvent[] = [
     year: "2024-Present",
     title: "MIT Technology and Policy",
     description: "Master's in Technology and Policy",
-    details: "As a graduate student in the Technology and Policy Program (TPP) at the Massachusetts Institute of Technology (MIT), I am exploring the critical intersection of technology, policy, and society, with a focus on artificial intelligence and cybersecurity. This interdisciplinary program equips me with the tools to analyze complex technological challenges and develop policy solutions that balance innovation, security, and ethical considerations. My research and insights have also extended to the global stage, as demonstrated by my keynote address at the Philippine Navy's Cybersecurity Awareness Webinar, where I discussed the role of AI in modern military operations and its implications for international security. Through TPP, I am deepening my understanding of how emerging technologies can address global challenges while ensuring responsible governance, empowering me to contribute to impactful decisions that shape the future of technology in a rapidly evolving world.",
+    details: "As a graduate student in the Technology and Policy Program (TPP) at the Massachusetts Institute of Technology (MIT), I am exploring the critical intersection of technology, policy, and society, with a focus on artificial intelligence and cybersecurity. This interdisciplinary program equips me with the tools to analyze complex technological challenges and develop policy solutions that balance innovation, security, and ethical considerations. My research and insights have also extended to the global stage, as demonstrated by my keynote address at the Philippine Navy’s Cybersecurity Awareness Webinar, where I discussed the role of AI in modern military operations and its implications for international security. Through TPP, I am deepening my understanding of how emerging technologies can address global challenges while ensuring responsible governance, empowering me to contribute to impactful decisions that shape the future of technology in a rapidly evolving world.",
     delay: 0.5,
     position: { x: 15, y: 80 },
     bgImage: "photo-1466721591366-2d5fba72006d",
@@ -77,46 +77,20 @@ export const timeline: TimelineEvent[] = [
       "/lovable-uploads/Certificate.jpg",
       "/lovable-uploads/Sched.jpg",
       "/lovable-uploads/Tpp.PNG",
+      
     ]
   },
   {
     year: "2024-Present",
     title: "MIT CSAIL",
     description: "Artificial Adversarial Intelligence Research",
-    details: "My research focuses on advancing the intersection of artificial intelligence and cybersecurity, with a particular emphasis on adversarial intelligence and threat detection. At MIT's Computer Science and Artificial Intelligence Laboratory (CSAIL), I am working with the Anyscale Learning For All (ALFA) group to computationally replicate adversarial behaviors, exploring how AI agents can compete, learn, and adapt in simulated environments like CybORG. Leveraging Large Language Models (LLMs) and the BRON knowledge graph, ALFA is developing coevolutionary algorithms to enhance the capabilities of AI-driven cybersecurity systems.",
+    details: "My research focuses on advancing the intersection of artificial intelligence and cybersecurity, with a particular emphasis on adversarial intelligence and threat detection. At MIT’s Computer Science and Artificial Intelligence Laboratory (CSAIL), I am working with the Anyscale Learning For All (ALFA) group to computationally replicate adversarial behaviors, exploring how AI agents can compete, learn, and adapt in simulated environments like CybORG. Leveraging Large Language Models (LLMs) and the BRON knowledge graph, ALFA is developing coevolutionary algorithms to enhance the capabilities of AI-driven cybersecurity systems.",
     delay: 0.6,
     position: { x: 30, y: 95 },
     bgImage: "photo-1485827404703-89b55fcc595e",
     expandedImages: [
       "/lovable-uploads/Mit.jpg",
       "/lovable-uploads/csail.jpg",
-    ]
-  },
-  {
-    year: "2024-Present",
-    title: "VectraAI",
-    description: "AI-Powered Network Detection and Response",
-    details: "At VectraAI, I am contributing to the development of cutting-edge AI-driven cybersecurity solutions that provide real-time threat detection and response capabilities. Working with advanced machine learning algorithms and behavioral analytics, I help enhance the platform's ability to identify and mitigate sophisticated cyber threats across enterprise networks. This role allows me to apply my research in adversarial AI to practical cybersecurity challenges, bridging the gap between academic research and industry applications. The experience at VectraAI provides invaluable insights into how AI can be leveraged to defend against evolving cyber threats at scale.",
-    delay: 0.7,
-    position: { x: 20, y: 110 },
-    bgImage: "photo-1558494949-ef010cbdcc31",
-    expandedImages: [
-      "/lovable-uploads/Launch.jpg",
-      "/lovable-uploads/Talk.jpg",
-    ]
-  },
-  {
-    year: "2024-Present",
-    title: "MIT IDSS",
-    description: "Institute for Data, Systems, and Society Research",
-    details: "As part of my ongoing research at MIT's Institute for Data, Systems, and Society (IDSS), I am exploring the broader implications of AI and data science in addressing complex societal challenges. My work focuses on developing frameworks that ensure AI systems are not only technically robust but also socially responsible and aligned with policy objectives. Through IDSS, I am examining how AI-driven cybersecurity solutions can be implemented at scale while maintaining ethical standards and supporting democratic values. This research contributes to my broader goal of shaping technology policy that promotes innovation while protecting society from emerging threats.",
-    delay: 0.8,
-    position: { x: 35, y: 125 },
-    bgImage: "photo-1451187580459-43490279c0fa",
-    expandedImages: [
-      "/lovable-uploads/Fam.PNG",
-      "/lovable-uploads/Friends.PNG",
-      "/lovable-uploads/Peop.PNG",
     ]
   }
 ];

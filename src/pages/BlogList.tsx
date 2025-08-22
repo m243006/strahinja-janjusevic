@@ -5,6 +5,7 @@ import { Canvas } from "@react-three/fiber";
 import { OrbitControls, Environment } from "@react-three/drei";
 import { Suspense } from "react";
 import BlogCard3D from "@/components/blog/BlogCard3D";
+import MatrixBackground from "@/components/hero/MatrixBackground";
 
 const blogPosts = [
   {
@@ -31,9 +32,14 @@ const BlogList = () => {
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 0.5 }}
-      className="min-h-screen bg-background"
+      className="min-h-screen bg-background relative overflow-hidden"
     >
-      <div className="container mx-auto px-4 py-8 max-w-4xl">
+      {/* Matrix Background */}
+      <div className="absolute inset-0 z-0">
+        <MatrixBackground />
+        <div className="absolute inset-0 bg-gradient-to-b from-background/90 via-background/70 to-background/90" />
+      </div>
+      <div className="container mx-auto px-4 py-8 max-w-4xl relative z-10">
         {/* Header Navigation */}
         <div className="mb-8">
           <Link
