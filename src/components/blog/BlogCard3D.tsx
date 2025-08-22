@@ -29,11 +29,15 @@ const BlogCard3D = ({ title, excerpt, date, readTime, slug, position }: BlogCard
   });
 
   const handleClick = () => {
+    // Double click required to navigate
+  };
+  
+  const handleDoubleClick = () => {
     navigate(slug);
   };
 
   return (
-    <group position={position} onClick={handleClick}>
+    <group position={position} onClick={handleClick} onDoubleClick={handleDoubleClick}>
       <RoundedBox
         ref={meshRef}
         args={[4, 5, 0.2]}
@@ -113,7 +117,7 @@ const BlogCard3D = ({ title, excerpt, date, readTime, slug, position }: BlogCard
         maxWidth={3.5}
         textAlign="center"
       >
-        Click to Read Full Article →
+        Double-click to Read Full Article →
       </Text>
     </group>
   );
