@@ -57,8 +57,8 @@ const EarthGlobe = () => {
   const globeRef = useRef<THREE.Mesh>(null);
   const earthRadius = 2;
   
-  // Load Earth texture
-  const earthTexture = useLoader(TextureLoader, 'https://images.unsplash.com/photo-1614730321146-b6fa6a46bcb4?w=2048&q=80');
+  // Load Earth texture - using a high-resolution Earth texture with visible countries
+  const earthTexture = useLoader(TextureLoader, 'https://images.unsplash.com/photo-1446776653964-20c1d3a81b06?w=2048&q=80');
   
   useFrame((state) => {
     if (globeRef.current) {
@@ -71,11 +71,12 @@ const EarthGlobe = () => {
     <group>
       {/* Earth sphere */}
       <mesh ref={globeRef}>
-        <sphereGeometry args={[earthRadius, 64, 64]} />
+        <sphereGeometry args={[earthRadius, 128, 128]} />
         <meshStandardMaterial 
           map={earthTexture}
-          roughness={0.8}
-          metalness={0.1}
+          roughness={0.9}
+          metalness={0.0}
+          bumpScale={0.05}
         />
       </mesh>
       
