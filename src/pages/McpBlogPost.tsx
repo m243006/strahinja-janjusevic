@@ -164,9 +164,17 @@ const McpBlogPost = () => {
               In our test we have used two agents to prove the concept of shared intelligence. The result? The agent compromised the router on the network (video below).
             </p>
 
-            <Card className="bg-cyan-950/20 border-cyan-400/30 p-6 my-8">
-              <p className="text-cyan-200 text-center italic">Video</p>
-            </Card>
+            <div className="bg-cyan-950/20 border-cyan-400/30 border rounded-lg p-6 my-8">
+              <video 
+                controls 
+                className="w-full rounded-lg"
+                poster="/lovable-uploads/9de2e6b8-2c1b-4e26-88b3-bd9e00ccec90.png"
+              >
+                <source src="/mcp-demo-video.mp4" type="video/mp4" />
+                Your browser does not support the video tag.
+              </video>
+              <p className="text-cyan-200 text-center mt-4 italic">MCP Agent Network Router Compromise Demo</p>
+            </div>
 
             <p className="text-lg leading-relaxed mb-6">
               The agents successfully compromised a network router, showcasing the practical effectiveness of transitioning from monolithic agents to a coordinated swarm. It combines the high-level planning capabilities of Large Language Models (LLMs) with a C2 framework that can be stealthy and fast.
