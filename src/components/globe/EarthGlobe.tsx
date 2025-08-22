@@ -91,15 +91,6 @@ const EarthGlobe = () => {
         />
       </mesh>
       
-      {/* Country markers */}
-      {visitedCountries.map((country, index) => (
-        <CountryMarker 
-          key={index} 
-          country={country} 
-          radius={earthRadius}
-        />
-      ))}
-      
       {/* Orbital rings for visual effect */}
       <mesh rotation={[Math.PI / 2, 0, 0]}>
         <ringGeometry args={[earthRadius + 0.3, earthRadius + 0.35, 64]} />
