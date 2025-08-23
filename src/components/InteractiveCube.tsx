@@ -22,25 +22,31 @@ const CubeFace = ({ content, position, rotation }: {
     <group position={position} rotation={rotation}>
       <mesh>
         <boxGeometry args={[2.4, 2.4, 0.15]} />
-        <meshStandardMaterial color="#0891b2" transparent opacity={0.8} />
+        <meshStandardMaterial color="#0a4d5c" transparent opacity={0.9} />
+      </mesh>
+      {/* Background for text readability */}
+      <mesh position={[0, 0, 0.08]}>
+        <planeGeometry args={[2.2, 2.2]} />
+        <meshStandardMaterial color="#000000" transparent opacity={0.7} />
       </mesh>
       <Text
-        position={[0, 0.5, 0.06]}
-        fontSize={0.15}
-        color="#06b6d4"
+        position={[0, 0.6, 0.1]}
+        fontSize={0.2}
+        color="#00d4ff"
         anchorX="center"
         anchorY="middle"
       >
         {content.title}
       </Text>
       <Text
-        position={[0, -0.2, 0.06]}
-        fontSize={0.08}
-        color="#e2e8f0"
+        position={[0, -0.1, 0.1]}
+        fontSize={0.11}
+        color="#ffffff"
         anchorX="center"
         anchorY="middle"
+        maxWidth={2}
       >
-        {content.description.substring(0, 50)}...
+        {content.description}
       </Text>
     </group>
   );
@@ -105,24 +111,27 @@ const RotatingCube = ({ cards }: { cards: CubeContent[] }) => {
 const InteractiveCube = ({ cards }: InteractiveCubeProps) => {
   return (
     <div className="w-full h-96 mb-8">
-      <Canvas camera={{ position: [3, 3, 3], fov: 60 }}>
-        <ambientLight intensity={0.5} />
-        <pointLight position={[10, 10, 10]} intensity={1} />
-        <pointLight position={[-10, -10, -10]} intensity={0.5} />
+      <Canvas camera={{ position: [4, 4, 4], fov: 50 }}>
+        <ambientLight intensity={0.6} />
+        <pointLight position={[10, 10, 10]} intensity={1.2} />
+        <pointLight position={[-10, -10, -10]} intensity={0.8} />
+        <directionalLight position={[5, 5, 5]} intensity={0.8} />
         
         <RotatingCube cards={cards} />
         
         <OrbitControls 
           enablePan={false} 
-          enableZoom={false}
+          enableZoom={true}
+          minDistance={3}
+          maxDistance={8}
           autoRotate
-          autoRotateSpeed={1}
+          autoRotateSpeed={0.5}
         />
       </Canvas>
       
       <div className="text-center mt-4">
         <p className="text-sm text-muted-foreground">
-          Click and drag to control rotation
+          Click and drag to control rotation • Scroll to zoom
         </p>
       </div>
     </div>
