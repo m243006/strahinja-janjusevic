@@ -6,7 +6,7 @@ import { timeline } from "./journey/TimelineEvent";
 import { useRef } from "react";
 import MatrixBackground from "./hero/MatrixBackground";
 import SocialLinks from "./SocialLinks";
-import { Card, CardContent } from "./ui/card";
+import InteractiveCube from "./InteractiveCube";
 
 const JourneyMap = () => {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -26,24 +26,21 @@ const JourneyMap = () => {
     "Researching: Cybersecurity in Maritime Industry 🔒",
   ];
 
-  const staticCards = [
+  const cubeCards = [
     {
       image: "/lovable-uploads/Peop.PNG",
       title: "People Matter",
-      description: "Through connection, collaboration, and compassion that we find purpose, create impact, and build a legacy that outlasts our individual achievements.",
-      position: { x: 65, y: 15 }
+      description: "Through connection, collaboration, and compassion that we find purpose, create impact, and build a legacy that outlasts our individual achievements."
     },
     {
       image: "/lovable-uploads/Friends.PNG",
       title: "Friends",
-      description: "Turn moments into memories and challenges into triumphs.",
-      position: { x: 75, y: 45 }
+      description: "Turn moments into memories and challenges into triumphs."
     },
     {
       image: "/lovable-uploads/Fam.PNG",
       title: "Family",
-      description: "Purpose and support.",
-      position: { x: 60, y: 75 }
+      description: "Purpose and support."
     }
   ];
 
@@ -134,60 +131,20 @@ const JourneyMap = () => {
                 event={event}
               />
             ))}
-
-            {/* Static cards - hidden on mobile */}
-            <div className="hidden md:block">
-              {staticCards.map((card, index) => (
-                <div
-                  key={index}
-                  className="absolute w-64 cursor-pointer hover:scale-105 transition-transform duration-300"
-                  style={{
-                    left: `${card.position.x}%`,
-                    top: `${card.position.y}%`,
-                    zIndex: 40
-                  }}
-                >
-                  <Card className="bg-background/80 backdrop-blur border-cyan-500/20 hover:border-cyan-500/40">
-                    <CardContent className="p-4">
-                      <div className="aspect-video overflow-hidden rounded-lg mb-4">
-                        <img
-                          src={card.image}
-                          alt={card.title}
-                          className="object-contain w-full h-full transform hover:scale-110 transition-transform duration-300"
-                          loading="lazy"
-                        />
-                      </div>
-                      <h3 className="text-lg font-semibold text-cyan-500 mb-2">{card.title}</h3>
-                      <p className="text-muted-foreground">{card.description}</p>
-                    </CardContent>
-                  </Card>
-                </div>
-              ))}
-            </div>
           </div>
         </div>
       </div>
 
-      {/* Mobile-only static cards */}
-      <div className="md:hidden container mx-auto px-4 py-8">
-        <div className="grid grid-cols-1 gap-4 mb-8">
-          {staticCards.map((card, index) => (
-            <Card key={index} className="bg-background/80 backdrop-blur border-cyan-500/20 hover:border-cyan-500/40 hover:scale-105 transition-transform duration-300">
-              <CardContent className="p-4">
-                <div className="aspect-video overflow-hidden rounded-lg mb-4">
-                  <img
-                    src={card.image}
-                    alt={card.title}
-                    className="object-contain w-full h-full transform hover:scale-110 transition-transform duration-300"
-                    loading="lazy"
-                  />
-                </div>
-                <h3 className="text-lg font-semibold text-cyan-500 mb-2">{card.title}</h3>
-                <p className="text-muted-foreground text-sm">{card.description}</p>
-              </CardContent>
-            </Card>
-          ))}
-        </div>
+      {/* Interactive 3D Cube */}
+      <div className="container mx-auto px-4 py-8">
+        <h3 className="text-2xl font-bold text-center mb-6 text-cyan-500"
+            style={{
+              textShadow: '0 0 10px rgba(6, 182, 212, 0.3)',
+              fontFamily: "'Playfair Display', serif"
+            }}>
+          What Matters Most
+        </h3>
+        <InteractiveCube cards={cubeCards} />
       </div>
 
       <div className="py-6 md:py-10 relative z-50">
