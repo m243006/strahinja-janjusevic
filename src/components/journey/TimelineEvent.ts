@@ -92,5 +92,15 @@ export const timeline: TimelineEvent[] = [
       "/lovable-uploads/Mit.jpg",
       "/lovable-uploads/csail.jpg",
     ]
+  },
+  {
+    year: "2024-Present",
+    title: "VectrAI Internship",
+    description: "AI-Powered Security Solutions",
+    details: "Currently working as an intern at VectrAI, contributing to the development of cutting-edge AI-powered cybersecurity solutions. This role allows me to apply my research knowledge in real-world scenarios, working on innovative approaches to threat detection and automated security responses.",
+    delay: 0.7,
+    position: { x: 45, y: 110 },
+    bgImage: "photo-1454165804606-c3d57bc86b40",
+    expandedImages: []
   }
 ];
