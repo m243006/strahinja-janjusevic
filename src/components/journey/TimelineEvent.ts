@@ -29,7 +29,7 @@ export const timeline: TimelineEvent[] = [
     year: "2022",
     title: "Microsoft Cloud Security Internship",
     description: "Developed API for URL scanning and incident analysis",
-    details: "As a Cloud Security Intern at Microsoft, I contributed to one of the world’s largest incident response teams, gaining hands-on experience in analyzing and mitigating cyber threats. This project not only improved operational workflows but also provided valuable insights into the challenges of securing cloud-based systems at scale. Working alongside amazing industry leaders, I deepened my understanding of cybersecurity operations and the critical role of leadership in managing high-stakes environments. This experience solidified my passion for leveraging technology to address complex security challenges and prepared me for advanced work in AI-driven cybersecurity.",
+    details: "As a Cloud Security Intern at Microsoft, I contributed to one of the world's largest incident response teams, gaining hands-on experience in analyzing and mitigating cyber threats. This project not only improved operational workflows but also provided valuable insights into the challenges of securing cloud-based systems at scale. Working alongside amazing industry leaders, I deepened my understanding of cybersecurity operations and the critical role of leadership in managing high-stakes environments. This experience solidified my passion for leveraging technology to address complex security challenges and prepared me for advanced work in AI-driven cybersecurity.",
     delay: 0.2,
     position: { x: 30, y: 25 },
     bgImage: "photo-1493962853295-0fd70327578a",
@@ -42,7 +42,7 @@ export const timeline: TimelineEvent[] = [
     year: "2023",
     title: "NASA Goddard Internship",
     description: "Developed Helios website for solar data visualization",
-    details: "During my internship at NASA, I played a role in advancing solar research by contributing to the development of the Helios website, which utilized 3D rendering technology to visualize solar images using data from the Helioviewer API. This project not only enhanced the accessibility of solar data but also provided researchers with powerful tools to study the sun’s dynamic behavior. Additionally, I conducted magnetic field line extrapolations, a critical component in understanding the sun’s magnetic structure, and developed code that supported broader research initiatives. Working at NASA allowed me to apply my technical skills to real-world scientific challenges, deepening my appreciation for the role of technology in advancing space exploration and expanding our understanding of the universe.",
+    details: "During my internship at NASA, I played a role in advancing solar research by contributing to the development of the Helios website, which utilized 3D rendering technology to visualize solar images using data from the Helioviewer API. This project not only enhanced the accessibility of solar data but also provided researchers with powerful tools to study the sun's dynamic behavior. Additionally, I conducted magnetic field line extrapolations, a critical component in understanding the sun's magnetic structure, and developed code that supported broader research initiatives. Working at NASA allowed me to apply my technical skills to real-world scientific challenges, deepening my appreciation for the role of technology in advancing space exploration and expanding our understanding of the universe.",
     delay: 0.3,
     position: { x: 20, y: 45 },
     bgImage: "photo-1485833077593-4278bba3f11f",
@@ -68,7 +68,7 @@ export const timeline: TimelineEvent[] = [
     year: "2024-Present",
     title: "MIT Technology and Policy",
     description: "Master's in Technology and Policy",
-    details: "As a graduate student in the Technology and Policy Program (TPP) at the Massachusetts Institute of Technology (MIT), I am exploring the critical intersection of technology, policy, and society, with a focus on artificial intelligence and cybersecurity. This interdisciplinary program equips me with the tools to analyze complex technological challenges and develop policy solutions that balance innovation, security, and ethical considerations. My research and insights have also extended to the global stage, as demonstrated by my keynote address at the Philippine Navy’s Cybersecurity Awareness Webinar, where I discussed the role of AI in modern military operations and its implications for international security. Through TPP, I am deepening my understanding of how emerging technologies can address global challenges while ensuring responsible governance, empowering me to contribute to impactful decisions that shape the future of technology in a rapidly evolving world.",
+    details: "As a graduate student in the Technology and Policy Program (TPP) at the Massachusetts Institute of Technology (MIT), I am exploring the critical intersection of technology, policy, and society, with a focus on artificial intelligence and cybersecurity. This interdisciplinary program equips me with the tools to analyze complex technological challenges and develop policy solutions that balance innovation, security, and ethical considerations. My research and insights have also extended to the global stage, as demonstrated by my keynote address at the Philippine Navy's Cybersecurity Awareness Webinar, where I discussed the role of AI in modern military operations and its implications for international security. Through TPP, I am deepening my understanding of how emerging technologies can address global challenges while ensuring responsible governance, empowering me to contribute to impactful decisions that shape the future of technology in a rapidly evolving world.",
     delay: 0.5,
     position: { x: 15, y: 80 },
     bgImage: "photo-1466721591366-2d5fba72006d",
@@ -101,6 +101,16 @@ export const timeline: TimelineEvent[] = [
     delay: 0.7,
     position: { x: 65, y: 85 },
     bgImage: "photo-1454165804606-c3d57bc86b40",
+    expandedImages: []
+  },
+  {
+    year: "2024-Present",
+    title: "MIT IDSS",
+    description: "Institute for Data, Systems, and Society Research",
+    details: "Conducting research at MIT's Institute for Data, Systems, and Society (IDSS), focusing on the intersection of data science, systems thinking, and societal impact. Working on projects that leverage data-driven approaches to address complex societal challenges, with particular emphasis on cybersecurity applications and policy implications.",
+    delay: 0.8,
+    position: { x: 45, y: 110 },
+    bgImage: "photo-1551434678-e076c223a692",
     expandedImages: []
   }
 ];
