@@ -21,16 +21,16 @@ const CubeFace = ({ content, position, rotation }: {
   return (
     <group position={position} rotation={rotation}>
       <mesh>
-        <boxGeometry args={[3.0, 3.0, 0.2]} />
+        <boxGeometry args={[3.0, 3.0, 0.1]} />
         <meshStandardMaterial color="#0a4d5c" transparent opacity={0.9} />
       </mesh>
       {/* Background for text readability */}
-      <mesh position={[0, 0, 0.1]}>
+      <mesh position={[0, 0, 0.06]}>
         <planeGeometry args={[2.8, 2.8]} />
-        <meshStandardMaterial color="#000000" transparent opacity={0.7} />
+        <meshStandardMaterial color="#000000" transparent opacity={0.8} />
       </mesh>
       <Text
-        position={[0, 0.6, 0.1]}
+        position={[0, 0.6, 0.07]}
         fontSize={0.2}
         color="#00d4ff"
         anchorX="center"
@@ -39,7 +39,7 @@ const CubeFace = ({ content, position, rotation }: {
         {content.title}
       </Text>
       <Text
-        position={[0, -0.1, 0.1]}
+        position={[0, -0.1, 0.07]}
         fontSize={0.11}
         color="#ffffff"
         anchorX="center"
