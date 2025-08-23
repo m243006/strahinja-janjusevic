@@ -30,7 +30,6 @@ const CubeFace = ({ content, position, rotation }: {
         anchorX="center"
         anchorY="middle"
         maxWidth={1.6}
-        font="/fonts/PlayfairDisplay-Bold.ttf"
       >
         {content.title}
       </Text>
