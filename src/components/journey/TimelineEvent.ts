@@ -99,7 +99,7 @@ export const timeline: TimelineEvent[] = [
     description: "AI-Powered Security Solutions",
     details: "Currently working as an intern at VectrAI, contributing to the development of cutting-edge AI-powered cybersecurity solutions. This role allows me to apply my research knowledge in real-world scenarios, working on innovative approaches to threat detection and automated security responses.",
     delay: 0.7,
-    position: { x: 50, y: 105 },
+    position: { x: 65, y: 85 },
     bgImage: "photo-1454165804606-c3d57bc86b40",
     expandedImages: []
   }
