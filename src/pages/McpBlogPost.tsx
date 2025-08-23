@@ -82,6 +82,14 @@ const McpBlogPost = () => {
               The MCP architecture fundamentally changes this model by enabling asynchronous, parallel operations without any periodic beaconing. Instead of a constant check-in, agents communicate covertly, blending their traffic with what looks like normal enterprise AI activity. This is the core of its strength: it hides in the noise of legitimate network chatter, making it exceptionally difficult for defenders to isolate.
             </p>
 
+            <div className="my-8 flex justify-center">
+              <img 
+                src="/lovable-uploads/87bbc31c-0b6e-4250-8260-957bd70f5073.png" 
+                alt="MCP Architecture Diagram showing the flow between MCP Server, MCP Agent, and Anthropic API with high-level task assignment and full attack execution"
+                className="max-w-full h-auto rounded-lg border border-cyan-500/20 shadow-lg"
+              />
+            </div>
+
             <p className="text-lg leading-relaxed mb-6">
               Our architecture (figure above) has 3 main components. The MCP agent has two legs of communication: one with the MCP server and another with the LLM Provider, in this case, Anthropic.
             </p>
