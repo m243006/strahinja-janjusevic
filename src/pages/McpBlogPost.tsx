@@ -2,22 +2,18 @@ import { motion } from "framer-motion";
 import { ArrowLeft, Calendar, User, Clock } from "lucide-react";
 import { Link } from "react-router-dom";
 import { Card, CardContent } from "@/components/ui/card";
-
 const McpBlogPost = () => {
-  return (
-    <motion.div
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      transition={{ duration: 0.5 }}
-      className="min-h-screen bg-background"
-    >
+  return <motion.div initial={{
+    opacity: 0
+  }} animate={{
+    opacity: 1
+  }} transition={{
+    duration: 0.5
+  }} className="min-h-screen bg-background">
       <div className="container mx-auto px-4 py-8 max-w-4xl">
         {/* Header Navigation */}
         <div className="mb-8">
-          <Link
-            to="/blog"
-            className="inline-flex items-center text-cyan-500 hover:text-cyan-400 transition-colors"
-          >
+          <Link to="/blog" className="inline-flex items-center text-cyan-500 hover:text-cyan-400 transition-colors">
             <ArrowLeft className="w-4 h-4 mr-2" />
             Back to Blog
           </Link>
@@ -165,14 +161,7 @@ const McpBlogPost = () => {
             </p>
 
             <div className="bg-cyan-950/20 border-cyan-400/30 border rounded-lg p-6 my-8">
-              <video 
-                controls 
-                className="w-full rounded-lg"
-                poster="/lovable-uploads/9de2e6b8-2c1b-4e26-88b3-bd9e00ccec90.png"
-              >
-                <source src="/mcp-demo-video.mp4" type="video/mp4" />
-                Your browser does not support the video tag.
-              </video>
+              
               <p className="text-cyan-200 text-center mt-4 italic">MCP Agent Network Router Compromise Demo</p>
             </div>
 
@@ -204,8 +193,6 @@ const McpBlogPost = () => {
           </div>
         </div>
       </div>
-    </motion.div>
-  );
+    </motion.div>;
 };
-
 export default McpBlogPost;
