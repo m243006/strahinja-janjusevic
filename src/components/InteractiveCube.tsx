@@ -21,7 +21,7 @@ const CubeFace = ({ content, position, rotation }: {
   return (
     <group position={position} rotation={rotation}>
       <mesh>
-        <boxGeometry args={[1.8, 1.8, 0.1]} />
+        <boxGeometry args={[2.4, 2.4, 0.15]} />
         <meshStandardMaterial color="#0891b2" transparent opacity={0.8} />
       </mesh>
       <Text
@@ -60,42 +60,42 @@ const RotatingCube = ({ cards }: { cards: CubeContent[] }) => {
       {/* Front face */}
       <CubeFace 
         content={cards[0]} 
-        position={[0, 0, 1]} 
+        position={[0, 0, 1.3]} 
         rotation={[0, 0, 0]} 
       />
       
       {/* Right face */}
       <CubeFace 
         content={cards[1] || cards[0]} 
-        position={[1, 0, 0]} 
+        position={[1.3, 0, 0]} 
         rotation={[0, Math.PI / 2, 0]} 
       />
       
       {/* Back face */}
       <CubeFace 
         content={cards[2] || cards[0]} 
-        position={[0, 0, -1]} 
+        position={[0, 0, -1.3]} 
         rotation={[0, Math.PI, 0]} 
       />
       
       {/* Left face */}
       <CubeFace 
         content={cards[0]} 
-        position={[-1, 0, 0]} 
+        position={[-1.3, 0, 0]} 
         rotation={[0, -Math.PI / 2, 0]} 
       />
       
       {/* Top face */}
       <CubeFace 
         content={cards[1] || cards[0]} 
-        position={[0, 1, 0]} 
+        position={[0, 1.3, 0]} 
         rotation={[-Math.PI / 2, 0, 0]} 
       />
       
       {/* Bottom face */}
       <CubeFace 
         content={cards[2] || cards[0]} 
-        position={[0, -1, 0]} 
+        position={[0, -1.3, 0]} 
         rotation={[Math.PI / 2, 0, 0]} 
       />
     </group>
