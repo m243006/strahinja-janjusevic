@@ -86,7 +86,7 @@ export const timeline: TimelineEvent[] = [
     description: "Artificial Adversarial Intelligence Research",
     details: "My research focuses on advancing the intersection of artificial intelligence and cybersecurity, with a particular emphasis on adversarial intelligence and threat detection. At MIT’s Computer Science and Artificial Intelligence Laboratory (CSAIL), I am working with the Anyscale Learning For All (ALFA) group to computationally replicate adversarial behaviors, exploring how AI agents can compete, learn, and adapt in simulated environments like CybORG. Leveraging Large Language Models (LLMs) and the BRON knowledge graph, ALFA is developing coevolutionary algorithms to enhance the capabilities of AI-driven cybersecurity systems.",
     delay: 0.6,
-    position: { x: 45, y: 100 },
+    position: { x: 20, y: 100 },
     bgImage: "photo-1485827404703-89b55fcc595e",
     expandedImages: [
       "/lovable-uploads/Mit.jpg",
@@ -99,7 +99,7 @@ export const timeline: TimelineEvent[] = [
     description: "AI-Powered Security Solutions",
     details: "Currently working as an intern at VectrAI, contributing to the development of cutting-edge AI-powered cybersecurity solutions. This role allows me to apply my research knowledge in real-world scenarios, working on innovative approaches to threat detection and automated security responses.",
     delay: 0.7,
-    position: { x: 75, y: 75 },
+    position: { x: 70, y: 60 },
     bgImage: "photo-1454165804606-c3d57bc86b40",
     expandedImages: []
   },
@@ -109,7 +109,7 @@ export const timeline: TimelineEvent[] = [
     description: "Institute for Data, Systems, and Society Research",
     details: "Conducting research at MIT's Institute for Data, Systems, and Society (IDSS), focusing on the intersection of data science, systems thinking, and societal impact. Working on projects that leverage data-driven approaches to address complex societal challenges, with particular emphasis on cybersecurity applications and policy implications.",
     delay: 0.8,
-    position: { x: 25, y: 120 },
+    position: { x: 40, y: 130 },
     bgImage: "photo-1551434678-e076c223a692",
     expandedImages: []
   }
