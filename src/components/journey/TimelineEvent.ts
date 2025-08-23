@@ -94,7 +94,7 @@ export const timeline: TimelineEvent[] = [
     ]
   },
   {
-    year: "2024-Present",
+    year: "Summer 2025",
     title: "VectrAI Internship",
     description: "AI-Powered Security Solutions",
     details: "Currently working as an intern at VectrAI, contributing to the development of cutting-edge AI-powered cybersecurity solutions. This role allows me to apply my research knowledge in real-world scenarios, working on innovative approaches to threat detection and automated security responses.",
