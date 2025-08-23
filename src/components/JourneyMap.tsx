@@ -137,13 +137,6 @@ const JourneyMap = () => {
 
       {/* Interactive 3D Cube */}
       <div className="container mx-auto px-4 py-8">
-        <h3 className="text-2xl font-bold text-center mb-6 text-cyan-500"
-            style={{
-              textShadow: '0 0 10px rgba(6, 182, 212, 0.3)',
-              fontFamily: "'Playfair Display', serif"
-            }}>
-          What Matters Most
-        </h3>
         <InteractiveCube cards={cubeCards} />
       </div>
 
