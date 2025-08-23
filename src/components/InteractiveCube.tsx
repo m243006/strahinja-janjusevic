@@ -1,4 +1,4 @@
-import { Canvas } from '@react-three/fiber';
+import { Canvas, useFrame } from '@react-three/fiber';
 import { OrbitControls, Text, Box } from '@react-three/drei';
 import { useRef } from 'react';
 import { Group } from 'three';
@@ -20,16 +20,16 @@ const CubeFace = ({ content, position, rotation }: {
 }) => {
   return (
     <group position={position} rotation={rotation}>
-      <Box args={[1.8, 1.8, 0.1]} position={[0, 0, 0]}>
+      <mesh>
+        <boxGeometry args={[1.8, 1.8, 0.1]} />
         <meshStandardMaterial color="#0891b2" transparent opacity={0.8} />
-      </Box>
+      </mesh>
       <Text
         position={[0, 0.5, 0.06]}
         fontSize={0.15}
         color="#06b6d4"
         anchorX="center"
         anchorY="middle"
-        maxWidth={1.6}
       >
         {content.title}
       </Text>
@@ -39,18 +39,70 @@ const CubeFace = ({ content, position, rotation }: {
         color="#e2e8f0"
         anchorX="center"
         anchorY="middle"
-        maxWidth={1.4}
-        textAlign="center"
       >
-        {content.description}
+        {content.description.substring(0, 50)}...
       </Text>
     </group>
   );
 };
 
-const InteractiveCube = ({ cards }: InteractiveCubeProps) => {
-  const cubeRef = useRef<Group>(null);
+const RotatingCube = ({ cards }: { cards: CubeContent[] }) => {
+  const groupRef = useRef<Group>(null);
+  
+  useFrame((state) => {
+    if (groupRef.current) {
+      groupRef.current.rotation.y = state.clock.elapsedTime * 0.2;
+    }
+  });
 
+  return (
+    <group ref={groupRef}>
+      {/* Front face */}
+      <CubeFace 
+        content={cards[0]} 
+        position={[0, 0, 1]} 
+        rotation={[0, 0, 0]} 
+      />
+      
+      {/* Right face */}
+      <CubeFace 
+        content={cards[1] || cards[0]} 
+        position={[1, 0, 0]} 
+        rotation={[0, Math.PI / 2, 0]} 
+      />
+      
+      {/* Back face */}
+      <CubeFace 
+        content={cards[2] || cards[0]} 
+        position={[0, 0, -1]} 
+        rotation={[0, Math.PI, 0]} 
+      />
+      
+      {/* Left face */}
+      <CubeFace 
+        content={cards[0]} 
+        position={[-1, 0, 0]} 
+        rotation={[0, -Math.PI / 2, 0]} 
+      />
+      
+      {/* Top face */}
+      <CubeFace 
+        content={cards[1] || cards[0]} 
+        position={[0, 1, 0]} 
+        rotation={[-Math.PI / 2, 0, 0]} 
+      />
+      
+      {/* Bottom face */}
+      <CubeFace 
+        content={cards[2] || cards[0]} 
+        position={[0, -1, 0]} 
+        rotation={[Math.PI / 2, 0, 0]} 
+      />
+    </group>
+  );
+};
+
+const InteractiveCube = ({ cards }: InteractiveCubeProps) => {
   return (
     <div className="w-full h-96 mb-8">
       <Canvas camera={{ position: [3, 3, 3], fov: 60 }}>
@@ -58,61 +110,19 @@ const InteractiveCube = ({ cards }: InteractiveCubeProps) => {
         <pointLight position={[10, 10, 10]} intensity={1} />
         <pointLight position={[-10, -10, -10]} intensity={0.5} />
         
-        <group ref={cubeRef}>
-          {/* Front face */}
-          <CubeFace 
-            content={cards[0]} 
-            position={[0, 0, 1]} 
-            rotation={[0, 0, 0]} 
-          />
-          
-          {/* Right face */}
-          <CubeFace 
-            content={cards[1]} 
-            position={[1, 0, 0]} 
-            rotation={[0, Math.PI / 2, 0]} 
-          />
-          
-          {/* Back face */}
-          <CubeFace 
-            content={cards[2]} 
-            position={[0, 0, -1]} 
-            rotation={[0, Math.PI, 0]} 
-          />
-          
-          {/* Left face */}
-          <CubeFace 
-            content={cards[0]} 
-            position={[-1, 0, 0]} 
-            rotation={[0, -Math.PI / 2, 0]} 
-          />
-          
-          {/* Top face */}
-          <CubeFace 
-            content={cards[1]} 
-            position={[0, 1, 0]} 
-            rotation={[-Math.PI / 2, 0, 0]} 
-          />
-          
-          {/* Bottom face */}
-          <CubeFace 
-            content={cards[2]} 
-            position={[0, -1, 0]} 
-            rotation={[Math.PI / 2, 0, 0]} 
-          />
-        </group>
+        <RotatingCube cards={cards} />
         
         <OrbitControls 
           enablePan={false} 
           enableZoom={false}
-          minPolarAngle={Math.PI / 4}
-          maxPolarAngle={3 * Math.PI / 4}
+          autoRotate
+          autoRotateSpeed={1}
         />
       </Canvas>
       
       <div className="text-center mt-4">
         <p className="text-sm text-muted-foreground">
-          Click and drag to rotate the cube
+          Click and drag to control rotation
         </p>
       </div>
     </div>
