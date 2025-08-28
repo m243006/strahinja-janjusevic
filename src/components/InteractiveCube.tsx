@@ -109,6 +109,8 @@ const RotatingCube = ({ cards }: { cards: CubeContent[] }) => {
 };
 
 const InteractiveCube = ({ cards }: InteractiveCubeProps) => {
+  console.log('InteractiveCube rendering with cards:', cards);
+  
   return (
     <div className="w-full h-96 mb-8 bg-gray-900 rounded-lg">
       <Suspense fallback={<div className="flex items-center justify-center h-full text-white">Loading 3D Cube...</div>}>
@@ -116,12 +118,30 @@ const InteractiveCube = ({ cards }: InteractiveCubeProps) => {
           camera={{ position: [5, 5, 5], fov: 50 }}
           style={{ background: 'transparent' }}
           gl={{ antialias: true, alpha: true }}
+          onCreated={(state) => console.log('Canvas created:', state)}
         >
           <ambientLight intensity={1} />
           <pointLight position={[10, 10, 10]} intensity={1} />
           <directionalLight position={[0, 0, 5]} intensity={1} />
           
-          <RotatingCube cards={cards} />
+          {/* Simplified cube with basic text */}
+          <group>
+            <mesh position={[0, 0, 0]}>
+              <boxGeometry args={[3, 3, 3]} />
+              <meshStandardMaterial color="#0a4d5c" transparent opacity={0.9} />
+            </mesh>
+            
+            {/* Simple text overlay */}
+            <Text
+              position={[0, 0, 1.6]}
+              fontSize={0.3}
+              color="#00d4ff"
+              anchorX="center"
+              anchorY="middle"
+            >
+              {cards[0]?.title || "50656f706c65204d6174746572"}
+            </Text>
+          </group>
           
           <OrbitControls 
             enablePan={false} 
