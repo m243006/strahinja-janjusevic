@@ -110,12 +110,14 @@ const RotatingCube = ({ cards }: { cards: CubeContent[] }) => {
 
 const InteractiveCube = ({ cards }: InteractiveCubeProps) => {
   return (
-    <div className="w-full h-96 mb-8">
-      <Canvas camera={{ position: [4, 4, 4], fov: 50 }}>
-        <ambientLight intensity={0.6} />
-        <pointLight position={[10, 10, 10]} intensity={1.2} />
-        <pointLight position={[-10, -10, -10]} intensity={0.8} />
-        <directionalLight position={[5, 5, 5]} intensity={0.8} />
+    <div className="w-full h-96 mb-8 bg-gray-900 rounded-lg">
+      <Canvas 
+        camera={{ position: [5, 5, 5], fov: 50 }}
+        style={{ background: 'transparent' }}
+      >
+        <ambientLight intensity={0.8} />
+        <pointLight position={[10, 10, 10]} intensity={1} />
+        <directionalLight position={[0, 0, 5]} intensity={0.5} />
         
         <RotatingCube cards={cards} />
         
@@ -125,7 +127,7 @@ const InteractiveCube = ({ cards }: InteractiveCubeProps) => {
           minDistance={3}
           maxDistance={8}
           autoRotate
-          autoRotateSpeed={0.5}
+          autoRotateSpeed={1}
         />
       </Canvas>
       
