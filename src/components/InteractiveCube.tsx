@@ -60,9 +60,9 @@ const InteractiveCube = ({ cards }: InteractiveCubeProps) => {
         </div>
       </div>
       
-      <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2">
-        <p className="text-sm text-muted-foreground text-center">
-          decode
+      <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2">
+        <p className="text-sm text-cyan-400 text-center font-mono tracking-wider">
+          &gt; decode
         </p>
       </div>
     </div>
