@@ -26,26 +26,21 @@ const JourneyMap = () => {
     "Researching: Cybersecurity in Maritime Industry 🔒",
   ];
 
-  // Convert text to hexadecimal
-  const textToHex = (text: string) => {
-    return text.split('').map(char => char.charCodeAt(0).toString(16).padStart(2, '0')).join(' ');
-  };
-
   const cubeCards = [
     {
       image: "/lovable-uploads/Peop.PNG",
-      title: textToHex("People Matter"),
-      description: textToHex("Through connection, collaboration, and compassion that we find purpose, create impact, and build a legacy that outlasts our individual achievements.")
+      title: "People Matter",
+      description: "Through connection, collaboration, and compassion that we find purpose, create impact, and build a legacy that outlasts our individual achievements."
     },
     {
       image: "/lovable-uploads/Friends.PNG",
-      title: textToHex("Friends"),
-      description: textToHex("Turn moments into memories and challenges into triumphs.")
+      title: "Friends",
+      description: "Turn moments into memories and challenges into triumphs."
     },
     {
       image: "/lovable-uploads/Fam.PNG",
-      title: textToHex("Family"),
-      description: textToHex("Purpose and support.")
+      title: "Family",
+      description: "Purpose and support."
     }
   ];
 
