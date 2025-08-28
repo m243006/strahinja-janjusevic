@@ -77,4 +77,40 @@
     writing-mode: vertical-lr;
     text-orientation: mixed;
   }
+
+  /* Cube styles */
+  .cube-container {
+    perspective: 1000px;
+  }
+  
+  .cube {
+    position: relative;
+    width: 200px;
+    height: 200px;
+    transform-style: preserve-3d;
+    animation: rotateCube 15s infinite linear;
+  }
+  
+  .cube-face {
+    position: absolute;
+    width: 200px;
+    height: 200px;
+    background: rgba(10, 77, 92, 0.9);
+    border: 1px solid #00d4ff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .cube-front { transform: rotateY(0deg) translateZ(100px); }
+  .cube-back { transform: rotateY(180deg) translateZ(100px); }
+  .cube-right { transform: rotateY(90deg) translateZ(100px); }
+  .cube-left { transform: rotateY(-90deg) translateZ(100px); }
+  .cube-top { transform: rotateX(90deg) translateZ(100px); }
+  .cube-bottom { transform: rotateX(-90deg) translateZ(100px); }
+  
+  @keyframes rotateCube {
+    from { transform: rotateX(0deg) rotateY(0deg); }
+    to { transform: rotateX(360deg) rotateY(360deg); }
+  }
 }
