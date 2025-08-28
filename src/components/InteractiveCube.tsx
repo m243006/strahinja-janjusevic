@@ -62,7 +62,7 @@ const InteractiveCube = ({ cards }: InteractiveCubeProps) => {
       
       <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2">
         <p className="text-sm text-muted-foreground text-center">
-          Can you decode the riddle? 🔐
+          decode
         </p>
       </div>
     </div>
