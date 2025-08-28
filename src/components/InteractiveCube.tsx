@@ -16,62 +16,62 @@ const InteractiveCube = ({ cards }: InteractiveCubeProps) => {
       <div className="cube-container">
         <div className="cube">
           <div className="cube-face cube-front">
-            <div className="p-4 text-center">
-              <h3 className="text-lg font-bold text-cyan-400 mb-2 font-mono">
+            <div className="p-3 text-center max-w-full overflow-hidden">
+              <h3 className="text-sm font-bold text-cyan-400 mb-2 font-mono leading-tight">
                 {cards[0]?.title}
               </h3>
-              <p className="text-xs text-gray-300 font-mono break-all">
-                {cards[0]?.description}
+              <p className="text-[10px] text-gray-300 font-mono break-all leading-tight">
+                {cards[0]?.description.substring(0, 80)}...
               </p>
             </div>
           </div>
           <div className="cube-face cube-back">
-            <div className="p-4 text-center">
-              <h3 className="text-lg font-bold text-cyan-400 mb-2 font-mono">
+            <div className="p-3 text-center max-w-full overflow-hidden">
+              <h3 className="text-sm font-bold text-cyan-400 mb-2 font-mono leading-tight">
                 {cards[1]?.title}
               </h3>
-              <p className="text-xs text-gray-300 font-mono break-all">
-                {cards[1]?.description}
+              <p className="text-[10px] text-gray-300 font-mono break-all leading-tight">
+                {cards[1]?.description.substring(0, 80)}...
               </p>
             </div>
           </div>
           <div className="cube-face cube-right">
-            <div className="p-4 text-center">
-              <h3 className="text-lg font-bold text-cyan-400 mb-2 font-mono">
+            <div className="p-3 text-center max-w-full overflow-hidden">
+              <h3 className="text-sm font-bold text-cyan-400 mb-2 font-mono leading-tight">
                 {cards[2]?.title}
               </h3>
-              <p className="text-xs text-gray-300 font-mono break-all">
-                {cards[2]?.description}
+              <p className="text-[10px] text-gray-300 font-mono break-all leading-tight">
+                {cards[2]?.description.substring(0, 80)}...
               </p>
             </div>
           </div>
           <div className="cube-face cube-left">
-            <div className="p-4 text-center">
-              <h3 className="text-lg font-bold text-cyan-400 mb-2 font-mono">
+            <div className="p-3 text-center max-w-full overflow-hidden">
+              <h3 className="text-sm font-bold text-cyan-400 mb-2 font-mono leading-tight">
                 {cards[0]?.title}
               </h3>
-              <p className="text-xs text-gray-300 font-mono break-all">
-                {cards[0]?.description}
+              <p className="text-[10px] text-gray-300 font-mono break-all leading-tight">
+                {cards[0]?.description.substring(0, 80)}...
               </p>
             </div>
           </div>
           <div className="cube-face cube-top">
-            <div className="p-4 text-center">
-              <h3 className="text-lg font-bold text-cyan-400 mb-2 font-mono">
+            <div className="p-3 text-center max-w-full overflow-hidden">
+              <h3 className="text-sm font-bold text-cyan-400 mb-2 font-mono leading-tight">
                 {cards[1]?.title}
               </h3>
-              <p className="text-xs text-gray-300 font-mono break-all">
-                {cards[1]?.description}
+              <p className="text-[10px] text-gray-300 font-mono break-all leading-tight">
+                {cards[1]?.description.substring(0, 80)}...
               </p>
             </div>
           </div>
           <div className="cube-face cube-bottom">
-            <div className="p-4 text-center">
-              <h3 className="text-lg font-bold text-cyan-400 mb-2 font-mono">
+            <div className="p-3 text-center max-w-full overflow-hidden">
+              <h3 className="text-sm font-bold text-cyan-400 mb-2 font-mono leading-tight">
                 {cards[2]?.title}
               </h3>
-              <p className="text-xs text-gray-300 font-mono break-all">
-                {cards[2]?.description}
+              <p className="text-[10px] text-gray-300 font-mono break-all leading-tight">
+                {cards[2]?.description.substring(0, 80)}...
               </p>
             </div>
           </div>
@@ -80,7 +80,7 @@ const InteractiveCube = ({ cards }: InteractiveCubeProps) => {
       
       <div className="text-center mt-4">
         <p className="text-sm text-muted-foreground">
-          CSS 3D Cube with Hexadecimal Values
+          Hexadecimal Values: People Matter • Friends • Family
         </p>
       </div>
     </div>
