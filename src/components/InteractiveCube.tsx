@@ -121,11 +121,7 @@ const InteractiveCube = ({ cards }: InteractiveCubeProps) => {
           <pointLight position={[10, 10, 10]} intensity={1} />
           <directionalLight position={[0, 0, 5]} intensity={1} />
           
-          {/* Simple test cube first */}
-          <mesh position={[0, 0, 0]}>
-            <boxGeometry args={[2, 2, 2]} />
-            <meshStandardMaterial color="#00d4ff" />
-          </mesh>
+          <RotatingCube cards={cards} />
           
           <OrbitControls 
             enablePan={false} 

@@ -135,35 +135,10 @@ const JourneyMap = () => {
         </div>
       </div>
 
-        {/* Interactive 3D Cube - Temporarily Replaced */}
-        <div className="w-full mb-8 bg-card border border-border rounded-lg p-8">
-          <h3 className="text-2xl font-bold mb-6 text-cyan-500 text-center">
-            Values in Hex
-          </h3>
-          
-          <div className="grid md:grid-cols-3 gap-6">
-            {cubeCards.map((card, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: index * 0.2 }}
-                className="bg-card border border-cyan-500/20 rounded-lg p-6 text-center hover:border-cyan-500/50 transition-colors"
-              >
-                <h4 className="text-lg font-bold mb-3 text-cyan-400 font-mono">
-                  {card.title}
-                </h4>
-                <p className="text-sm text-muted-foreground font-mono break-all">
-                  {card.description}
-                </p>
-              </motion.div>
-            ))}
-          </div>
-          
-          <p className="text-center mt-6 text-sm text-muted-foreground">
-            Hex values representing: People Matter, Friends, Family
-          </p>
-        </div>
+      {/* Interactive 3D Cube */}
+      <div className="container mx-auto px-4 py-8">
+        <InteractiveCube cards={cubeCards} />
+      </div>
 
       <div className="py-6 md:py-10 relative z-50">
         <SocialLinks />
