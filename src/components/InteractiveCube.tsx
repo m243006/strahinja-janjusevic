@@ -1,6 +1,6 @@
 import { Canvas, useFrame } from '@react-three/fiber';
-import { OrbitControls, Text, Box } from '@react-three/drei';
-import { useRef } from 'react';
+import { OrbitControls, Text } from '@react-three/drei';
+import { useRef, Suspense } from 'react';
 import { Group } from 'three';
 
 interface CubeContent {
@@ -111,25 +111,32 @@ const RotatingCube = ({ cards }: { cards: CubeContent[] }) => {
 const InteractiveCube = ({ cards }: InteractiveCubeProps) => {
   return (
     <div className="w-full h-96 mb-8 bg-gray-900 rounded-lg">
-      <Canvas 
-        camera={{ position: [5, 5, 5], fov: 50 }}
-        style={{ background: 'transparent' }}
-      >
-        <ambientLight intensity={0.8} />
-        <pointLight position={[10, 10, 10]} intensity={1} />
-        <directionalLight position={[0, 0, 5]} intensity={0.5} />
-        
-        <RotatingCube cards={cards} />
-        
-        <OrbitControls 
-          enablePan={false} 
-          enableZoom={true}
-          minDistance={3}
-          maxDistance={8}
-          autoRotate
-          autoRotateSpeed={1}
-        />
-      </Canvas>
+      <Suspense fallback={<div className="flex items-center justify-center h-full text-white">Loading 3D Cube...</div>}>
+        <Canvas 
+          camera={{ position: [5, 5, 5], fov: 50 }}
+          style={{ background: 'transparent' }}
+          gl={{ antialias: true, alpha: true }}
+        >
+          <ambientLight intensity={1} />
+          <pointLight position={[10, 10, 10]} intensity={1} />
+          <directionalLight position={[0, 0, 5]} intensity={1} />
+          
+          {/* Simple test cube first */}
+          <mesh position={[0, 0, 0]}>
+            <boxGeometry args={[2, 2, 2]} />
+            <meshStandardMaterial color="#00d4ff" />
+          </mesh>
+          
+          <OrbitControls 
+            enablePan={false} 
+            enableZoom={true}
+            minDistance={3}
+            maxDistance={8}
+            autoRotate
+            autoRotateSpeed={1}
+          />
+        </Canvas>
+      </Suspense>
       
       <div className="text-center mt-4">
         <p className="text-sm text-muted-foreground">
