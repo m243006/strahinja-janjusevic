@@ -77,16 +77,18 @@ export const TimelineCard = ({ event }: TimelineCardProps) => {
               </div>
               <div className="text-base md:text-lg leading-relaxed prose max-w-none">
                 {event.details}
-                <div className="mt-4">
-                  <a 
-                    href="https://www.vectra.ai/about/author/strahinja-janjusevic" 
-                    target="_blank" 
-                    rel="noopener noreferrer"
-                    className="text-cyan-600 hover:text-cyan-800 underline font-medium"
-                  >
-                    View Author Profile at Vectra AI →
-                  </a>
-                </div>
+                {event.title === "VectrAI Internship" && (
+                  <div className="mt-4">
+                    <a 
+                      href="https://www.vectra.ai/about/author/strahinja-janjusevic" 
+                      target="_blank" 
+                      rel="noopener noreferrer"
+                      className="text-cyan-600 hover:text-cyan-800 underline font-medium"
+                    >
+                      View Author Profile at Vectra AI →
+                    </a>
+                  </div>
+                )}
               </div>
             </div>
           </DialogHeader>
