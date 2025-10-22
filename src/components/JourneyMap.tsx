@@ -22,7 +22,6 @@ const JourneyMap = () => {
   const interests = [
     "Vectra AI Data Science Internship: Building AI Hackers 🤖",
     "Big Hackaton in Sarajevo hosted by SarAI (May) 🤖",
-    "Building RAGs and Vertical AI agents 🛠️",
     "Researching: Cybersecurity in Maritime Industry 🔒",
   ];
 
