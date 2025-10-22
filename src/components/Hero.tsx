@@ -1,8 +1,5 @@
 
 import { motion } from "framer-motion";
-import { Button } from "@/components/ui/button";
-import { Link } from "react-router-dom";
-import { BookOpen } from "lucide-react";
 import MatrixBackground from "./hero/MatrixBackground";
 import AnimatedText from "./hero/AnimatedText";
 import ProfileImage from "./hero/ProfileImage";
@@ -90,30 +87,6 @@ const Hero = () => {
             text="Master's student candidate in Technology and Policy at MIT, researching uses of AI in cybersecurity"
             className="text-lg md:text-2xl text-cyan-300 max-w-3xl mx-auto leading-relaxed font-serif px-4"
           />
-          
-          {/* Blog Button */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ 
-              duration: 0.8,
-              delay: 0.6,
-              type: "spring",
-              stiffness: 100
-            }}
-            className="mt-8 md:mt-12"
-          >
-            <Link to="/blog">
-              <Button 
-                variant="outline" 
-                size="lg"
-                className="bg-background/20 backdrop-blur border-cyan-500/50 text-cyan-400 hover:bg-cyan-500/20 hover:text-cyan-300 hover:border-cyan-400 transition-all duration-300 group"
-              >
-                <BookOpen className="mr-2 h-5 w-5 group-hover:scale-110 transition-transform" />
-                Read My Blog
-              </Button>
-            </Link>
-          </motion.div>
         </motion.div>
       </div>
     </section>
