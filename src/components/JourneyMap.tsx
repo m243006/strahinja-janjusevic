@@ -22,6 +22,7 @@ const JourneyMap = () => {
   const interests = [
     "Researching: Cybersecurity in Maritime Industry 🔒",
     "European Conference at Harvard Feb 5-6 🎓",
+    "RSAC Conference in San Francisco March 22-26 🌉",
     "National Security Conference MITxHarvard in April 🛡️",
   ];
 
