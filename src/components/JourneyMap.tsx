@@ -22,7 +22,7 @@ const JourneyMap = () => {
   const interests = [
     "Researching: Cybersecurity in Maritime Industry 🔒",
     "European Conference at Harvard Feb 5-6 🎓",
-    "National Security Conference in April 🛡️",
+    "National Security Conference MITxHarvard in April 🛡️",
   ];
 
   const cubeCards = [
