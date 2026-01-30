@@ -20,9 +20,9 @@ const JourneyMap = () => {
   const opacity = useTransform(scrollYProgress, [0, 0.2, 0.8, 1], [0.3, 1, 1, 0.3]);
 
   const interests = [
-    "Vectra AI Data Science Internship: Building AI Hackers 🤖",
-    "Judge at Global Hackathon #GlobalhAIckathon 2025 on November 8–9 🤖",
     "Researching: Cybersecurity in Maritime Industry 🔒",
+    "European Conference at Harvard Feb 5-6 🎓",
+    "National Security Conference in April 🛡️",
   ];
 
   const cubeCards = [
